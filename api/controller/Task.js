@@ -8,7 +8,7 @@ exports.updateStatus = function (req, res) {
 
 };
 
-exports.completed = function (req, res) {
+exports.updateCompleted = function (req, res) {
 
 };
 
