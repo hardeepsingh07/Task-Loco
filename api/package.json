@@ -1,0 +1,16 @@
+{
+  "name": "task-loco-api",
+  "version": "1.0.0",
+  "description": "Task Loco Api",
+  "repository": "",
+  "main": "app.js",
+  "keywords": [],
+  "author": "Hardeep Singh",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.11"
+  }
+}
