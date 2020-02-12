@@ -3,9 +3,7 @@ let router = express.Router();
 const task = require('../controller/Task');
 
 router.post("/", task.create);
-router.post("/updatestatus", task.updateStatus);
-router.post("/updatecompleted", task.updateCompleted);
-router.post("/updateresponsible", task.updateResponsible);
+router.post("/:taskId/updates", task.update);
 router.get("/all", task.tasks);
 router.get("/completed", task.tasksCompleted);
 router.get("/pending", task.tasksPending);

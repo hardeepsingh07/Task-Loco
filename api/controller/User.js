@@ -8,6 +8,10 @@ exports.userNames = function(req, res) {
 
 };
 
+exports.getUser = function(req, res) {
+
+};
+
 exports.login = function (req, res) {
 
 };

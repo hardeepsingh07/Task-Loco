@@ -4,15 +4,7 @@ exports.create = function (req, res) {
 
 };
 
-exports.updateStatus = function (req, res) {
-
-};
-
-exports.updateCompleted = function (req, res) {
-
-};
-
-exports.updateResponsible = function (req, res) {
+exports.update = function (req, res) {
 
 };
 
