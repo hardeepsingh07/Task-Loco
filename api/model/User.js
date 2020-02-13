@@ -6,13 +6,14 @@ let userSchema = mongoose.Schema({
     firstName: {type: String, required: true},
     email: {type: Boolean, defaultValue: false},
     password: {type: String, required: true},
+    apiKey: {type: String}
 }, {timeStamps: true});
 
-userSchema.methods.generateHash = function(password) {
+userSchema.methods.generateHash = function (password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-userSchema.methods.validPassword = function(password) {
+userSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 };
 
