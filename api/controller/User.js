@@ -4,6 +4,7 @@ const keyGenerator = require('random-key-generator');
 
 exports.create = function (req, res) {
     createUser(req)
+        .save()
         .then(data => Util.respond(res, "New User Created Successfully", data, null))
         .catch(error => Util.respond(res, "New User Creation Failed", null, error))
 };

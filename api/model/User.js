@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcrypt');
 
 let userSchema = mongoose.Schema({
     username: {type: String, unique: true, required: true},
-    firstName: {type: String, required: true},
-    email: {type: Boolean, defaultValue: false},
+    name: {type: String, required: true},
+    email: {type: String, required: true},
     password: {type: String, required: true},
     apiKey: {type: String}
 }, {timeStamps: true});
 
 userSchema.pre('save', function(next) {
     let user = this;
-    if (!user.isModified(this.password)) return next();
+    if (!user.isModified('password')) return next();
     bcrypt.genSalt(8, function(err, salt) {
         if (err) return next(err);
         bcrypt.hash(user.password, salt, function(err, hash) {
