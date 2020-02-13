@@ -9,12 +9,24 @@ let userSchema = mongoose.Schema({
     apiKey: {type: String}
 }, {timeStamps: true});
 
-userSchema.methods.generateHash = function (password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
+userSchema.pre('save', function(next) {
+    let user = this;
+    if (!user.isModified(this.password)) return next();
+    bcrypt.genSalt(8, function(err, salt) {
+        if (err) return next(err);
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
+            user.password = hash;
+            next();
+        });
+    });
+});
 
-userSchema.methods.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
+userSchema.methods.validatePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
 };
 
 module.exports = mongoose.model('user', userSchema);

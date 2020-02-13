@@ -26,8 +26,14 @@ exports.getUser = function (req, res) {
 
 exports.login = function (req, res) {
     Util.validateKey(req, res, () => {
-        User.findOneAndUpdate({username: req.body.username}, {api: keyGenerator(32)})
-            .then(data => Util.respond(res, "User Find Successful, Logging In", data, null))
+        User.find({username: req.body.username})
+            .then(data => {
+                data.validatePassword(req.body.password, function (error, isValid) {
+                    if (error) Util.respond(res, "Invalid Password", null, Error("Invalid Password"));
+                    User.findByIdAndUpdate(data.id, {api: keyGenerator(32)});
+                    Util.respond(res, "User Find Successful, Logging In", data, null)
+                })
+            })
             .catch(error => Util.respond(res, "User find failed, cannot log in", null, error))
     });
 };
@@ -53,7 +59,7 @@ function createUser(req) {
         username: req.body.username,
         name: req.body.name,
         email: req.body.email,
-        password: User.generateHash(req.body.password)
+        password: req.body.password
     })
 }
 
