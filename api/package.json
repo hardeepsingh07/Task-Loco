@@ -2,7 +2,7 @@
   "name": "task-loco-api",
   "version": "1.0.0",
   "description": "Task Loco Api",
-  "repository": "",
+  "repository": "https://github.com/Magic-Development/Task-Loco/tree/master/api",
   "main": "app.js",
   "keywords": [],
   "author": "Hardeep Singh",
