@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const API_PORT = 1997;
 const DB_URL = "mongodb://localhost:27017/task-loco-api";
 
-mongoose.connect(DB_URL, {useNewUrlParser: true})
+mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
     .then(() => { console.log("Database Connected")})
     .catch(() => { console.log("Database not Connected")});
 

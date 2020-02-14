@@ -1,7 +1,7 @@
 const User = require('../model/User');
-const invalidApiKeyError = Error("Invalid Api Key");
+const invalidApiKeyError = {name: "InvalidApiKey", message: "Api Key doesn't not exist. Login for new Api Key or confirm your existing Api key"};
 
-exports.respond = (res, message, data, error) => {
+let respond = (res, message, data, error) => {
     console.log(`${message}: ${error ? error : JSON.stringify(data)}`);
     res.send({
         "response": data ? 200 : 250,
@@ -11,8 +11,11 @@ exports.respond = (res, message, data, error) => {
     })
 };
 
-exports.validateKey = (req, res, action) => {
-    User.find({apiKey: req.query.apiKey})
-        .then(data => action())
-        .catch(error => respond(res, "New Task Creation Failed", null, invalidApiKeyError));
+let validateKey = (req, res, action) => {
+    User.findOne({apiKey: req.query.apiKey})
+        .then(data => data ? action() : respond(res, "Invalid Api Key", null, invalidApiKeyError))
+        .catch(error => respond(res, "Invalid Api Key", null, error));
 };
+
+exports.respond = respond;
+exports.validateKey = validateKey;

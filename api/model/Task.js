@@ -5,8 +5,8 @@ let taskSchema = mongoose.Schema({
     description: {type: String, required: true},
     completeBy: {type: Date, required: true},
     assignee: {type: String, required: true},
-    responsible: {type: String, defaultValue: ""},
-    status: {type: String, enum: ['Pending', 'In Progress', 'Completed'], defaultValue: 'Pending'}
+    responsible: {type: String, default: ""},
+    status: {type: String, enum: ['Pending', 'In Progress', 'Completed'], default: 'Pending'}
 }, {timeStamps: true});
 
 module.exports = mongoose.model('task', taskSchema);

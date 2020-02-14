@@ -19,7 +19,7 @@ exports.userNames = function (req, res) {
 
 exports.getUser = function (req, res) {
     Util.validateKey(req, res, () => {
-        User.find({username: req.params.username})
+        User.find({username: req.params.username}, {password: 0})
             .then(data => Util.respond(res, "Fetch User Successful", data, null))
             .catch(error => Util.respond(res, "Fetch User Failed", null, error))
     });
@@ -27,12 +27,12 @@ exports.getUser = function (req, res) {
 
 exports.login = function (req, res) {
     Util.validateKey(req, res, () => {
-        User.findOne({username: req.body.username})
-            .then(data => {
-                data.validatePassword(req.body.password, function (error, isValid) {
+        User.findOne({username: req.body.username}, {password: 0})
+            .then(user => {
+                user.validatePassword(req.body.password, function (error, isValid) {
                     if (error || !isValid) Util.respond(res, "Invalid Password", null, Error("Invalid Password"));
-                    User.findByIdAndUpdate(data.id,{apiKey: keyGenerator(32)}, {new: true})
-                        .then(data => Util.respond(res, "User Find Successful, Logging In", data, null))
+                    User.findByIdAndUpdate(user.id, {apiKey: keyGenerator(32)}, {new: true})
+                        .then(() => Util.respond(res, "User Find Successful, Logging In", user, null))
                         .catch(error => Util.respond(res, "User Find Successful, Logging In Failed", null, error))
                 })
             })
