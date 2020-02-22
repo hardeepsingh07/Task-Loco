@@ -6,6 +6,7 @@ let taskSchema = mongoose.Schema({
     completeBy: {type: Date, required: true},
     assignee: {type: String, required: true},
     responsible: {type: String, default: ""},
+    priority: {type: String, enum: ['Standard', 'High'], default: 'Standard'},
     status: {type: String, enum: ['Pending', 'In Progress', 'Completed'], default: 'Pending'}
 }, {timeStamps: true});
 

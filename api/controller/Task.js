@@ -50,6 +50,22 @@ exports.tasksInProgress = function (req, res) {
     });
 };
 
+exports.tasksHighPriority = function (req, res) {
+    Util.validateKey(req, res, () => {
+        Task.find({priority: "High"})
+            .then(data => Util.respond(res, "Fetching High Priority Tasks Successful", data, null))
+            .catch(error => Util.respond(res, "Fetching High Priority Tasks Failed" + error, null, error))
+    });
+};
+
+exports.tasksStandardPriority = function (req, res) {
+    Util.validateKey(req, res, () => {
+        Task.find({priority: "standard"})
+            .then(data => Util.respond(res, "Fetching Standard Priority Tasks Successful", data, null))
+            .catch(error => Util.respond(res, "Fetching Standard Priority Tasks Failed" + error, null, error))
+    });
+};
+
 exports.remove = function (req, res) {
     Util.validateKey(req, res, () => {
         Task.findByIdAndRemove(req.params.taskId)
