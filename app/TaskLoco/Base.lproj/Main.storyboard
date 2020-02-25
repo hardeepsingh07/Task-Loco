@@ -1,24 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b17-lx-SH4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oxygen-Bold.ttf">
+            <string>Oxygen-Bold</string>
+        </array>
+        <array key="Oxygen-Regular.ttf">
+            <string>Oxygen-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Login View Controller-->
+        <scene sceneID="uYe-Pq-lIt">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="b17-lx-SH4" customClass="LoginViewController" customModule="TaskLoco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PnD-jx-MkT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-Xg-eyJ">
+                                <rect key="frame" x="113" y="765" width="188" height="62"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rr7-7z-vW7">
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="23"/>
+                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYp-gY-x2k">
+                                        <rect key="frame" x="60.5" y="27" width="67" height="35"/>
+                                        <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="18"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPJ-uG-abQ">
+                                <rect key="frame" x="37.5" y="635" width="339" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gZ3-xf-CzV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="16"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.0" green="0.58823529409999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsb-cG-CCA">
+                                <rect key="frame" x="143" y="582" width="128" height="33"/>
+                                <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-MD-CCQ">
+                                <rect key="frame" x="37.5" y="447" width="339" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9oD-v3-2nY">
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="45"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CEl-79-fRV">
+                                        <rect key="frame" x="0.0" y="75" width="339" height="45"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="4UK-xt-dyV"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Loco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miI-Aa-PZo">
+                                <rect key="frame" x="30" y="144" width="354" height="35.5"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tPJ-uG-abQ" firstAttribute="leading" secondItem="8RM-FL-67x" secondAttribute="leading" constant="37.5" id="1vG-yl-6P8"/>
+                            <constraint firstItem="8RM-FL-67x" firstAttribute="trailing" secondItem="miI-Aa-PZo" secondAttribute="trailing" constant="30" id="2YG-xC-cFp"/>
+                            <constraint firstItem="c8Y-MD-CCQ" firstAttribute="centerX" secondItem="PnD-jx-MkT" secondAttribute="centerX" id="E2E-vZ-Sv2"/>
+                            <constraint firstItem="miI-Aa-PZo" firstAttribute="leading" secondItem="8RM-FL-67x" secondAttribute="leading" constant="30" id="JF2-pw-vgt"/>
+                            <constraint firstItem="miI-Aa-PZo" firstAttribute="top" secondItem="8RM-FL-67x" secondAttribute="top" constant="100" id="LUo-gQ-10L"/>
+                            <constraint firstItem="8w3-Xg-eyJ" firstAttribute="centerX" secondItem="PnD-jx-MkT" secondAttribute="centerX" id="Q16-vk-YEJ"/>
+                            <constraint firstItem="8RM-FL-67x" firstAttribute="bottom" secondItem="8w3-Xg-eyJ" secondAttribute="bottom" constant="35" id="SPl-Tm-B6x"/>
+                            <constraint firstItem="zsb-cG-CCA" firstAttribute="centerX" secondItem="PnD-jx-MkT" secondAttribute="centerX" id="TOJ-dQ-WnN"/>
+                            <constraint firstItem="tPJ-uG-abQ" firstAttribute="centerX" secondItem="PnD-jx-MkT" secondAttribute="centerX" id="VA0-Wr-NGL"/>
+                            <constraint firstItem="tPJ-uG-abQ" firstAttribute="top" secondItem="zsb-cG-CCA" secondAttribute="bottom" constant="20" id="WCQ-aK-O5B"/>
+                            <constraint firstItem="8RM-FL-67x" firstAttribute="trailing" secondItem="c8Y-MD-CCQ" secondAttribute="trailing" constant="37.5" id="XW5-O4-ayZ"/>
+                            <constraint firstItem="8RM-FL-67x" firstAttribute="trailing" secondItem="tPJ-uG-abQ" secondAttribute="trailing" constant="37.5" id="fHH-5e-osn"/>
+                            <constraint firstItem="c8Y-MD-CCQ" firstAttribute="leading" secondItem="8RM-FL-67x" secondAttribute="leading" constant="37.5" id="ihT-bt-gro"/>
+                            <constraint firstItem="zsb-cG-CCA" firstAttribute="top" secondItem="c8Y-MD-CCQ" secondAttribute="bottom" constant="15" id="sez-wx-7E9"/>
+                            <constraint firstItem="8w3-Xg-eyJ" firstAttribute="top" secondItem="tPJ-uG-abQ" secondAttribute="bottom" constant="70" id="voh-Vg-3oJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8RM-FL-67x"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fHH-5e-osn"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="login" destination="tPJ-uG-abQ" id="Dz9-8W-XKe"/>
+                        <outlet property="password" destination="CEl-79-fRV" id="11h-ce-DIh"/>
+                        <outlet property="signUp" destination="KYp-gY-x2k" id="zJu-Oq-bbX"/>
+                        <outlet property="username" destination="9oD-v3-2nY" id="dih-cw-UsS"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGA-fo-XVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1085.5072463768117" y="581.25"/>
         </scene>
     </scenes>
 </document>

@@ -9,23 +9,62 @@
 /* Begin PBXBuildFile section */
 		EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80D2402F8C90090791F /* AppDelegate.swift */; };
 		EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80F2402F8C90090791F /* SceneDelegate.swift */; };
-		EB63E8122402F8C90090791F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E8112402F8C90090791F /* ViewController.swift */; };
+		EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E8112402F8C90090791F /* LoginViewController.swift */; };
 		EB63E8152402F8C90090791F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB63E8132402F8C90090791F /* Main.storyboard */; };
 		EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB63E8162402F8C90090791F /* TaskLoco.xcdatamodeld */; };
 		EB63E81A2402F8CB0090791F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB63E8192402F8CB0090791F /* Assets.xcassets */; };
 		EB63E81D2402F8CB0090791F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB63E81B2402F8CB0090791F /* LaunchScreen.storyboard */; };
+		EB64D54224036F9C0000436B /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D54124036F9C0000436B /* AuthManager.swift */; };
+		EB64D55224036FC60000436B /* WorkSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54424036FC60000436B /* WorkSans-Regular.otf */; };
+		EB64D55324036FC60000436B /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54524036FC60000436B /* Oxygen-Regular.ttf */; };
+		EB64D55424036FC60000436B /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54624036FC60000436B /* RobotoSlab-Bold.ttf */; };
+		EB64D55524036FC60000436B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54724036FC60000436B /* OpenSans-Bold.ttf */; };
+		EB64D55624036FC60000436B /* WorkSans-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54824036FC60000436B /* WorkSans-Black.otf */; };
+		EB64D55724036FC60000436B /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54924036FC60000436B /* MavenPro-Medium.ttf */; };
+		EB64D55824036FC60000436B /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54A24036FC60000436B /* NunitoSans-Bold.ttf */; };
+		EB64D55924036FC60000436B /* WorkSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54B24036FC60000436B /* WorkSans-Bold.otf */; };
+		EB64D55A24036FC60000436B /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54C24036FC60000436B /* MavenPro-Regular.ttf */; };
+		EB64D55B24036FC60000436B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54D24036FC60000436B /* OpenSans-Regular.ttf */; };
+		EB64D55C24036FC60000436B /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54E24036FC60000436B /* RobotoSlab-Light.ttf */; };
+		EB64D55D24036FC60000436B /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54F24036FC60000436B /* MavenPro-Bold.ttf */; };
+		EB64D55E24036FC60000436B /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D55024036FC60000436B /* NunitoSans-Regular.ttf */; };
+		EB64D55F24036FC60000436B /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D55124036FC60000436B /* Oxygen-Bold.ttf */; };
+		EB64D562240370870000436B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D561240370870000436B /* UserInfo.swift */; };
+		EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D563240394AE0000436B /* TaskLocoApi.swift */; };
+		EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D565240398980000436B /* TaskLocoApiManager.swift */; };
+		EB960C8F24057E9B0047A97C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB960C8E24057E9B0047A97C /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EB63E80A2402F8C90090791F /* TaskLoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskLoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB63E80D2402F8C90090791F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB63E80F2402F8C90090791F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB63E8112402F8C90090791F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB63E8112402F8C90090791F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EB63E8142402F8C90090791F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB63E8172402F8C90090791F /* TaskLoco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskLoco.xcdatamodel; sourceTree = "<group>"; };
 		EB63E8192402F8CB0090791F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB63E81C2402F8CB0090791F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB63E81E2402F8CB0090791F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB64D54124036F9C0000436B /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		EB64D54324036FB60000436B /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		EB64D54424036FC60000436B /* WorkSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.otf"; sourceTree = "<group>"; };
+		EB64D54524036FC60000436B /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
+		EB64D54624036FC60000436B /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		EB64D54724036FC60000436B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		EB64D54824036FC60000436B /* WorkSans-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.otf"; sourceTree = "<group>"; };
+		EB64D54924036FC60000436B /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		EB64D54A24036FC60000436B /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		EB64D54B24036FC60000436B /* WorkSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.otf"; sourceTree = "<group>"; };
+		EB64D54C24036FC60000436B /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		EB64D54D24036FC60000436B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		EB64D54E24036FC60000436B /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
+		EB64D54F24036FC60000436B /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		EB64D55024036FC60000436B /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
+		EB64D55124036FC60000436B /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+		EB64D561240370870000436B /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EB64D563240394AE0000436B /* TaskLocoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApi.swift; sourceTree = "<group>"; };
+		EB64D565240398980000436B /* TaskLocoApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApiManager.swift; sourceTree = "<group>"; };
+		EB960C8E24057E9B0047A97C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +98,13 @@
 		EB63E80C2402F8C90090791F /* TaskLoco */ = {
 			isa = PBXGroup;
 			children = (
+				EB960C8D24057E870047A97C /* Helper */,
+				EB64D5602403707A0000436B /* Model */,
+				EB64D54024036F7D0000436B /* Manager */,
+				EB64D53F24036F120000436B /* fonts */,
+				EB64D53E24036F090000436B /* ViewController */,
 				EB63E80D2402F8C90090791F /* AppDelegate.swift */,
 				EB63E80F2402F8C90090791F /* SceneDelegate.swift */,
-				EB63E8112402F8C90090791F /* ViewController.swift */,
 				EB63E8132402F8C90090791F /* Main.storyboard */,
 				EB63E8192402F8CB0090791F /* Assets.xcassets */,
 				EB63E81B2402F8CB0090791F /* LaunchScreen.storyboard */,
@@ -69,6 +112,62 @@
 				EB63E8162402F8C90090791F /* TaskLoco.xcdatamodeld */,
 			);
 			path = TaskLoco;
+			sourceTree = "<group>";
+		};
+		EB64D53E24036F090000436B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EB63E8112402F8C90090791F /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EB64D53F24036F120000436B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EB64D54F24036FC60000436B /* MavenPro-Bold.ttf */,
+				EB64D54924036FC60000436B /* MavenPro-Medium.ttf */,
+				EB64D54C24036FC60000436B /* MavenPro-Regular.ttf */,
+				EB64D54A24036FC60000436B /* NunitoSans-Bold.ttf */,
+				EB64D55024036FC60000436B /* NunitoSans-Regular.ttf */,
+				EB64D54724036FC60000436B /* OpenSans-Bold.ttf */,
+				EB64D54D24036FC60000436B /* OpenSans-Regular.ttf */,
+				EB64D55124036FC60000436B /* Oxygen-Bold.ttf */,
+				EB64D54524036FC60000436B /* Oxygen-Regular.ttf */,
+				EB64D54624036FC60000436B /* RobotoSlab-Bold.ttf */,
+				EB64D54E24036FC60000436B /* RobotoSlab-Light.ttf */,
+				EB64D54824036FC60000436B /* WorkSans-Black.otf */,
+				EB64D54B24036FC60000436B /* WorkSans-Bold.otf */,
+				EB64D54424036FC60000436B /* WorkSans-Regular.otf */,
+				EB64D54324036FB60000436B /* MavenPro-Bold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		EB64D54024036F7D0000436B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EB64D54124036F9C0000436B /* AuthManager.swift */,
+				EB64D563240394AE0000436B /* TaskLocoApi.swift */,
+				EB64D565240398980000436B /* TaskLocoApiManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		EB64D5602403707A0000436B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB64D561240370870000436B /* UserInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB960C8D24057E870047A97C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EB960C8E24057E9B0047A97C /* Util.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,8 +229,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB63E81D2402F8CB0090791F /* LaunchScreen.storyboard in Resources */,
+				EB64D55524036FC60000436B /* OpenSans-Bold.ttf in Resources */,
 				EB63E81A2402F8CB0090791F /* Assets.xcassets in Resources */,
+				EB64D55E24036FC60000436B /* NunitoSans-Regular.ttf in Resources */,
+				EB64D55D24036FC60000436B /* MavenPro-Bold.ttf in Resources */,
+				EB64D55F24036FC60000436B /* Oxygen-Bold.ttf in Resources */,
+				EB64D55824036FC60000436B /* NunitoSans-Bold.ttf in Resources */,
+				EB64D55624036FC60000436B /* WorkSans-Black.otf in Resources */,
+				EB64D55924036FC60000436B /* WorkSans-Bold.otf in Resources */,
+				EB64D55424036FC60000436B /* RobotoSlab-Bold.ttf in Resources */,
+				EB64D55A24036FC60000436B /* MavenPro-Regular.ttf in Resources */,
+				EB64D55C24036FC60000436B /* RobotoSlab-Light.ttf in Resources */,
+				EB64D55224036FC60000436B /* WorkSans-Regular.otf in Resources */,
+				EB64D55324036FC60000436B /* Oxygen-Regular.ttf in Resources */,
 				EB63E8152402F8C90090791F /* Main.storyboard in Resources */,
+				EB64D55B24036FC60000436B /* OpenSans-Regular.ttf in Resources */,
+				EB64D55724036FC60000436B /* MavenPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,10 +255,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB63E8122402F8C90090791F /* ViewController.swift in Sources */,
+				EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */,
+				EB960C8F24057E9B0047A97C /* Util.swift in Sources */,
+				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,
 				EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */,
+				EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */,
+				EB64D562240370870000436B /* UserInfo.swift in Sources */,
+				EB64D54224036F9C0000436B /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

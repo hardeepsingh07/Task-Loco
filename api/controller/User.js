@@ -27,7 +27,7 @@ exports.getUser = function (req, res) {
 
 exports.login = function (req, res) {
     Util.validateKey(req, res, () => {
-        User.findOne({username: req.body.username}, {password: 0})
+        User.findOne({username: req.body.username})
             .then(user => {
                 user.validatePassword(req.body.password, function (error, isValid) {
                     if (error || !isValid) Util.respond(res, "Invalid Password", null, Error("Invalid Password"));
@@ -35,8 +35,7 @@ exports.login = function (req, res) {
                         .then(() => Util.respond(res, "User Find Successful, Logging In", user, null))
                         .catch(error => Util.respond(res, "User Find Successful, Logging In Failed", null, error))
                 })
-            })
-            .catch(error => Util.respond(res, "User find failed, cannot log in", null, error))
+            }).catch(error => Util.respond(res, "User find failed, cannot log in", null, error))
     });
 };
 
