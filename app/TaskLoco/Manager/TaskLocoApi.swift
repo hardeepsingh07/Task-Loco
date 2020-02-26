@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol TaskLocoApi {
 	
-	func login(userLoginRequest: UserLoginRequest, completion: @escaping (Result<UserResponse, Error>) -> Void)
+	func login(username: String, password: String) -> Observable<UserResponse>
 	
 	func signUp(userInfo: UserInfo)
 	

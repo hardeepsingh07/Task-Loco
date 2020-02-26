@@ -7,6 +7,47 @@
 //
 
 import UIKit
+import RxSwift
+
+private enum LoginViewConstants {
+	static var username = "Username"
+	static var password = "Password"
+}
+
+class LoginViewController: UIViewController {
+	
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var login: UIButton!
+    @IBOutlet weak var signUp: UIButton!
+	
+	let disposeBag = DisposeBag()
+	let authManager = AuthManager()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		username
+			.border(uiColor: UIColor.white)
+			.padding(padding: 10)
+			.placeholder(text: LoginViewConstants.username)
+		password
+			.border(uiColor: UIColor.white)
+			.padding(padding: 10)
+			.placeholder(text: LoginViewConstants.password)
+    }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        guard let username = username.text else {return}
+        guard let password = password.text else {return}
+        authManager.login(username: username, password: password)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { userInfo in
+                print(userInfo)
+            }, onError: { error in
+                print(error)
+            }).disposed(by: disposeBag)
+    }
+}
 
 extension UITextField {
 	func padding(padding: CGFloat) -> UITextField {
@@ -30,30 +71,5 @@ extension UITextField {
 		self.attributedPlaceholder = NSAttributedString(string:text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
 		return self
 	}
-}
-
-class LoginViewController: UIViewController {
-	
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var login: UIButton!
-    @IBOutlet weak var signUp: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		username
-			.border(uiColor: UIColor.white)
-			.padding(padding: 10)
-			.placeholder(text: "Username")
-		password
-			.border(uiColor: UIColor.white)
-			.padding(padding: 10)
-			.placeholder(text: "Password")
-		
-		let authManager = AuthManager()
-		authManager.login(username: "singhha", password: "test")
-    }
-
-
 }
 

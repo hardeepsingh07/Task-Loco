@@ -33,8 +33,3 @@ struct UserInfo: Codable {
 struct ResponseError: Codable {
 	
 }
-
-struct UserLoginRequest: Codable {
-	let username: String
-	let password: String
-}
