@@ -158,8 +158,8 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="password" destination="CEl-79-fRV" id="11h-ce-DIh"/>
-                        <outlet property="username" destination="9oD-v3-2nY" id="dih-cw-UsS"/>
+                        <outlet property="passwordTF" destination="CEl-79-fRV" id="LwQ-uN-8gK"/>
+                        <outlet property="usernameTF" destination="9oD-v3-2nY" id="OHZ-yG-uke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGA-fo-XVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,15 +340,30 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZzK-5R-R4k"/>
                     <connections>
-                        <outlet property="email" destination="H2v-Lz-rNX" id="kdw-Pr-lx5"/>
-                        <outlet property="name" destination="cRC-aw-zMF" id="aHB-eL-RSv"/>
-                        <outlet property="password" destination="L2s-Sv-XX7" id="obj-Pt-W6C"/>
-                        <outlet property="username" destination="lf7-fJ-c33" id="5p6-SM-H3f"/>
+                        <outlet property="emailTF" destination="H2v-Lz-rNX" id="kdw-Pr-lx5"/>
+                        <outlet property="nameTF" destination="cRC-aw-zMF" id="aHB-eL-RSv"/>
+                        <outlet property="passwordTF" destination="L2s-Sv-XX7" id="obj-Pt-W6C"/>
+                        <outlet property="usernameTF" destination="lf7-fJ-c33" id="5p6-SM-H3f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fg7-i0-qHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086" y="-92"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="yA2-Xu-jHe">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="ExI-cg-PP5" customClass="HomeViewController" customModule="TaskLoco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gIe-oQ-eVF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="k1a-iH-Cp6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mm-u6-5LR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="-100"/>
         </scene>
     </scenes>
 </document>

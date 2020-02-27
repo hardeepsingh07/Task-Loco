@@ -11,7 +11,7 @@ import Alamofire
 
 enum EndpointData{
 	case login(username: String, password: String)
-	case signUp
+	case signUp(name: String, email: String, username: String, password: String)
 	case logout(username: String)
 }
 
@@ -29,6 +29,8 @@ private enum UrlConstants {
 }
 
 private enum ParameterConstants {
+	static var name = "name"
+	static var email = "email"
 	static var username = "username"
 	static var password = "password"
 }
@@ -75,10 +77,13 @@ extension EndpointData: Endpoint {
 		case .login(let username, let password):
 			return [ParameterConstants.username: username,
 					ParameterConstants.password: password]
+		case .signUp(let name, let email, let username, let password):
+			return [ParameterConstants.name: name,
+					ParameterConstants.email: email,
+					ParameterConstants.username: username,
+					ParameterConstants.password: password]
 		case .logout(let username):
 			return [ParameterConstants.username: username]
-		default:
-			return [:]
 		}
 	}
 	

@@ -17,12 +17,12 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(urlRequest: EndpointData.login(username: username, password: password).urlRequest)
 	}
 	
-	func signUp(userInfo: UserInfo) {
-		
+	func signUp(name: String, email: String, username: String, password: String) -> Observable<UserResponse> {
+		return self.request(urlRequest: EndpointData.signUp(name: name, email: email, username: username, password: password).urlRequest)
 	}
 	
-	func logout(username: String) {
-		
+	func logout(username: String) -> Observable<UserResponse> {
+		return self.request(urlRequest: EndpointData.logout(username: username).urlRequest)
 	}
 	
 	private func request<T: Codable>(urlRequest: URLRequest) -> Observable<T>  {

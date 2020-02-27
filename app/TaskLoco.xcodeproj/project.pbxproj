@@ -10,6 +10,7 @@
 		EB1D1FD52406C4FB00352E00 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB1D1FD42406C4FB00352E00 /* RxSwift */; };
 		EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE32406C75300352E00 /* EndpointData.swift */; };
 		EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE52406C76F00352E00 /* Endpoint.swift */; };
+		EB34380F2408261E004A6A72 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* HomeViewController.swift */; };
 		EB6038A42406330C00962991 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB6038A32406330C00962991 /* Alamofire */; };
 		EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80D2402F8C90090791F /* AppDelegate.swift */; };
 		EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80F2402F8C90090791F /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		EB1D1FE32406C75300352E00 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
 		EB1D1FE52406C76F00352E00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		EB34380E2408261E004A6A72 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB63E80A2402F8C90090791F /* TaskLoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskLoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB63E80D2402F8C90090791F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB63E80F2402F8C90090791F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		EB1D1FE12406C73C00352E00 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				EBEF05072408199C00DAC90A /* Api */,
 				EB1D1FE22406C74300352E00 /* Endpoints */,
 			);
 			path = Networking;
@@ -158,6 +161,7 @@
 			children = (
 				EB63E8112402F8C90090791F /* LoginViewController.swift */,
 				EBC153852407790B002EFACD /* SignupViewController.swift */,
+				EB34380E2408261E004A6A72 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -188,8 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				EB64D54124036F9C0000436B /* AuthManager.swift */,
-				EB64D563240394AE0000436B /* TaskLocoApi.swift */,
-				EB64D565240398980000436B /* TaskLocoApiManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -208,6 +210,15 @@
 				EBC1538924078568002EFACD /* Constants.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		EBEF05072408199C00DAC90A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				EB64D563240394AE0000436B /* TaskLocoApi.swift */,
+				EB64D565240398980000436B /* TaskLocoApiManager.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
+				EB34380F2408261E004A6A72 /* HomeViewController.swift in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,
 				EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */,
 				EBC1538A24078568002EFACD /* Constants.swift in Sources */,

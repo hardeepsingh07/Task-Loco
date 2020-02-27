@@ -1,11 +1,12 @@
 const User = require('../model/User');
 const Util = require('../util/Utils');
 const keyGenerator = require('random-key-generator');
+const _ = require('lodash');
 
 exports.create = function (req, res) {
     createUser(req)
         .save()
-        .then(data => Util.respond(res, "New User Created Successfully", data, null))
+        .then(data => Util.respond(res, "New User Created Successfully", subsetResponse(data), null))
         .catch(error => Util.respond(res, "New User Creation Failed", null, error))
 };
 
@@ -26,23 +27,21 @@ exports.getUser = function (req, res) {
 };
 
 exports.login = function (req, res) {
-    Util.validateKey(req, res, () => {
-        User.findOne({username: req.body.username})
-            .then(user => {
-                user.validatePassword(req.body.password, function (error, isValid) {
-                    if (error || !isValid) Util.respond(res, "Invalid Password", null, Error("Invalid Password"));
-                    User.findByIdAndUpdate(user.id, {apiKey: keyGenerator(32)}, {new: true})
-                        .then(() => Util.respond(res, "User Find Successful, Logging In", user, null))
-                        .catch(error => Util.respond(res, "User Find Successful, Logging In Failed", null, error))
-                })
-            }).catch(error => Util.respond(res, "User find failed, cannot log in", null, error))
-    });
+    User.findOne({username: req.body.username})
+        .then(user => {
+            user.validatePassword(req.body.password, function (error, isValid) {
+                if (error || !isValid) Util.respond(res, "Invalid Password", null, Error("Invalid Password"));
+                User.findByIdAndUpdate(user.id, {apiKey: keyGenerator(32)}, {new: true})
+                    .then(data => Util.respond(res, "User Find Successful, Logging In", subsetResponse(data), null))
+                    .catch(error => Util.respond(res, "User Find Successful, Logging In Failed", null, error))
+            })
+        }).catch(error => Util.respond(res, "User find failed, cannot log in", null, error))
 };
 
 exports.logout = function (req, res) {
     Util.validateKey(req, res, () => {
-        User.findOneAndUpdate({username: req.body.username}, {api: null})
-            .then(data => Util.respond(res, "User Find Successful, Logging Out", data, null))
+        User.findOneAndUpdate({username: req.body.username}, {apiKey: null}, {new: true})
+            .then(data => Util.respond(res, "User Find Successful, Logging Out", subsetResponse(data), null))
             .catch(error => Util.respond(res, "User find failed, cannot log out", null, error))
     });
 };
@@ -55,12 +54,17 @@ exports.remove = function (req, res) {
     });
 };
 
+function subsetResponse(data) {
+    return _.pick(data, ['_id', 'username', 'apiKey'])
+}
+
 function createUser(req) {
     return new User({
         username: req.body.username,
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        apiKey: keyGenerator(32)
     })
 }
 

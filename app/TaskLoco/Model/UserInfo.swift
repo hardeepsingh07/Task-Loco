@@ -18,9 +18,9 @@ struct UserResponse: Codable {
 struct UserInfo: Codable {
 	let id: String
 	let username: String
-	let name: String
-	let email: String
-    let password: String
+	let name: String?
+	let email: String?
+    let password: String?
     let apiKey: String
 
     enum CodingKeys: String, CodingKey {
@@ -31,5 +31,6 @@ struct UserInfo: Codable {
 }
 
 struct ResponseError: Codable {
-	
+	let name: String
+	let message: String
 }

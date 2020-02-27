@@ -16,38 +16,34 @@ private enum LoginViewConstants {
 
 class LoginViewController: UIViewController {
 	
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-	
+    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    
 	let disposeBag = DisposeBag()
 	let authManager = AuthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		username.bottomBorder(uiColor: UIColor.white)
-		password.bottomBorder(uiColor: UIColor.white)
+		usernameTF.bottomBorder(uiColor: UIColor.white)
+		passwordTF.bottomBorder(uiColor: UIColor.white)
     }
     
-    @IBAction func loginAction(_ sender: Any) {
-		guard let username = username.text else { return }
-		if(username.isEmpty) {
-			invalidArgumentDialog()
-			return
+	@IBAction func loginAction(_ sender: Any) {
+		if(validateInput(textFields: usernameTF, passwordTF)) {
+			authManager.login(username: usernameTF.text!, password: passwordTF.text!)
+				.observeOn(MainScheduler.instance)
+				.subscribe(onNext: { userInfo in
+					self.navigateTo(HomeViewController.self, ViewController.home)
+				}, onError: { error in
+					self.messageAlert("Error", error.localizedDescription)
+				})
+				.disposed(by: disposeBag)
 		}
-        guard let password = password.text else {return}
-        authManager.login(username: username, password: password)
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { userInfo in
-                print(userInfo)
-            }, onError: { error in
-                print(error)
-            }).disposed(by: disposeBag)
 	}
 	
 	
     @IBAction func signUpAction(_ sender: Any) {
-		let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerConstants.signupViewController) as! SignupViewController
-		self.present(signupViewController.fullScreen(), animated: true)
+		self.navigateTo(SignupViewController.self, ViewController.signUp)
     }
 }
 

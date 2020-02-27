@@ -7,26 +7,41 @@
 //
 
 import UIKit
+import RxSwift
 
 class SignupViewController: UIViewController {
 
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-	    
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+	
+	let authManager = AuthManager()
+	let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-		name.bottomBorder(uiColor: ColorConstants.primaryColor)
-		email.bottomBorder(uiColor: ColorConstants.primaryColor)
-		username.bottomBorder(uiColor: ColorConstants.primaryColor)
-		password.bottomBorder(uiColor: ColorConstants.primaryColor)
+		nameTF.bottomBorder(uiColor: ColorConstants.primaryColor)
+		emailTF.bottomBorder(uiColor: ColorConstants.primaryColor)
+		usernameTF.bottomBorder(uiColor: ColorConstants.primaryColor)
+		passwordTF.bottomBorder(uiColor: ColorConstants.primaryColor)
     }
-    @IBAction func signUpAction(_ sender: Any) {
-        
-    }
+	
+	@IBAction func signUpAction(_ sender: Any) {
+		if(validateInput(textFields: nameTF, emailTF, usernameTF, passwordTF)) {
+			authManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
+				.observeOn(MainScheduler.instance)
+				.subscribe(onNext: { userInfo in
+					self.navigateTo(HomeViewController.self, ViewController.home)
+				}, onError: { error in
+					self.messageAlert("Error", error.localizedDescription)
+				})
+				.disposed(by: disposeBag)
+		}
+	}
     
     @IBAction func loginAction(_ sender: Any) {
 		self.dismiss(animated: true)
     }
+
 }
