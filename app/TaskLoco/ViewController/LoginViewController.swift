@@ -18,22 +18,14 @@ class LoginViewController: UIViewController {
 	
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var login: UIButton!
-    @IBOutlet weak var signUp: UIButton!
 	
 	let disposeBag = DisposeBag()
 	let authManager = AuthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		username
-			.border(uiColor: UIColor.white)
-			.padding(padding: 10)
-			.placeholder(text: LoginViewConstants.username)
-		password
-			.border(uiColor: UIColor.white)
-			.padding(padding: 10)
-			.placeholder(text: LoginViewConstants.password)
+		username.bottomBorder(uiColor: UIColor.white)
+		password.bottomBorder(uiColor: UIColor.white)
     }
     
     @IBAction func loginAction(_ sender: Any) {
@@ -47,29 +39,11 @@ class LoginViewController: UIViewController {
                 print(error)
             }).disposed(by: disposeBag)
     }
-}
-
-extension UITextField {
-	func padding(padding: CGFloat) -> UITextField {
-		let viewHeight: CGFloat = self.frame.height
-		let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: padding, height: viewHeight))
-        self.leftView = paddingView;
-		self.leftViewMode = .always;
-        self.rightView = paddingView;
-		self.rightViewMode = .always;
-		return self
-	}
 	
-	func border(uiColor: UIColor) -> UITextField {
-		self.layer.borderColor = uiColor.cgColor
-        self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 10
-		return self
+	
+    @IBAction func signUpAction(_ sender: Any) {
+		let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerConstants.signupViewController) as! SignupViewController
+		self.present(signupViewController, animated: true)
     }
-	
-	func placeholder(text: String) -> UITextField {
-		self.attributedPlaceholder = NSAttributedString(string:text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-		return self
-	}
 }
 

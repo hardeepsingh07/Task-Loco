@@ -12,6 +12,7 @@ import RxSwift
 
 enum AuthConstants {
 	static let apiKeyTag = "user-api-key"
+	static let usernameKeyTag = "username-key"
 	static let noApiKey = "no-api-key"
 }
 
@@ -25,6 +26,7 @@ class AuthManager {
 		return taskLocoApi.login(username: username, password: password)
 			.map({ (userResponse) -> UserInfo in
 				self.preferences.set(userResponse.data?.apiKey, forKey: AuthConstants.apiKeyTag)
+				self.preferences.set(userResponse.data?.username, forKey: AuthConstants.usernameKeyTag)
 				return userResponse.data!
 			})
 	}
