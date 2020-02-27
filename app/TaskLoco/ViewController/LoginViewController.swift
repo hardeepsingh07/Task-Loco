@@ -29,7 +29,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        guard let username = username.text else {return}
+		guard let username = username.text else { return }
+		if(username.isEmpty) {
+			invalidArgumentDialog()
+			return
+		}
         guard let password = password.text else {return}
         authManager.login(username: username, password: password)
             .observeOn(MainScheduler.instance)
@@ -38,12 +42,12 @@ class LoginViewController: UIViewController {
             }, onError: { error in
                 print(error)
             }).disposed(by: disposeBag)
-    }
+	}
 	
 	
     @IBAction func signUpAction(_ sender: Any) {
 		let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerConstants.signupViewController) as! SignupViewController
-		self.present(signupViewController, animated: true)
+		self.present(signupViewController.fullScreen(), animated: true)
     }
 }
 

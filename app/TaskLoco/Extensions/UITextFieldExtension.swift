@@ -18,3 +18,17 @@ extension UITextField {
 		layer.addSublayer(bottomLine)
 	}
 }
+
+extension UIViewController {
+	
+	func fullScreen() -> UIViewController {
+		self.modalPresentationStyle = .fullScreen
+		return self
+	}
+	
+	func invalidArgumentDialog() {
+		let alertController = UIAlertController(title: Alerts.invalidInput, message: Alerts.inputRequired, preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: Alerts.dismiss, style: .default))
+		self.present(alertController, animated: true)
+	}
+}

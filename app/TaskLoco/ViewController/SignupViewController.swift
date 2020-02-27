@@ -27,6 +27,6 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        
+		self.dismiss(animated: true)
     }
 }
