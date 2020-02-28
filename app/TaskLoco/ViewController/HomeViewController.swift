@@ -10,7 +10,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 	
+	let authManager = AuthManager()
+	
 	override func viewDidLoad() {
-        super.viewDidLoad()    }
+        super.viewDidLoad()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		messageAlert("Stored Data", "\(authManager.provideUsername()):\(authManager.provideApiKey())")
+	}
 }
 

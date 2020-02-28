@@ -11,6 +11,7 @@
 		EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE32406C75300352E00 /* EndpointData.swift */; };
 		EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE52406C76F00352E00 /* Endpoint.swift */; };
 		EB34380F2408261E004A6A72 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* HomeViewController.swift */; };
+		EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3438102408D7C3004A6A72 /* UIViewController.swift */; };
 		EB6038A42406330C00962991 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB6038A32406330C00962991 /* Alamofire */; };
 		EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80D2402F8C90090791F /* AppDelegate.swift */; };
 		EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80F2402F8C90090791F /* SceneDelegate.swift */; };
@@ -38,7 +39,7 @@
 		EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D563240394AE0000436B /* TaskLocoApi.swift */; };
 		EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D565240398980000436B /* TaskLocoApiManager.swift */; };
 		EBC153862407790B002EFACD /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153852407790B002EFACD /* SignupViewController.swift */; };
-		EBC153882407815A002EFACD /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153872407815A002EFACD /* UITextFieldExtension.swift */; };
+		EBC153882407815A002EFACD /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153872407815A002EFACD /* UITextField.swift */; };
 		EBC1538A24078568002EFACD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1538924078568002EFACD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		EB1D1FE32406C75300352E00 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
 		EB1D1FE52406C76F00352E00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		EB34380E2408261E004A6A72 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EB3438102408D7C3004A6A72 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		EB63E80A2402F8C90090791F /* TaskLoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskLoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB63E80D2402F8C90090791F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB63E80F2402F8C90090791F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 		EB64D563240394AE0000436B /* TaskLocoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApi.swift; sourceTree = "<group>"; };
 		EB64D565240398980000436B /* TaskLocoApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApiManager.swift; sourceTree = "<group>"; };
 		EBC153852407790B002EFACD /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		EBC153872407815A002EFACD /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		EBC153872407815A002EFACD /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		EBC1538924078568002EFACD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +97,8 @@
 		EB1D1FDE2406C57100352E00 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EBC153872407815A002EFACD /* UITextFieldExtension.swift */,
+				EBC153872407815A002EFACD /* UITextField.swift */,
+				EB3438102408D7C3004A6A72 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,7 +318,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */,
-				EBC153882407815A002EFACD /* UITextFieldExtension.swift in Sources */,
+				EBC153882407815A002EFACD /* UITextField.swift in Sources */,
+				EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */,
 				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,

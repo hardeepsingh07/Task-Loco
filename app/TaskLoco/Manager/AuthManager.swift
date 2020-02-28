@@ -12,21 +12,15 @@ import RxSwift
 
 enum AuthConstants {
 	static let apiKeyTag = "user-api-key"
-	static let usernameKeyTag = "username-key"
+	static let usernameTag = "username-key"
 	static let noApiKey = "no-api-key"
+	static let noUsername = "no-username"
 }
 
 class AuthManager {
 	
 	let preferences = UserDefaults.standard
-	let EMPTY = ""
 	let taskLocoApi: TaskLocoApi = TaskLocoApiManager()
-	
-	private func handleUserResponse(_ userResponse: UserResponse) -> UserInfo {
-		self.preferences.set(userResponse.data?.apiKey, forKey: AuthConstants.apiKeyTag)
-		self.preferences.set(userResponse.data?.username, forKey: AuthConstants.usernameKeyTag)
-		return userResponse.data!
-	}
 	
 	func login(username: String, password: String) -> Observable<UserInfo> {
 		return taskLocoApi.login(username: username, password: password)
@@ -45,5 +39,15 @@ class AuthManager {
 	
 	func provideApiKey() -> String {
 		return preferences.string(forKey: AuthConstants.apiKeyTag) ?? AuthConstants.noApiKey
+	}
+	
+	func provideUsername() -> String {
+		return preferences.string(forKey: AuthConstants.usernameTag) ?? AuthConstants.noUsername
+	}
+	
+	private func handleUserResponse(_ userResponse: UserResponse) -> UserInfo {
+		self.preferences.set(userResponse.data?.apiKey, forKey: AuthConstants.apiKeyTag)
+		self.preferences.set(userResponse.data?.username, forKey: AuthConstants.usernameTag)
+		return userResponse.data!
 	}
 }
