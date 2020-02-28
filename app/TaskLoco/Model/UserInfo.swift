@@ -30,7 +30,7 @@ struct UserInfo: Codable {
     }
 }
 
-struct ResponseError: Codable {
+struct ResponseError: Codable, Error {
 	let name: String
 	let message: String
 }

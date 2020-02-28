@@ -3,11 +3,18 @@ const invalidApiKeyError = {name: "InvalidApiKey", message: "Api Key doesn't not
 
 let respond = (res, message, data, error) => {
     console.log(`${message}: ${error ? error : JSON.stringify(data)}`);
+    let outwardError;
+    if(error) {
+        outwardError = {
+            name: "Error Occurred",
+            message: message
+        }
+    }
     res.send({
         "response": data ? 200 : 250,
         "message": message,
         "data": data,
-        "error": error
+        "error": outwardError
     })
 };
 

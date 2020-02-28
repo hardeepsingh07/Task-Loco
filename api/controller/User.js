@@ -4,10 +4,19 @@ const keyGenerator = require('random-key-generator');
 const _ = require('lodash');
 
 exports.create = function (req, res) {
-    createUser(req)
-        .save()
-        .then(data => Util.respond(res, "New User Created Successfully", subsetResponse(data), null))
-        .catch(error => Util.respond(res, "New User Creation Failed", null, error))
+    User.exists({username: req.body.username})
+        .then(exists => {
+            if (exists) {
+                let error = userExistsError();
+                Util.respond(res, "New User Creation Failed", null, error)
+            } else {
+                createUser(req)
+                    .save()
+                    .then(data => Util.respond(res, "New User Created Successfully", subsetResponse(data), null))
+                    .catch(error => Util.respond(res, "New User Creation Failed", null, error))
+            }
+        })
+        .catch(error => Util.respond(res, "New User Creation Failed", null, error));
 };
 
 exports.userNames = function (req, res) {
@@ -54,10 +63,6 @@ exports.remove = function (req, res) {
     });
 };
 
-function subsetResponse(data) {
-    return _.pick(data, ['_id', 'username', 'apiKey'])
-}
-
 function createUser(req) {
     return new User({
         username: req.body.username,
@@ -66,5 +71,16 @@ function createUser(req) {
         password: req.body.password,
         apiKey: keyGenerator(32)
     })
+}
+
+function userExistsError() {
+    let error = Error();
+    error.name = "User already Exists";
+    error.message = "Username is already taken, please choose an another Username.";
+    return error;
+}
+
+function subsetResponse(data) {
+    return _.pick(data, ['_id', 'username', 'apiKey'])
 }
 

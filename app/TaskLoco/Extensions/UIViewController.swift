@@ -35,4 +35,9 @@ extension UIViewController {
 		let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: viewController) as! T
 		self.present(signupViewController.fullScreen(), animated: true)
 	}
+	
+	func handleError(_ error: Error) {
+		let error = error as? ResponseError ?? ErrorConstants.defaultError(error.localizedDescription)
+		self.messageAlert(error.name, error.message)
+	}
 }

@@ -24,3 +24,16 @@ enum Alerts{
 	static var invalidInput = "Invalid Input"
 	static var inputRequired = "All Input is Required"
 }
+
+enum ErrorConstants {
+	static let defaultErrorTitle = "Error Occured"
+	static let defaultErrorMessage = "Unknown Reasons"
+	
+	static func defaultError() -> ResponseError {
+		return ResponseError(name: defaultErrorTitle, message: defaultErrorTitle)
+	}
+	
+	static func defaultError(_ message: String) -> ResponseError {
+		return ResponseError(name: defaultErrorTitle, message: message)
+	}
+}

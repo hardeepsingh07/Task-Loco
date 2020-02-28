@@ -3,7 +3,12 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in TaskLocoApiManager.login(userLoginRequest:completion:):TaskLocoApiManager.swift">
+         contextName = "closure #1 in closure #1 in TaskLocoApiManager.request&lt;A&gt;(urlRequest:):TaskLocoApiManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data.response">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "TaskLocoApiManager.createBodyUrlRequest(url:data:):TaskLocoApiManager.swift">
@@ -15,6 +20,28 @@
                value = "jsonBody">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "error">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in SignupViewController.signUpAction(_:):SignupViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "error.asAFError">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TaskLocoApiManager.login(userLoginRequest:completion:):TaskLocoApiManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AuthManager.handleUserResponse(_:):AuthManager.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

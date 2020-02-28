@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
 				.subscribe(onNext: { userInfo in
 					self.navigateTo(HomeViewController.self, ViewController.home)
 				}, onError: { error in
-					self.messageAlert("Error", error.localizedDescription)
+					self.handleError(error)
 				})
 				.disposed(by: disposeBag)
 		}

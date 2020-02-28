@@ -11,6 +11,11 @@ import os
 import RxSwift
 import Alamofire
 
+enum ResponseCode {
+	static var success = 200
+	static var error = 250
+}
+
 class TaskLocoApiManager: TaskLocoApi {
 	
 	func login(username: String, password: String) -> Observable<UserResponse> {
@@ -38,4 +43,9 @@ class TaskLocoApiManager: TaskLocoApi {
 			return Disposables.create { request.cancel() }
 		}
 	}
+}
+
+struct APIError {
+	let name: String
+	let message: String
 }
