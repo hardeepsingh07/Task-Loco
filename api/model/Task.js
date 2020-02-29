@@ -8,6 +8,6 @@ let taskSchema = mongoose.Schema({
     responsible: {type: String, default: ""},
     priority: {type: String, enum: ['Standard', 'High'], default: 'Standard'},
     status: {type: String, enum: ['Pending', 'In Progress', 'Completed'], default: 'Pending'}
-}, {timeStamps: true});
+}, {timestamps: true});
 
 module.exports = mongoose.model('task', taskSchema);

@@ -11,26 +11,22 @@ import Foundation
 struct UserResponse: Codable {
     let response: Int
     let message: String
-    let data: UserInfo?
+    let data: User?
     let error: ResponseError?
 }
 
-struct UserInfo: Codable {
+struct User: Codable {
 	let id: String
 	let username: String
 	let name: String?
 	let email: String?
     let password: String?
     let apiKey: String
+	let createdAt: Date
+	let updatedAt: Date
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case username, name, email, password
-        case apiKey
+        case username, name, email, password, apiKey, createdAt, updatedAt
     }
-}
-
-struct ResponseError: Codable, Error {
-	let name: String
-	let message: String
 }

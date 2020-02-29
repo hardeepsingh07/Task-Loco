@@ -38,3 +38,7 @@ enum ErrorConstants {
 		return ResponseError(name: defaultErrorTitle, message: message)
 	}
 }
+
+enum DateFormat {
+	static var monthDateYear = "MMM dd,yyyy"
+}

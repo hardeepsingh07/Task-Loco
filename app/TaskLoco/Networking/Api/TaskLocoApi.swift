@@ -16,4 +16,22 @@ protocol TaskLocoApi {
 	func signUp(name: String, email: String, username: String, password: String) -> Observable<UserResponse>
 	
 	func logout(username: String) -> Observable<UserResponse>
+	
+	func createTask(task: Task) -> Observable<TaskResponse>
+	
+	func updateTask(task: Task) -> Observable<TaskResponse>
+	
+	func getAllTasks() -> Observable<TaskResponse>
+	
+	func taskPending() -> Observable<TaskResponse>
+	
+	func taskInProgress() -> Observable<TaskResponse>
+
+	func taskCompleted() -> Observable<TaskResponse>
+
+	func taskHighPriority() -> Observable<TaskResponse>
+	
+	func taskStandardPriority() -> Observable<TaskResponse>
+	
+	func taskRemove(taskId: String) -> Observable<TaskResponse>
 }

@@ -26,19 +26,20 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 		usernameTF.bottomBorder(uiColor: UIColor.white)
 		passwordTF.bottomBorder(uiColor: UIColor.white)
-    }
+	}
     
 	@IBAction func loginAction(_ sender: Any) {
-		if(validateInput(textFields: usernameTF, passwordTF)) {
-			authManager.login(username: usernameTF.text!, password: passwordTF.text!)
-				.observeOn(MainScheduler.instance)
-				.subscribe(onNext: { userInfo in
-					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
-				}, onError: { error in
-					self.handleError(error)
-				})
-				.disposed(by: disposeBag)
-		}
+		self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
+//		if(validateInput(textFields: usernameTF, passwordTF)) {
+//			authManager.login(username: usernameTF.text!, password: passwordTF.text!)
+//				.observeOn(MainScheduler.instance)
+//				.subscribe(onNext: { userInfo in
+//					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
+//				}, onError: { error in
+//					self.handleError(error)
+//				})
+//				.disposed(by: disposeBag)
+//		}
 	}
 	
 	

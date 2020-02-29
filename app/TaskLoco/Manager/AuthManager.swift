@@ -22,17 +22,17 @@ class AuthManager {
 	let preferences = UserDefaults.standard
 	let taskLocoApi: TaskLocoApi = TaskLocoApiManager()
 	
-	func login(username: String, password: String) -> Observable<UserInfo> {
+	func login(username: String, password: String) -> Observable<User> {
 		return taskLocoApi.login(username: username, password: password)
 			.map({ return try self.handleUserResponse($0)})
 	}
 	
-	func signUp(name: String, email: String, username: String, password: String) -> Observable<UserInfo> {
+	func signUp(name: String, email: String, username: String, password: String) -> Observable<User> {
 		return taskLocoApi.signUp(name: name, email: email, username: username, password: password)
 			.map({ return try self.handleUserResponse($0) })
 	}
 	
-	func logout(username: String) -> Observable<UserInfo> {
+	func logout(username: String) -> Observable<User> {
 		return taskLocoApi.logout(username: username)
 			.map({ return try self.handleUserResponse($0) })
 	}
@@ -45,7 +45,7 @@ class AuthManager {
 		return preferences.string(forKey: AuthConstants.usernameTag) ?? AuthConstants.noUsername
 	}
 	
-	private func handleUserResponse(_ userResponse: UserResponse) throws -> UserInfo {
+	private func handleUserResponse(_ userResponse: UserResponse) throws -> User {
 		self.preferences.set(userResponse.data?.apiKey, forKey: AuthConstants.apiKeyTag)
 		self.preferences.set(userResponse.data?.username, forKey: AuthConstants.usernameTag)
 		guard let userInfo = userResponse.data else { throw userResponse.error ??  ErrorConstants.defaultError() }

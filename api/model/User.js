@@ -7,7 +7,7 @@ let userSchema = mongoose.Schema({
     email: {type: String, required: true},
     password: {type: String, required: true},
     apiKey: {type: String}
-}, {timeStamps: true});
+}, {timestamps: true});
 
 userSchema.pre('save', function(next) {
     let user = this;

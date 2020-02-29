@@ -35,12 +35,15 @@
 		EB64D55D24036FC60000436B /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54F24036FC60000436B /* MavenPro-Bold.ttf */; };
 		EB64D55E24036FC60000436B /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D55024036FC60000436B /* NunitoSans-Regular.ttf */; };
 		EB64D55F24036FC60000436B /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D55124036FC60000436B /* Oxygen-Bold.ttf */; };
-		EB64D562240370870000436B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D561240370870000436B /* UserInfo.swift */; };
 		EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D563240394AE0000436B /* TaskLocoApi.swift */; };
 		EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D565240398980000436B /* TaskLocoApiManager.swift */; };
 		EBC153862407790B002EFACD /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153852407790B002EFACD /* SignupViewController.swift */; };
 		EBC153882407815A002EFACD /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153872407815A002EFACD /* UITextField.swift */; };
 		EBC1538A24078568002EFACD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1538924078568002EFACD /* Constants.swift */; };
+		EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */; };
+		EBF2A2BE240AD561001B3D67 /* TaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2BD240AD561001B3D67 /* TaskInfo.swift */; };
+		EBF2A2C0240AD6D7001B3D67 /* GenericInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2BF240AD6D7001B3D67 /* GenericInfo.swift */; };
+		EBF2A2C2240AE534001B3D67 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2C1240AE534001B3D67 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,12 +76,15 @@
 		EB64D54F24036FC60000436B /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 		EB64D55024036FC60000436B /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		EB64D55124036FC60000436B /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
-		EB64D561240370870000436B /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB64D563240394AE0000436B /* TaskLocoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApi.swift; sourceTree = "<group>"; };
 		EB64D565240398980000436B /* TaskLocoApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApiManager.swift; sourceTree = "<group>"; };
 		EBC153852407790B002EFACD /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		EBC153872407815A002EFACD /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		EBC1538924078568002EFACD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		EBF2A2BD240AD561001B3D67 /* TaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfo.swift; sourceTree = "<group>"; };
+		EBF2A2BF240AD6D7001B3D67 /* GenericInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericInfo.swift; sourceTree = "<group>"; };
+		EBF2A2C1240AE534001B3D67 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 				EB63E8112402F8C90090791F /* LoginViewController.swift */,
 				EBC153852407790B002EFACD /* SignupViewController.swift */,
 				EB34380E2408261E004A6A72 /* TodayViewController.swift */,
+				EBF2A2BA240AD3A3001B3D67 /* ViewCell */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -202,7 +209,9 @@
 		EB64D5602403707A0000436B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB64D561240370870000436B /* UserInfo.swift */,
+				EBF2A2BF240AD6D7001B3D67 /* GenericInfo.swift */,
+				EBF2A2C1240AE534001B3D67 /* UserInfo.swift */,
+				EBF2A2BD240AD561001B3D67 /* TaskInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +231,14 @@
 				EB64D565240398980000436B /* TaskLocoApiManager.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		EBF2A2BA240AD3A3001B3D67 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */,
+			);
+			path = ViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,9 +334,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF2A2C2240AE534001B3D67 /* UserInfo.swift in Sources */,
 				EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */,
 				EBC153882407815A002EFACD /* UITextField.swift in Sources */,
 				EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */,
+				EBF2A2BE240AD561001B3D67 /* TaskInfo.swift in Sources */,
 				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
@@ -329,8 +348,9 @@
 				EBC1538A24078568002EFACD /* Constants.swift in Sources */,
 				EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */,
 				EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */,
+				EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */,
 				EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */,
-				EB64D562240370870000436B /* UserInfo.swift in Sources */,
+				EBF2A2C0240AD6D7001B3D67 /* GenericInfo.swift in Sources */,
 				EB64D54224036F9C0000436B /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

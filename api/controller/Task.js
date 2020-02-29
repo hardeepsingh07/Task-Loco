@@ -5,7 +5,7 @@ exports.create = function (req, res) {
     Util.validateKey(req, res, () => {
         createTask(req)
             .save()
-            .then(data => Util.respond(res, "New Task Created Successfully", data, null))
+            .then(data => Util.respond(res, "New Task Created Successfully", [data], null))
             .catch(error => Util.respond(res, "New Task Creation Failed" + error, null, error))
     });
 };
@@ -13,7 +13,7 @@ exports.create = function (req, res) {
 exports.update = function (req, res) {
     Util.validateKey(req, res, () => {
         Task.findByIdAndUpdate(req.params.taskId, req.body, {new: true})
-            .then(data => Util.respond(res, "Task Update Successfully", data, null))
+            .then(data => Util.respond(res, "Task Update Successfully", [data], null))
             .catch(error => Util.respond(res, "Task Update Failed", null, error))
     });
 };
@@ -69,7 +69,7 @@ exports.tasksStandardPriority = function (req, res) {
 exports.remove = function (req, res) {
     Util.validateKey(req, res, () => {
         Task.findByIdAndRemove(req.params.taskId)
-            .then(data => Util.respond(res, "Removing Tasks Successful", data, null))
+            .then(data => Util.respond(res, "Removing Tasks Successful", [data], null))
             .catch(error => Util.respond(res, "Removing Tasks Failed" + error, null, error))
     });
 };

@@ -17,7 +17,7 @@ enum ResponseCode {
 }
 
 class TaskLocoApiManager: TaskLocoApi {
-	
+
 	func login(username: String, password: String) -> Observable<UserResponse> {
 		return self.request(urlRequest: EndpointData.login(username: username, password: password).urlRequest)
 	}
@@ -29,6 +29,43 @@ class TaskLocoApiManager: TaskLocoApi {
 	func logout(username: String) -> Observable<UserResponse> {
 		return self.request(urlRequest: EndpointData.logout(username: username).urlRequest)
 	}
+	
+	func createTask(task: Task) -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.createTask(task: task).urlRequest)
+	}
+	
+	func updateTask(task: Task) -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.updateTask(task: task).urlRequest)
+	}
+	
+	func getAllTasks() -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.allTasks.urlRequest)
+	}
+	
+	func taskPending() -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.taskPending.urlRequest)
+	}
+	
+	func taskInProgress() -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.taskInProgress.urlRequest)
+	}
+	
+	func taskCompleted() -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.taskCompleted.urlRequest)
+	}
+	
+	func taskHighPriority() -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.taskHighPriority.urlRequest)
+	}
+	
+	func taskStandardPriority() -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.taskStandPriority.urlRequest)
+	}
+	
+	func taskRemove(taskId: String) -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.taskRemove(taskId: taskId).urlRequest)
+	}
+	
 	
 	private func request<T: Codable>(urlRequest: URLRequest) -> Observable<T>  {
 		return Observable<T>.create { observer in
