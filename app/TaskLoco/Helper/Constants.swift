@@ -11,7 +11,8 @@ import UIKit
 enum ViewController {
 	static var login = "LoginViewController"
 	static var signUp = "SignupViewController"
-	static var home = "HomeViewController"
+	static var tabBar = "TabBarViewController"
+	static var today = "TodayViewController"
 }
 
 enum ColorConstants{

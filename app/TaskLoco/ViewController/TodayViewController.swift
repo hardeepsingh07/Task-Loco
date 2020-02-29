@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  TodayViewController.swift
 //  TaskLoco
 //
 //  Created by Hardeep Singh on 2/27/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class TodayViewController: UIViewController {
 	
 	let authManager = AuthManager()
 	

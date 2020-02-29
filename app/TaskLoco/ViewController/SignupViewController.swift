@@ -32,7 +32,7 @@ class SignupViewController: UIViewController {
 			authManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { userInfo in
-					self.navigateTo(HomeViewController.self, ViewController.home)
+					self.navigateTo(TodayViewController.self, ViewController.today, true)
 				}, onError: { error in
 					self.handleError(error)
 				})

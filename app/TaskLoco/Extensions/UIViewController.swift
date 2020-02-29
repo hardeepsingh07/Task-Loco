@@ -31,7 +31,8 @@ extension UIViewController {
 		return true
 	}
 	
-	func navigateTo<T: UIViewController>(_ type: T.Type, _ viewController: String) {
+	func navigateTo<T: UIViewController>(_ type: T.Type, _ viewController: String, _ dismiss: Bool = false) {
+		if(dismiss) { self.view.window?.rootViewController?.dismiss(animated: true) }
 		let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: viewController) as! T
 		self.present(signupViewController.fullScreen(), animated: true)
 	}
