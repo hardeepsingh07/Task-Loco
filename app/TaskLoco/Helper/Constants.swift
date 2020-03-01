@@ -40,5 +40,6 @@ enum ErrorConstants {
 }
 
 enum DateFormat {
-	static var monthDateYear = "MMM dd,yyyy"
+	static var monthDateCommaYear = "MMM dd,yyyy"
+	static var monthDateYearDash = "MM/dd/yyyy"
 }

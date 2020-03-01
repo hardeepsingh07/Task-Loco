@@ -15,6 +15,10 @@ extension UIViewController {
 		return self
 	}
 	
+	func errorAlert(_ message: String) {
+		messageAlert(ErrorConstants.defaultErrorTitle, message)
+	}
+	
 	func messageAlert(_ title: String, _ message: String) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: Alerts.dismiss, style: .default))

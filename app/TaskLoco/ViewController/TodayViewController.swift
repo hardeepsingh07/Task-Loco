@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 extension UIView {
     func fade() {
@@ -23,10 +24,10 @@ extension UIView {
 
 class TodayViewController: UIViewController, UICollectionViewDataSource {
 	
-	let authManager = AuthManager()
-	
     @IBOutlet weak var highPriorityView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+	
+	private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,20 @@ class TodayViewController: UIViewController, UICollectionViewDataSource {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		messageAlert("Stored Data", "\(authManager.provideUsername()):\(authManager.provideApiKey())")
+		TL.taskLocoApi.getTodayTasks(username: TL.authManager.provideUsername())
+			.observeOn(MainScheduler.instance)   
+			.mapToHandleResponse()
+			.subscribe(onNext: { tasks in
+				print(tasks)
+			}, onError: { error in
+				self.handleError(error)
+			})
+		.disposed(by: disposeBag)
+	}
+	
+	private func handleResonse<T: Response>(_ response: T) throws -> T.CodableType {
+		guard let data = response.data else { throw response.error ?? ErrorConstants.defaultError()}
+		return data
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

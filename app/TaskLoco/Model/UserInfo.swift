@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserResponse: Codable {
+struct UserResponse: Response {
     let response: Int
     let message: String
     let data: User?
@@ -22,8 +22,8 @@ struct User: Codable {
 	let email: String?
     let password: String?
     let apiKey: String
-	let createdAt: Date
-	let updatedAt: Date
+	let createdAt: String?
+	let updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

@@ -8,24 +8,35 @@
 
 import Foundation
 
-struct TaskResponse: Codable {
+struct TaskResponse: Response {
     let response: Int
     let message: String
     let data: [Task]?
     let error: ResponseError?
 }
 
+enum Priority: String, Codable {
+    case high = "High"
+    case standard = "Standard"
+}
+
+enum Status: String, Codable {
+    case completed = "Completed"
+    case inProgress = "In Progress"
+    case pending = "Pending"
+}
+
 struct Task: Codable {
-	let id: String
+	let id: String?
 	let title: String
 	let description: String
-	let completeBy: Date
+	let completeBy: String
 	let assignee: String
 	let responsible: String?
-	let priority: String
-	let status: String
-	let createdAt: Date
-	let updatedAt: Date
+	let priority: Priority
+	let status: Status
+	let createdAt: String
+	let updatedAt: String
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"
@@ -34,7 +45,9 @@ struct Task: Codable {
 	
 	func dateAsString() -> String {
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = DateFormat.monthDateYear
-		return dateFormatter.string(from: completeBy)
+		dateFormatter.dateFormat = DateFormat.monthDateYearDash
+		guard let date = dateFormatter.date(from: completeBy) else { return completeBy }
+		dateFormatter.dateFormat = DateFormat.monthDateCommaYear
+		return dateFormatter.string(from: date)
 	}
 }

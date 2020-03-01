@@ -23,6 +23,8 @@ protocol TaskLocoApi {
 	
 	func getAllTasks() -> Observable<TaskResponse>
 	
+	func getTodayTasks(username: String) -> Observable<TaskResponse>
+	
 	func taskPending() -> Observable<TaskResponse>
 	
 	func taskInProgress() -> Observable<TaskResponse>

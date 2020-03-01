@@ -17,7 +17,7 @@ enum ResponseCode {
 }
 
 class TaskLocoApiManager: TaskLocoApi {
-
+	
 	func login(username: String, password: String) -> Observable<UserResponse> {
 		return self.request(urlRequest: EndpointData.login(username: username, password: password).urlRequest)
 	}
@@ -40,6 +40,10 @@ class TaskLocoApiManager: TaskLocoApi {
 	
 	func getAllTasks() -> Observable<TaskResponse> {
 		return self.request(urlRequest: EndpointData.allTasks.urlRequest)
+	}
+	
+	func getTodayTasks(username: String) -> Observable<TaskResponse> {
+		return self.request(urlRequest: EndpointData.todayTasks(username: username).urlRequest)
 	}
 	
 	func taskPending() -> Observable<TaskResponse> {
@@ -74,6 +78,7 @@ class TaskLocoApiManager: TaskLocoApi {
 				case .success(let data):
 					observer.onNext(data)
 				case .failure(let error):
+					print("AFError: \(error)")
 					observer.onError(error)
 				}
 			}

@@ -19,8 +19,13 @@ private enum AuthConstants {
 
 class AuthManager {
 	
-	let preferences = UserDefaults.standard
-	let taskLocoApi: TaskLocoApi = TaskLocoApiManager()
+	private let preferences: UserDefaults
+	private let taskLocoApi: TaskLocoApi
+	
+	init(preferences: UserDefaults, taskLocoApi: TaskLocoApi) {
+		self.preferences = preferences
+		self.taskLocoApi = taskLocoApi
+	}
 	
 	func login(username: String, password: String) -> Observable<User> {
 		return taskLocoApi.login(username: username, password: password)

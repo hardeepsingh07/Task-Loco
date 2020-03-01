@@ -17,6 +17,10 @@ class TaskCell: UICollectionViewCell {
     @IBOutlet weak var taskDescription: UILabel!
     @IBOutlet weak var taskCompleteDate: UILabel!
     @IBOutlet weak var taskResponsible: UILabel!
+	
+	required init?(coder: NSCoder) {
+		super.init(coder: coder)
+	}
     
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -24,13 +28,9 @@ class TaskCell: UICollectionViewCell {
 	
 	func updateTask(task: Task) {
 		taskName.text = task.title
-		taskPriority.text = task.priority
+		taskPriority.text = task.priority.rawValue
 		taskDescription.text = task.description
 		taskCompleteDate.text = task.dateAsString()
 		taskResponsible.text = task.responsible
-	}
-	
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
 	}
 }

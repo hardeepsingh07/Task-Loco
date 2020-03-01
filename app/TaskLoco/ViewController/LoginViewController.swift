@@ -18,10 +18,9 @@ class LoginViewController: UIViewController {
 	
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    
-	let disposeBag = DisposeBag()
-	let authManager = AuthManager()
-    
+	
+	private let disposeBag = DisposeBag()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		usernameTF.bottomBorder(uiColor: UIColor.white)
@@ -29,17 +28,16 @@ class LoginViewController: UIViewController {
 	}
     
 	@IBAction func loginAction(_ sender: Any) {
-		self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
-//		if(validateInput(textFields: usernameTF, passwordTF)) {
-//			authManager.login(username: usernameTF.text!, password: passwordTF.text!)
-//				.observeOn(MainScheduler.instance)
-//				.subscribe(onNext: { userInfo in
-//					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
-//				}, onError: { error in
-//					self.handleError(error)
-//				})
-//				.disposed(by: disposeBag)
-//		}
+		if(validateInput(textFields: usernameTF, passwordTF)) {
+			TL.authManager.login(username: usernameTF.text!, password: passwordTF.text!)
+				.observeOn(MainScheduler.instance)
+				.subscribe(onNext: { userInfo in
+					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
+				}, onError: { error in
+					self.handleError(error)
+				})
+				.disposed(by: disposeBag)
+		}
 	}
 	
 	

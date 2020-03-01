@@ -16,9 +16,8 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
 	
-	let authManager = AuthManager()
-	let disposeBag = DisposeBag()
-
+	private let disposeBag = DisposeBag()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		nameTF.bottomBorder(uiColor: ColorConstants.primaryColor)
@@ -29,7 +28,7 @@ class SignupViewController: UIViewController {
 	
 	@IBAction func signUpAction(_ sender: Any) {
 		if(validateInput(textFields: nameTF, emailTF, usernameTF, passwordTF)) {
-			authManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
+			TL.authManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { userInfo in
 					self.navigateTo(TodayViewController.self, ViewController.today, true)

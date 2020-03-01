@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol Response: Codable {
+	var response: Int { get }
+	var message: String { get }
+	associatedtype CodableType
+	var data: CodableType? { get }
+	var error: ResponseError? { get }
+}
+
 struct ResponseError: Codable, Error {
 	let name: String
 	let message: String

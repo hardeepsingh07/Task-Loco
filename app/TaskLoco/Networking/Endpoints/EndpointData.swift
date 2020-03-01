@@ -16,6 +16,7 @@ enum EndpointData{
 	case createTask(task: Task)
 	case updateTask(task: Task)
 	case allTasks
+	case todayTasks(username: String)
 	case taskPending
 	case taskInProgress
 	case taskCompleted
@@ -34,6 +35,7 @@ private enum PathConstants {
 	static var createTask = task
 	static var updateTask = "\(task)/"
 	static var allTasks = "\(task)/all"
+	static var todayTasks = "\(task)/"
 	static var taskPending = "\(task)/status/pending"
 	static var taskInProgress = "\(task)/status/inprogress"
 	static var taskCompleted = "\(task)/status/completed"
@@ -80,9 +82,11 @@ extension EndpointData: Endpoint {
 		case .createTask:
 			return PathConstants.createTask
 		case .updateTask(let task):
-			return PathConstants.updateTask + task.id
+			return PathConstants.updateTask + (task.id ?? "")
 		case .allTasks:
 			return PathConstants.allTasks
+		case .todayTasks(let username):
+			return PathConstants.todayTasks + username
 		case .taskPending:
 			return PathConstants.taskPending
 		case .taskInProgress:
@@ -158,7 +162,13 @@ extension EndpointData: Endpoint {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.headers = headers
 		urlRequest.method = httpMethod
-		return try! encoding.encode(urlRequest, with: parameters)
+		
+		switch self.httpMethod {
+		case .post:
+			return try! encoding.encode(urlRequest, with: parameters)
+		default:
+			return urlRequest
+		}
 	}
 }
 
