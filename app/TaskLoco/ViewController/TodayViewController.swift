@@ -25,39 +25,48 @@ extension UIView {
 class TodayViewController: UIViewController, UICollectionViewDataSource {
 	
     @IBOutlet weak var highPriorityView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
-	
+    @IBOutlet weak var inProgressView: UIView!
+    @IBOutlet weak var pendingCompletedView: UIView!
+    @IBOutlet weak var highPriorityCollectionView: UICollectionView!
+    @IBOutlet weak var inProgressCollectionView: UICollectionView!
+    @IBOutlet weak var pendingCompletedCollectionView: UICollectionView!
+    
 	private let disposeBag = DisposeBag()
+	private var tasks: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 		highPriorityView.fade()
-		collectionView.dataSource = self
+        inProgressView.fade()
+        pendingCompletedView.fade()
+		highPriorityCollectionView.dataSource = self
+        inProgressCollectionView.dataSource = self
+        pendingCompletedCollectionView.dataSource = self
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		TL.taskLocoApi.getTodayTasks(username: TL.authManager.provideUsername())
-			.observeOn(MainScheduler.instance)   
+			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { tasks in
-				print(tasks)
+				self.tasks = tasks
+				self.highPriorityCollectionView.reloadData()
+                self.inProgressCollectionView.reloadData()
+                self.pendingCompletedCollectionView.reloadData()
 			}, onError: { error in
 				self.handleError(error)
 			})
 		.disposed(by: disposeBag)
 	}
 	
-	private func handleResonse<T: Response>(_ response: T) throws -> T.CodableType {
-		guard let data = response.data else { throw response.error ?? ErrorConstants.defaultError()}
-		return data
-	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 2
+		return tasks.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaskPrototypeCell", for: indexPath)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.task, for: indexPath) as! TaskCell
+		cell.update(task: tasks[indexPath.row])
 		return cell
 	}
 }

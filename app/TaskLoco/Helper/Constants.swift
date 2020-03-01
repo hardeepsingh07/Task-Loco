@@ -15,6 +15,10 @@ enum ViewController {
 	static var today = "TodayViewController"
 }
 
+enum CellConstants {
+	static var task = "TaskPrototypeCell"
+}
+
 enum ColorConstants{
 	static var primaryColorAlpha = UIColor(red:0.00, green:0.33, blue:0.58, alpha:0.8)
 	static var primaryColor = UIColor(red:0.00, green:0.33, blue:0.58, alpha:1)

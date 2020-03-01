@@ -26,7 +26,7 @@ class TaskCell: UICollectionViewCell {
 		super.init(frame: frame)
 	}
 	
-	func updateTask(task: Task) {
+	func update(task: Task) {
 		taskName.text = task.title
 		taskPriority.text = task.priority.rawValue
 		taskDescription.text = task.description
