@@ -5,6 +5,7 @@ const task = require('../controller/Task');
 router.post("/", task.create);
 router.post("/:taskId", task.update);
 router.get("/all", task.tasks);
+router.get("/:username", task.todayTasks);
 router.get("/status/completed", task.tasksCompleted);
 router.get("/status/pending", task.tasksPending);
 router.get("/status/inprogress", task.tasksInProgress);

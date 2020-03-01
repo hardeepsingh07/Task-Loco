@@ -26,6 +26,14 @@ exports.tasks = function (req, res) {
     });
 };
 
+exports.todayTasks = function(req, res) {
+    Util.validateKey(req, res, () => {
+        Task.find({responsible: req.params.username, completeBy: new Date().toLocaleDateString()})
+            .then(data => Util.respond(res, "Fetching Today Tasks Successfully", data, null))
+            .catch(error => Util.respond(res, "Fetching Today Tasks Failed", null, error))
+    });
+};
+
 exports.tasksCompleted = function (req, res) {
     Util.validateKey(req, res, () => {
         Task.find({status: "Completed"})
