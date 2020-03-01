@@ -69,5 +69,5 @@ exports.createCompletedTasks = (startIndex) => {
 // Get Date with Days
 Date.prototype.addDays = function(days) {
     this.setDate(this.getDate() + parseInt(days));
-    return this;
+    return this.toLocaleDateString();
 };

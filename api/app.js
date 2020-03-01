@@ -17,7 +17,7 @@ app.use('/task', require('./route/Task'));
 app.listen(API_PORT, function () {console.log("Task Loco API is running on port: " + API_PORT)});
 
 //Generate Test Task Data
-// testData.createPendingTasks(10);
-// testData.createInProgressTasks(10);
-// testData.createCompletedTasks(10);
-testData.createTasksWithUsername("sukh2");
+testData.createPendingTasks(0);
+testData.createInProgressTasks(0);
+testData.createCompletedTasks(0);
+// testData.createTasksWithUsername("singhha");
