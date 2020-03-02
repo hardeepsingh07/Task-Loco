@@ -31,7 +31,7 @@ class SignupViewController: UIViewController {
 			TL.authManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { userInfo in
-					self.navigateTo(TodayViewController.self, ViewController.today, true)
+					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
 				}, onError: { error in
 					self.handleError(error)
 				})
@@ -42,5 +42,4 @@ class SignupViewController: UIViewController {
     @IBAction func loginAction(_ sender: Any) {
 		self.dismiss(animated: true)
     }
-
 }
