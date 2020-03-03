@@ -2,16 +2,21 @@ const Task = require('../model/Task');
 
 //Create Task with Username and Today Date
 exports.createTasksWithUsername = (username) => {
+    let priority = ["High", "Standard"];
+    let status = ["Pending", "In Progress", "Completed"];
+
     let date = new Date();
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 20; i++) {
+        let priorityIndex = Math.floor(Math.random() * priority.length);
+        let statusIndex = Math.floor(Math.random() * status.length);
         new Task({
             title: "Task " + username + " " + i,
             description: "Task Description " + i,
             completeBy: date.toLocaleDateString(),
             assignee: "Hardeep " + i,
             responsible: username,
-            priority: i % 2 === 0 ? "High" : "Standard",
-            status: i % 2 === 0 ? "Pending" : "In Progress"
+            priority: priority[priorityIndex],
+            status: status[statusIndex]
         }).save()
     }
     console.log("Generated " + username + " Tasks")

@@ -9,31 +9,23 @@
 import UIKit
 import RxSwift
 
-extension UIView {
-    func fade() {
-        let mask = CAGradientLayer()
-		mask.startPoint = CGPoint(x: 1.0, y: 0.7)
-		mask.endPoint = CGPoint(x: 0.0, y: 0.5)
-        let whiteColor = UIColor.white
-		mask.colors = [whiteColor.withAlphaComponent(0.0).cgColor,whiteColor.withAlphaComponent(1.0),whiteColor.withAlphaComponent(1.0).cgColor]
-		mask.locations = [NSNumber(value: 0.0),NSNumber(value: 0.2),NSNumber(value: 1.0)]
-        mask.frame = self.bounds
-        self.layer.mask = mask
-    }
-}
-
 class TodayViewController: UIViewController, UICollectionViewDataSource {
 	
     @IBOutlet weak var highPriorityView: UIView!
     @IBOutlet weak var inProgressView: UIView!
     @IBOutlet weak var pendingCompletedView: UIView!
+	
     @IBOutlet weak var highPriorityCollectionView: UICollectionView!
     @IBOutlet weak var inProgressCollectionView: UICollectionView!
     @IBOutlet weak var pendingCompletedCollectionView: UICollectionView!
-    
+	
+	private var allTask: [Task] = []
+	private var highPriority: [Task] = []
+	private var inProgress: [Task] = []
+	private var pendingComplete: [Task] = []
+	
 	private let disposeBag = DisposeBag()
-	private var tasks: [Task] = []
-    
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		highPriorityView.fade()
@@ -49,24 +41,48 @@ class TodayViewController: UIViewController, UICollectionViewDataSource {
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { tasks in
-				self.tasks = tasks
-				self.highPriorityCollectionView.reloadData()
-                self.inProgressCollectionView.reloadData()
-                self.pendingCompletedCollectionView.reloadData()
+				self.handleResponse(tasks: tasks)
 			}, onError: { error in
 				self.handleError(error)
 			})
 		.disposed(by: disposeBag)
 	}
 	
+	private func handleResponse(tasks: [Task]) {
+		self.allTask = tasks
+		self.highPriority = tasks.filter({ return $0.priority == Priority.high })
+		self.inProgress = tasks.filter({ return $0.priority != Priority.high && $0.status == Status.inProgress })
+		self.pendingComplete = tasks.filter({ return $0.priority != Priority.high && $0.status != Status.inProgress })
+		self.highPriorityCollectionView.reloadData()
+		self.inProgressCollectionView.reloadData()
+		self.pendingCompletedCollectionView.reloadData()
+	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return tasks.count
+		switch collectionView {
+		case self.highPriorityCollectionView:
+			return highPriority.count
+		case self.inProgressCollectionView:
+			return inProgress.count
+		case self.pendingCompletedCollectionView:
+			return pendingComplete.count
+		default:
+			return allTask.count
+		}
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.task, for: indexPath) as! TaskCell
-		cell.update(task: tasks[indexPath.row])
+		switch collectionView {
+		case self.highPriorityCollectionView:
+			cell.update(task: highPriority[indexPath.row])
+		case self.inProgressCollectionView:
+			cell.update(task: inProgress[indexPath.row])
+		case self.pendingCompletedCollectionView:
+			cell.update(task: pendingComplete[indexPath.row])
+		default:
+			cell.update(task: allTask[indexPath.row])
+		}
 		return cell
 	}
 }
