@@ -8,32 +8,35 @@
 
 import UIKit
 import RxSwift
+import UICircularProgressRing
 
-class TodayViewController: UIViewController, UICollectionViewDataSource {
+struct TodayData {
+	var headerTitle: String
+	var headerColor: UIColor
+	var tasks: [Task]
+}
+
+enum HeaderConstants {
+	static var highPriority = "High Priority"
+	static var inProgress = "In Progress"
+	static var pending = "Pending"
+	static var completed = "Completed"
+}
+
+class TodayViewController: UIViewController, UITableViewDataSource {
 	
-    @IBOutlet weak var highPriorityView: UIView!
-    @IBOutlet weak var inProgressView: UIView!
-    @IBOutlet weak var pendingCompletedView: UIView!
-	
-    @IBOutlet weak var highPriorityCollectionView: UICollectionView!
-    @IBOutlet weak var inProgressCollectionView: UICollectionView!
-    @IBOutlet weak var pendingCompletedCollectionView: UICollectionView!
-	
-	private var allTask: [Task] = []
-	private var highPriority: [Task] = []
-	private var inProgress: [Task] = []
-	private var pendingComplete: [Task] = []
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var todayTableView: UITableView!
+    
+	private let progressBar = UICircularProgressRing()
+	private var completedTask: [Task] = []
+	private var todayCollectionData: [TodayData] = []
 	
 	private let disposeBag = DisposeBag()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		highPriorityView.fade()
-        inProgressView.fade()
-        pendingCompletedView.fade()
-		highPriorityCollectionView.dataSource = self
-        inProgressCollectionView.dataSource = self
-        pendingCompletedCollectionView.dataSource = self
+		todayTableView.dataSource = self
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -49,41 +52,45 @@ class TodayViewController: UIViewController, UICollectionViewDataSource {
 	}
 	
 	private func handleResponse(tasks: [Task]) {
-		self.allTask = tasks
-		self.highPriority = tasks.filter({ return $0.priority == Priority.high })
-		self.inProgress = tasks.filter({ return $0.priority != Priority.high && $0.status == Status.inProgress })
-		self.pendingComplete = tasks.filter({ return $0.priority != Priority.high && $0.status != Status.inProgress })
-		self.highPriorityCollectionView.reloadData()
-		self.inProgressCollectionView.reloadData()
-		self.pendingCompletedCollectionView.reloadData()
+		self.completedTask = tasks.filter({ return $0.status == Status.completed })
+		updateProgressBar(value: CGFloat(completedTask.count) / CGFloat(tasks.count))
+		
+		let highPriority = TodayData(headerTitle: HeaderConstants.highPriority, headerColor: UIColor.red, tasks: tasks.filter({ return $0.priority == Priority.high }))
+		let inProgress = TodayData(headerTitle: HeaderConstants.inProgress, headerColor: UIColor.yellow, tasks: tasks.filter({ return $0.priority != Priority.high && $0.status == Status.inProgress }))
+		let pending = TodayData(headerTitle: HeaderConstants.pending, headerColor: UIColor.blue, tasks: tasks.filter({ return $0.priority != Priority.high && $0.status == Status.pending }))
+		let completed = TodayData(headerTitle: HeaderConstants.completed, headerColor: UIColor.green, tasks: self.completedTask)
+		
+		self.todayCollectionData = [highPriority, inProgress, pending, completed]
+		self.todayTableView.reloadData()
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		switch collectionView {
-		case self.highPriorityCollectionView:
-			return highPriority.count
-		case self.inProgressCollectionView:
-			return inProgress.count
-		case self.pendingCompletedCollectionView:
-			return pendingComplete.count
-		default:
-			return allTask.count
-		}
+	private func updateProgressBar(value: CGFloat) {
+		progressBar.startProgress(to: (value*100), duration: 2.0)
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.task, for: indexPath) as! TaskCell
-		switch collectionView {
-		case self.highPriorityCollectionView:
-			cell.update(task: highPriority[indexPath.row])
-		case self.inProgressCollectionView:
-			cell.update(task: inProgress[indexPath.row])
-		case self.pendingCompletedCollectionView:
-			cell.update(task: pendingComplete[indexPath.row])
-		default:
-			cell.update(task: allTask[indexPath.row])
-		}
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.todayCollectionData.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.today, for: indexPath) as! HeaderContainerCell
+		cell.update(self.todayCollectionData[indexPath.row])
 		return cell
+	}
+
+	private func addProgressBar() {
+		progressBar.maxValue = 100
+		progressBar.style = .ontop
+		progressBar.outerRingColor = UIColor.lightGray
+		progressBar.fontColor = UIColor.white
+		progressBar.innerRingColor = UIColor.white
+		view.addSubview(progressBar)
+		progressBar.translatesAutoresizingMaskIntoConstraints = false
+		let topConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: headerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -20)
+		let endConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: headerView, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: -20)
+		let widthConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+		let heightConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+		view.addConstraints([topConstraint, endConstraint, widthConstraint, heightConstraint])
 	}
 }
 

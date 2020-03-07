@@ -19,4 +19,11 @@ extension UIView {
         mask.frame = self.bounds
         self.layer.mask = mask
     }
+	
+	func cellBorder() {
+		layer.masksToBounds = true
+		layer.borderWidth = 0.5
+        layer.cornerRadius = 10
+		layer.borderColor = UIColor.lightGray.cgColor
+	}
 }

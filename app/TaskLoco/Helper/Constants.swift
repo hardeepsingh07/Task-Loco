@@ -16,6 +16,7 @@ enum ViewController {
 }
 
 enum CellConstants {
+	static var today = "TodayCell"
 	static var task = "TaskPrototypeCell"
 }
 

@@ -30,6 +30,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TodayViewController.updateProgressBar(value:):TodayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "value/100">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TodayViewController.handleResponse(tasks:):TodayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "7/20">
+            </PersistentString>
+            <PersistentString
+               value = "Double(7)/Double(20)">
+            </PersistentString>
+            <PersistentString
+               value = "Double(7/20)">
+            </PersistentString>
+            <PersistentString
+               value = "20/7">
+            </PersistentString>
+            <PersistentString
+               value = "todayCollectionData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TaskLocoApiManager.login(username:password:):TaskLocoApiManager.swift">
          <PersistentStrings>
             <PersistentString

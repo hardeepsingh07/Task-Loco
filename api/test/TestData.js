@@ -11,7 +11,7 @@ exports.createTasksWithUsername = (username) => {
         let statusIndex = Math.floor(Math.random() * status.length);
         new Task({
             title: "Task " + username + " " + i,
-            description: "Task Description " + i,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin laboramus, quis est, qui alienae modum statuat industriae? Laboro autem non sine causa; Tum mihi Piso: Quid ergo? Et quidem illud ipsum non nimium probo et tantum patior, philosophum loqui de cupiditatibus finiendis.",
             completeBy: date.toLocaleDateString(),
             assignee: "Hardeep " + i,
             responsible: username,
