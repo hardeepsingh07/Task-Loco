@@ -1,37 +1,26 @@
 const User = require('../model/User');
-const Util = require('../util/Utils');
 const keyGenerator = require('random-key-generator');
 const _ = require('lodash');
+const utils = require('../util/Utils');
 
 exports.create = function (req, res) {
     User.exists({username: req.body.username})
         .then(exists => {
-            if (exists) {
-                let error = userExistsError();
-                Util.respond(res, "New User Creation Failed", null, error)
-            } else {
-                createUser(req)
-                    .save()
-                    .then(data => Util.respond(res, "New User Created Successfully", subsetResponse(data), null))
-                    .catch(error => Util.respond(res, "New User Creation Failed", null, error))
-            }
-        })
-        .catch(error => Util.respond(res, "New User Creation Failed", null, error));
+            exists
+                ? res.createResponse("New User Creation Failed", null, userExistsError())
+                : res.generateAndRespond("New User Creation", createUser(req).save());
+        }).catch(error => res.createResponse("User Creation Failed", null, userExistsError()));
 };
 
 exports.userNames = function (req, res) {
-    Util.validateKey(req, res, () => {
-        User.find({}, {username: 1, name: 1, _id: 0})
-            .then(data => Util.respond(res, "Fetch all Username Successful", data, null))
-            .catch(error => Util.respond(res, "Fetch all Username Failed", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch all Username", User.find({}, {username: 1, name: 1, _id: 0}));
     });
 };
 
 exports.getUser = function (req, res) {
-    Util.validateKey(req, res, () => {
-        User.find({username: req.params.username}, {password: 0})
-            .then(data => Util.respond(res, "Fetch User Successful", data, null))
-            .catch(error => Util.respond(res, "Fetch User Failed", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch User", User.find({username: req.params.username}, {password: 0}))
     });
 };
 
@@ -39,27 +28,23 @@ exports.login = function (req, res) {
     User.findOne({username: req.body.username})
         .then(user => {
             user.validatePassword(req.body.password, function (error, isValid) {
-                if (error || !isValid) Util.respond(res, "Invalid Password", null, Error("Invalid Password"));
-                User.findByIdAndUpdate(user.id, {apiKey: keyGenerator(32)}, {new: true})
-                    .then(data => Util.respond(res, "User Find Successful, Logging In", subsetResponse(data), null))
-                    .catch(error => Util.respond(res, "User Find Successful, Logging In Failed", null, error))
+                if (error || !isValid) res.createResponse( "Invalid Password", null, Error("Invalid Password"));
+                res.generateAndRespond("User Login",
+                    User.findByIdAndUpdate(user.id, {apiKey: keyGenerator(32)}, {new: true}));
             })
-        }).catch(error => Util.respond(res, "User find failed, cannot log in", null, error))
+        }).catch(error => res.createResponse( "User find failed, cannot log in", null, error))
 };
 
 exports.logout = function (req, res) {
-    Util.validateKey(req, res, () => {
-        User.findOneAndUpdate({username: req.body.username}, {apiKey: null}, {new: true})
-            .then(data => Util.respond(res, "User Find Successful, Logging Out", subsetResponse(data), null))
-            .catch(error => Util.respond(res, "User find failed, cannot log out", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("User Logout",
+            User.findOneAndUpdate({username: req.body.username}, {apiKey: null}, {new: true}))
     });
 };
 
 exports.remove = function (req, res) {
-    Util.validateKey(req, res, () => {
-        User.findOneAndRemove({username: req.params.username})
-            .then(data => Util.respond(res, "User Remove Successful", data, null))
-            .catch(error => Util.respond(res, "User Remove Failed", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("User Remove", User.findOneAndRemove({username: req.params.username}))
     });
 };
 
@@ -78,9 +63,5 @@ function userExistsError() {
     error.name = "User already Exists";
     error.message = "Username is already taken, please choose an another Username.";
     return error;
-}
-
-function subsetResponse(data) {
-    return _.pick(data, ['_id', 'username', 'apiKey'])
 }
 

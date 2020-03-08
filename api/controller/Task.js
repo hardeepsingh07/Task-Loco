@@ -1,84 +1,65 @@
 const Task = require('../model/Task');
-const Util = require('../util/Utils');
+const utils = require('../util/Utils');
 
 exports.create = function (req, res) {
-    Util.validateKey(req, res, () => {
-        createTask(req)
-            .save()
-            .then(data => Util.respond(res, "New Task Created Successfully", [data], null))
-            .catch(error => Util.respond(res, "New Task Creation Failed" + error, null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("New Task Creation", createTask(req).save())
     });
 };
 
 exports.update = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.findByIdAndUpdate(req.params.taskId, req.body, {new: true})
-            .then(data => Util.respond(res, "Task Update Successfully", [data], null))
-            .catch(error => Util.respond(res, "Task Update Failed", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Task Update",
+            Task.findByIdAndUpdate(req.params.taskId, req.body, {new: true}))
     });
 };
 
 exports.tasks = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find()
-            .then(data => Util.respond(res, "Task Update Successfully", data, null))
-            .catch(error => Util.respond(res, "Task Update Failed", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch All Tasks", Task.find())
     });
 };
 
-exports.todayTasks = function(req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find({responsible: req.params.username, completeBy: new Date().toLocaleDateString()})
-            .then(data => Util.respond(res, "Fetching Today Tasks Successfully", data, null))
-            .catch(error => Util.respond(res, "Fetching Today Tasks Failed", null, error))
+exports.todayTasks = function (req, res) {
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch Today Tasks",
+            Task.find({responsible: req.params.username, completeBy: new Date().toLocaleDateString()}))
     });
 };
 
 exports.tasksCompleted = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find({status: "Completed"})
-            .then(data => Util.respond(res, "Fetching Completed Tasks Successful", data, null))
-            .catch(error => Util.respond(res, "Fetching Completed Tasks Failed", null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch Completed Tasks", Task.find({status: "Completed"}))
     });
 };
 
 exports.tasksPending = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find({status: "Pending"})
-            .then(data => Util.respond(res, "Fetching Pending Tasks Successful", data, null))
-            .catch(error => Util.respond(res, "Fetching Pending Tasks Failed" + error, null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch Pending Tasks", Task.find({status: "Pending"}))
     });
 };
 
 exports.tasksInProgress = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find({status: "In Progress"})
-            .then(data => Util.respond(res, "Fetching In Progress Tasks Successful", data, null))
-            .catch(error => Util.respond(res, "Fetching In Progress Tasks Failed" + error, null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch In Progress Tasks", Task.find({status: "In Progress"}))
     });
 };
 
 exports.tasksHighPriority = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find({priority: "High"})
-            .then(data => Util.respond(res, "Fetching High Priority Tasks Successful", data, null))
-            .catch(error => Util.respond(res, "Fetching High Priority Tasks Failed" + error, null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch High Priority Tasks", Task.find({priority: "High"}))
     });
 };
 
 exports.tasksStandardPriority = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.find({priority: "standard"})
-            .then(data => Util.respond(res, "Fetching Standard Priority Tasks Successful", data, null))
-            .catch(error => Util.respond(res, "Fetching Standard Priority Tasks Failed" + error, null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Fetch Standard Priority Tasks", Task.find({priority: "Standard"}))
     });
 };
 
 exports.remove = function (req, res) {
-    Util.validateKey(req, res, () => {
-        Task.findByIdAndRemove(req.params.taskId)
-            .then(data => Util.respond(res, "Removing Tasks Successful", [data], null))
-            .catch(error => Util.respond(res, "Removing Tasks Failed" + error, null, error))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Remove Tasks", Task.findByIdAndRemove(req.params.taskId))
     });
 };
 
