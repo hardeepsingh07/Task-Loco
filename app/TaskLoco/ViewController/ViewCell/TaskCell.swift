@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class TaskCell: UICollectionViewCell {
     
     @IBOutlet weak var statusView: UIView!
@@ -27,7 +26,9 @@ class TaskCell: UICollectionViewCell {
 	}
 	
 	func update(task: Task) {
+		statusView.backgroundColor = task.status.color
 		taskName.text = task.title
+		taskPriority.textColor = task.priority.color
 		taskPriority.text = task.priority.rawValue
 		taskDescription.text = task.description
 		taskCompleteDate.text = task.dateAsString()

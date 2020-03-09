@@ -45,7 +45,7 @@ enum TodayTile {
 	var tasks: [Task] {
 		switch self {
 		case .highPriority(let tasks):
-			return tasks.filter({ return $0.priority == Priority.high });
+			return tasks.filter({ return $0.priority == Priority.high && $0.status != Status.completed });
 		case .inProgress(let tasks):
 			return tasks.filter({ return $0.priority != Priority.high && $0.status == Status.inProgress })
 		case .pending(let tasks):
@@ -60,6 +60,7 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var todayTableView: UITableView!
+    @IBOutlet weak var remainingText: UILabel!
     
 	private let progressBar = UICircularProgressRing()
 	private var completedTask: [Task] = []
@@ -86,8 +87,11 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	}
 	
 	private func handleResponse(tasks: [Task]) {
-		updateProgressBar(value: CGFloat(TodayTile.completed(tasks).tasks.count) / CGFloat(tasks.count))
-		self.todayCollectionData = [TodayTile.highPriority(tasks), TodayTile.inProgress(tasks), TodayTile.inProgress(tasks), TodayTile.pending(tasks)]
+		let pending = TodayTile.pending(tasks)
+		let completed = TodayTile.completed(tasks)
+		remainingText.text = "\(pending.tasks.count) out of \(tasks.count) remaining"
+		updateProgressBar(value: CGFloat(completed.tasks.count) / CGFloat(tasks.count))
+		self.todayCollectionData = [TodayTile.highPriority(tasks), TodayTile.inProgress(tasks), pending, completed]
 		self.todayTableView.reloadData()
 	}
 	
@@ -108,16 +112,16 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	private func addProgressBar() {
 		progressBar.maxValue = 100
 		progressBar.style = .ontop
-		progressBar.outerRingColor = UIColor.lightGray
+		progressBar.outerRingColor = UIColor.white
 		progressBar.fontColor = UIColor.white
-		progressBar.innerRingColor = UIColor.white
+		progressBar.innerRingColor = ColorConstants.primaryColor
 		progressBar.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(progressBar)
 		
-		view.addConstraints([addDirectionConstraint(progressBar, headerView, .bottom, -20),
-							 addDirectionConstraint(progressBar, headerView, .right, -20),
-							 addLayoutConstraint(progressBar, .width, 100),
-							 addLayoutConstraint(progressBar, .height, 100)])
+		view.addConstraints([addDirectionConstraint(progressBar, headerView, .bottom, -10),
+							 addDirectionConstraint(progressBar, headerView, .right, -10),
+							 addLayoutConstraint(progressBar, .width, 75),
+							 addLayoutConstraint(progressBar, .height, 75)])
 	}
 	
 	private func addDirectionConstraint(_ view: UIView, _ secondView: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {

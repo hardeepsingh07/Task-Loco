@@ -385,23 +385,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-12-fyR" userLabel="Today Header View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNr-gI-Jpl">
-                                        <rect key="frame" x="10" y="10" width="82" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNr-gI-Jpl">
+                                        <rect key="frame" x="10" y="74" width="82" height="38"/>
                                         <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 out of 35 Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tU-8O-LnL">
+                                        <rect key="frame" x="10" y="117" width="184" height="23"/>
+                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="PIZ-Rr-Rwo"/>
+                                    <constraint firstItem="9tU-8O-LnL" firstAttribute="leading" secondItem="pWF-12-fyR" secondAttribute="leading" constant="10" id="1MI-bi-EtC"/>
+                                    <constraint firstItem="9tU-8O-LnL" firstAttribute="top" secondItem="uNr-gI-Jpl" secondAttribute="bottom" constant="5" id="GmI-25-IJf"/>
+                                    <constraint firstAttribute="height" constant="150" id="PIZ-Rr-Rwo"/>
+                                    <constraint firstItem="uNr-gI-Jpl" firstAttribute="leading" secondItem="pWF-12-fyR" secondAttribute="leading" constant="10" id="XQY-Cw-sFY"/>
+                                    <constraint firstAttribute="bottom" secondItem="9tU-8O-LnL" secondAttribute="bottom" constant="10" id="yCr-dQ-BO8"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-zd-DJn">
-                                <rect key="frame" x="0.0" y="254" width="414" height="559"/>
+                                <rect key="frame" x="0.0" y="204" width="414" height="609"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TodayCell" id="VPl-fy-ubh" customClass="HeaderContainerCell" customModule="TaskLoco" customModuleProvider="target">
@@ -561,6 +570,7 @@
                     <tabBarItem key="tabBarItem" title="Today" image="house" catalog="system" landscapeImage="house" largeContentSizeImage="house" selectedImage="house" id="zVZ-DQ-uJW"/>
                     <connections>
                         <outlet property="headerView" destination="pWF-12-fyR" id="dd3-93-P9E"/>
+                        <outlet property="remainingText" destination="9tU-8O-LnL" id="2jp-el-W1T"/>
                         <outlet property="todayTableView" destination="f2J-zd-DJn" id="9fB-9p-B1f"/>
                     </connections>
                 </viewController>

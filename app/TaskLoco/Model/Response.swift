@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Response: Codable {
-	var response: Int { get }
+	var responseCode: Int { get }
 	var message: String { get }
 	associatedtype CodableType
 	var data: CodableType? { get }

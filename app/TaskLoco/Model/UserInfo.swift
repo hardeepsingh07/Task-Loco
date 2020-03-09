@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserResponse: Response {
-    let response: Int
+    let responseCode: Int
     let message: String
     let data: User?
     let error: ResponseError?

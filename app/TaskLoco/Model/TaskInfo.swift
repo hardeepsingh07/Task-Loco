@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct TaskResponse: Response {
-    let response: Int
+    let responseCode: Int
     let message: String
     let data: [Task]?
     let error: ResponseError?
@@ -18,12 +19,32 @@ struct TaskResponse: Response {
 enum Priority: String, Codable {
     case high = "High"
     case standard = "Standard"
+	
+	var color: UIColor {
+		switch self {
+		case .high:
+			return UIColor.red
+		default:
+			return UIColor.black
+		}
+	}
 }
 
 enum Status: String, Codable {
-    case completed = "Completed"
-    case inProgress = "In Progress"
-    case pending = "Pending"
+	case completed = "Completed"
+	case inProgress = "In Progress"
+	case pending = "Pending"
+	
+	var color: UIColor {
+		switch self {
+		case .pending:
+			return UIColor.systemBlue
+		case .inProgress:
+			return UIColor.yellow
+		case .completed:
+			return UIColor.green
+		}
+	}
 }
 
 struct Task: Codable {
