@@ -25,11 +25,11 @@ class HeaderContainerCell: UITableViewCell, UICollectionViewDataSource {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 	}
 	
-	func update(_ todayCollectionData: TodayData) {
-		headerBackground.backgroundColor = todayCollectionData.headerColor
+	func update(_ todayTile: TodayTile) {
+		headerBackground.backgroundColor = todayTile.color
 		headerBackground.fade()
-		headerTitle.text = todayCollectionData.headerTitle
-		taskData = todayCollectionData.tasks
+		headerTitle.text = todayTile.title
+		taskData = todayTile.tasks
 		if(!taskData.isEmpty) {
 			taskCollectionView.dataSource = self
 			taskCollectionView.reloadData()

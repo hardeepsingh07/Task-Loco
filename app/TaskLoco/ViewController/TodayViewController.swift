@@ -10,17 +10,50 @@ import UIKit
 import RxSwift
 import UICircularProgressRing
 
-struct TodayData {
-	var headerTitle: String
-	var headerColor: UIColor
-	var tasks: [Task]
-}
-
-enum HeaderConstants {
-	static var highPriority = "High Priority"
-	static var inProgress = "In Progress"
-	static var pending = "Pending"
-	static var completed = "Completed"
+enum TodayTile {
+	case highPriority(_ tasks: [Task])
+	case inProgress(_ tasks: [Task])
+	case pending(_ tasks: [Task])
+	case completed(_ tasks: [Task])
+	
+	var title: String {
+		switch self {
+		case .highPriority:
+			return "High Priority"
+		case .inProgress:
+			return "In Progress"
+		case .pending:
+			return "Pending"
+		case .completed:
+			return "Completed"
+		}
+	}
+	
+	var color: UIColor {
+		switch self {
+		case .highPriority:
+			return UIColor.red
+		case .inProgress:
+			return UIColor.yellow
+		case .pending:
+			return UIColor.blue
+		case .completed:
+			return UIColor.green
+		}
+	}
+	
+	var tasks: [Task] {
+		switch self {
+		case .highPriority(let tasks):
+			return tasks.filter({ return $0.priority == Priority.high });
+		case .inProgress(let tasks):
+			return tasks.filter({ return $0.priority != Priority.high && $0.status == Status.inProgress })
+		case .pending(let tasks):
+			return tasks.filter({ return $0.priority != Priority.high && $0.status == Status.pending })
+		case .completed(let tasks):
+			return tasks.filter({ return $0.status == Status.completed })
+		}
+	}
 }
 
 class TodayViewController: UIViewController, UITableViewDataSource {
@@ -30,13 +63,14 @@ class TodayViewController: UIViewController, UITableViewDataSource {
     
 	private let progressBar = UICircularProgressRing()
 	private var completedTask: [Task] = []
-	private var todayCollectionData: [TodayData] = []
+	private var todayCollectionData: [TodayTile] = []
 	
 	private let disposeBag = DisposeBag()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		todayTableView.dataSource = self
+		addProgressBar()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -52,15 +86,8 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	}
 	
 	private func handleResponse(tasks: [Task]) {
-		self.completedTask = tasks.filter({ return $0.status == Status.completed })
-		updateProgressBar(value: CGFloat(completedTask.count) / CGFloat(tasks.count))
-		
-		let highPriority = TodayData(headerTitle: HeaderConstants.highPriority, headerColor: UIColor.red, tasks: tasks.filter({ return $0.priority == Priority.high }))
-		let inProgress = TodayData(headerTitle: HeaderConstants.inProgress, headerColor: UIColor.yellow, tasks: tasks.filter({ return $0.priority != Priority.high && $0.status == Status.inProgress }))
-		let pending = TodayData(headerTitle: HeaderConstants.pending, headerColor: UIColor.blue, tasks: tasks.filter({ return $0.priority != Priority.high && $0.status == Status.pending }))
-		let completed = TodayData(headerTitle: HeaderConstants.completed, headerColor: UIColor.green, tasks: self.completedTask)
-		
-		self.todayCollectionData = [highPriority, inProgress, pending, completed]
+		updateProgressBar(value: CGFloat(TodayTile.completed(tasks).tasks.count) / CGFloat(tasks.count))
+		self.todayCollectionData = [TodayTile.highPriority(tasks), TodayTile.inProgress(tasks), TodayTile.inProgress(tasks), TodayTile.pending(tasks)]
 		self.todayTableView.reloadData()
 	}
 	
@@ -84,13 +111,21 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 		progressBar.outerRingColor = UIColor.lightGray
 		progressBar.fontColor = UIColor.white
 		progressBar.innerRingColor = UIColor.white
-		view.addSubview(progressBar)
 		progressBar.translatesAutoresizingMaskIntoConstraints = false
-		let topConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: headerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -20)
-		let endConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: headerView, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: -20)
-		let widthConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
-		let heightConstraint = NSLayoutConstraint(item: progressBar, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
-		view.addConstraints([topConstraint, endConstraint, widthConstraint, heightConstraint])
+		view.addSubview(progressBar)
+		
+		view.addConstraints([addDirectionConstraint(progressBar, headerView, .bottom, -20),
+							 addDirectionConstraint(progressBar, headerView, .right, -20),
+							 addLayoutConstraint(progressBar, .width, 100),
+							 addLayoutConstraint(progressBar, .height, 100)])
+	}
+	
+	private func addDirectionConstraint(_ view: UIView, _ secondView: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {
+		return NSLayoutConstraint(item: view, attribute: constrait, relatedBy: NSLayoutConstraint.Relation.equal, toItem: secondView, attribute: constrait, multiplier: 1, constant: constant)
+	}
+	
+	private func addLayoutConstraint(_ view: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {
+		return NSLayoutConstraint(item: view, attribute: constrait, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: constant)
 	}
 }
 
