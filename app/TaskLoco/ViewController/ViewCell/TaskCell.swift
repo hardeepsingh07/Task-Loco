@@ -8,30 +8,32 @@
 
 import UIKit
 
-class TaskCell: UICollectionViewCell {
+class TaskCell: UITableViewCell {
     
-    @IBOutlet weak var statusView: UIView!
-    @IBOutlet weak var taskName: UILabel!
-    @IBOutlet weak var taskPriority: UILabel!
+    @IBOutlet weak var dayOfWeek: UILabel!
+    @IBOutlet weak var dateOfMonth: UILabel!
+    @IBOutlet weak var month: UILabel!
+    @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var taskDescription: UILabel!
-    @IBOutlet weak var taskCompleteDate: UILabel!
-    @IBOutlet weak var taskResponsible: UILabel!
-	
+    @IBOutlet weak var responsible: UILabel!
+    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var statusBackground: DesignableView!
+    
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
 	}
     
-	override init(frame: CGRect) {
-		super.init(frame: frame)
+	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+		super.init(style: style, reuseIdentifier: reuseIdentifier)
 	}
 	
-	func update(task: Task) {
-		statusView.backgroundColor = task.status.color
-		taskName.text = task.title
-		taskPriority.textColor = task.priority.color
-		taskPriority.text = task.priority.rawValue
+	func updateView(_ task: Task) {
+		dayOfWeek.text = task.dayOfWeek
+		dateOfMonth.text = task.dayOfMonth
+		month.text = task.monthOfYear
+		taskTitle.text = task.title
 		taskDescription.text = task.description
-		taskCompleteDate.text = task.dateAsString()
-		taskResponsible.text = task.responsible
+		responsible.text = task.responsible
+		status.text = task.status.rawValue
 	}
 }

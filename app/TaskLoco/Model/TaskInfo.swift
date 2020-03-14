@@ -64,11 +64,25 @@ struct Task: Codable {
 		case title, description, completeBy, assignee, responsible, priority, status, createdAt, updatedAt
 	}
 	
-	func dateAsString() -> String {
+	var completeByAsDate: Date {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = DateFormat.monthDateYearDash
-		guard let date = dateFormatter.date(from: completeBy) else { return completeBy }
-		dateFormatter.dateFormat = DateFormat.monthDateCommaYear
-		return dateFormatter.string(from: date)
+		return dateFormatter.date(from: completeBy) ?? Date()
+	}
+	
+	var dayOfWeek: String {
+		let customDateFormatter = DateFormatter()
+		let calendar = Calendar.current
+		return customDateFormatter.shortWeekdaySymbols[calendar.component(.weekday, from: completeByAsDate)]
+	}
+	
+	var dayOfMonth: String {
+		return String(Calendar.current.component(.day, from: completeByAsDate))
+	}
+	
+	var monthOfYear: String {
+		let customDateFormatter = DateFormatter()
+		let calendar = Calendar.current
+		return customDateFormatter.shortMonthSymbols[calendar.component(.month, from: completeByAsDate)]
 	}
 }

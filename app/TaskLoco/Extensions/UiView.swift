@@ -8,7 +8,19 @@
 
 import UIKit
 
+import UIKit
+
+@IBDesignable
+class DesignableView: UIView {}
+
 extension UIView {
+	
+	@IBInspectable
+    var cornerRadius: CGFloat {
+        get { return layer.cornerRadius }
+        set { layer.cornerRadius = newValue }
+    }
+	
     func fade() {
         let mask = CAGradientLayer()
 		mask.startPoint = CGPoint(x: 1.0, y: 0.7)

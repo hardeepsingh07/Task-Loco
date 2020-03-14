@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		EB0A10BE2410AFE5002F316A /* UICircularProgressRing in Frameworks */ = {isa = PBXBuildFile; productRef = EB0A10BD2410AFE5002F316A /* UICircularProgressRing */; };
-		EB0A10C02410C063002F316A /* HeaderContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A10BF2410C063002F316A /* HeaderContainerCell.swift */; };
 		EB1D1FD52406C4FB00352E00 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB1D1FD42406C4FB00352E00 /* RxSwift */; };
 		EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE32406C75300352E00 /* EndpointData.swift */; };
 		EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE52406C76F00352E00 /* Endpoint.swift */; };
+		EB32F92B241C5728001DB333 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = EB32F92A241C5728001DB333 /* DynamicColor */; };
 		EB34380F2408261E004A6A72 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* TodayViewController.swift */; };
 		EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3438102408D7C3004A6A72 /* UIViewController.swift */; };
 		EB6038A42406330C00962991 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB6038A32406330C00962991 /* Alamofire */; };
@@ -53,7 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB0A10BF2410C063002F316A /* HeaderContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderContainerCell.swift; sourceTree = "<group>"; };
 		EB1D1FE32406C75300352E00 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
 		EB1D1FE52406C76F00352E00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		EB34380E2408261E004A6A72 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB32F92B241C5728001DB333 /* DynamicColor in Frameworks */,
 				EB0A10BE2410AFE5002F316A /* UICircularProgressRing in Frameworks */,
 				EB1D1FD52406C4FB00352E00 /* RxSwift in Frameworks */,
 				EB6038A42406330C00962991 /* Alamofire in Frameworks */,
@@ -253,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */,
-				EB0A10BF2410C063002F316A /* HeaderContainerCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -286,6 +285,7 @@
 				EB6038A32406330C00962991 /* Alamofire */,
 				EB1D1FD42406C4FB00352E00 /* RxSwift */,
 				EB0A10BD2410AFE5002F316A /* UICircularProgressRing */,
+				EB32F92A241C5728001DB333 /* DynamicColor */,
 			);
 			productName = TaskLoco;
 			productReference = EB63E80A2402F8C90090791F /* TaskLoco.app */;
@@ -319,6 +319,7 @@
 				EB6038A22406330C00962991 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EB1D1FD32406C4FB00352E00 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EB0A10BC2410AFE5002F316A /* XCRemoteSwiftPackageReference "UICircularProgressRing" */,
+				EB32F929241C5728001DB333 /* XCRemoteSwiftPackageReference "DynamicColor" */,
 			);
 			productRefGroup = EB63E80B2402F8C90090791F /* Products */;
 			projectDirPath = "";
@@ -367,7 +368,6 @@
 				EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */,
 				EBC153882407815A002EFACD /* UITextField.swift in Sources */,
 				EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */,
-				EB0A10C02410C063002F316A /* HeaderContainerCell.swift in Sources */,
 				EBF2A2BE240AD561001B3D67 /* TaskInfo.swift in Sources */,
 				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
@@ -607,6 +607,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		EB32F929241C5728001DB333 /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/DynamicColor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		EB6038A22406330C00962991 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -627,6 +635,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB1D1FD32406C4FB00352E00 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		EB32F92A241C5728001DB333 /* DynamicColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB32F929241C5728001DB333 /* XCRemoteSwiftPackageReference "DynamicColor" */;
+			productName = DynamicColor;
 		};
 		EB6038A32406330C00962991 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

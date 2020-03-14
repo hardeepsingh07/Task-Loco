@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UICircularProgressRing
 
 extension UIViewController {
 	
@@ -44,5 +45,30 @@ extension UIViewController {
 	func handleError(_ error: Error) {
 		let error = error as? ResponseError ?? ErrorConstants.defaultError(error.localizedDescription)
 		self.messageAlert(error.name, error.message)
+	}
+	
+	func addProgressBar(_ attachToView: UIView) -> UICircularProgressRing {
+		let progressBar = UICircularProgressRing()
+		progressBar.maxValue = 100
+		progressBar.style = .ontop
+		progressBar.outerRingColor = UIColor.white
+		progressBar.fontColor = UIColor.white
+		progressBar.innerRingColor = ColorConstants.primaryColor
+		progressBar.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(progressBar)
+		
+		view.addConstraints([addDirectionConstraint(progressBar, attachToView, .bottom, -10),
+							 addDirectionConstraint(progressBar, attachToView, .right, -10),
+							 addLayoutConstraint(progressBar, .width, 75),
+							 addLayoutConstraint(progressBar, .height, 75)])
+		return progressBar
+	}
+	
+	private func addDirectionConstraint(_ view: UIView, _ secondView: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {
+		return NSLayoutConstraint(item: view, attribute: constrait, relatedBy: NSLayoutConstraint.Relation.equal, toItem: secondView, attribute: constrait, multiplier: 1, constant: constant)
+	}
+	
+	private func addLayoutConstraint(_ view: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {
+		return NSLayoutConstraint(item: view, attribute: constrait, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: constant)
 	}
 }

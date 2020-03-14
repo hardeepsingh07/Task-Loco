@@ -20,4 +20,4 @@ app.listen(API_PORT, function () {console.log("Task Loco API is running on port:
 // testData.createPendingTasks(0);
 // testData.createInProgressTasks(0);
 // testData.createCompletedTasks(0);
-testData.createTasksWithUsername("singhha");
+// testData.createTasksWithUsername("singhha");
