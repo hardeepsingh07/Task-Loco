@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DynamicColor
 
 enum ViewController {
 	static var login = "LoginViewController"
@@ -23,6 +24,9 @@ enum CellConstants {
 enum ColorConstants{
 	static var primaryColorAlpha = UIColor(red:0.00, green:0.33, blue:0.58, alpha:0.8)
 	static var primaryColor = UIColor(red:0.00, green:0.33, blue:0.58, alpha:1)
+	static var lightBlue = DynamicColor(hexString: "#0096FF")
+	static var lightYellow = DynamicColor(hexString: "#FFD479")
+	static var lightGreen = DynamicColor(hexString: "#009193")
 }
 
 enum Alerts{

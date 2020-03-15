@@ -53,7 +53,7 @@ extension UIViewController {
 		progressBar.style = .ontop
 		progressBar.outerRingColor = UIColor.white
 		progressBar.fontColor = UIColor.white
-		progressBar.innerRingColor = ColorConstants.primaryColor
+		progressBar.innerRingColor = ColorConstants.lightGreen
 		progressBar.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(progressBar)
 		

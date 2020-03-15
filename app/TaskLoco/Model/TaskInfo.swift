@@ -38,11 +38,11 @@ enum Status: String, Codable {
 	var color: UIColor {
 		switch self {
 		case .pending:
-			return UIColor.systemBlue
+			return ColorConstants.lightBlue
 		case .inProgress:
-			return UIColor.yellow
+			return ColorConstants.lightYellow
 		case .completed:
-			return UIColor.green
+			return ColorConstants.lightGreen
 		}
 	}
 }
@@ -73,7 +73,7 @@ struct Task: Codable {
 	var dayOfWeek: String {
 		let customDateFormatter = DateFormatter()
 		let calendar = Calendar.current
-		return customDateFormatter.shortWeekdaySymbols[calendar.component(.weekday, from: completeByAsDate)]
+		return customDateFormatter.shortWeekdaySymbols[calendar.component(.weekday, from: completeByAsDate) - 1]
 	}
 	
 	var dayOfMonth: String {
@@ -83,6 +83,6 @@ struct Task: Codable {
 	var monthOfYear: String {
 		let customDateFormatter = DateFormatter()
 		let calendar = Calendar.current
-		return customDateFormatter.shortMonthSymbols[calendar.component(.month, from: completeByAsDate)]
+		return customDateFormatter.shortMonthSymbols[calendar.component(.month, from: completeByAsDate) - 1]
 	}
 }

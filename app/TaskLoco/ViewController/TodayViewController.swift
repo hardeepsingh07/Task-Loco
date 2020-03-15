@@ -10,39 +10,6 @@ import UIKit
 import RxSwift
 import UICircularProgressRing
 
-enum TodayTile {
-	case highPriority(_ tasks: [Task])
-	case inProgress(_ tasks: [Task])
-	case pending(_ tasks: [Task])
-	case completed(_ tasks: [Task])
-	
-	var title: String {
-		switch self {
-		case .highPriority:
-			return "High Priority"
-		case .inProgress:
-			return "In Progress"
-		case .pending:
-			return "Pending"
-		case .completed:
-			return "Completed"
-		}
-	}
-	
-	var color: UIColor {
-		switch self {
-		case .highPriority:
-			return UIColor.red
-		case .inProgress:
-			return UIColor.yellow
-		case .pending:
-			return UIColor.blue
-		case .completed:
-			return UIColor.green
-		}
-	}
-}
-
 class TodayViewController: UIViewController, UITableViewDataSource {
 	
     @IBOutlet weak var headerView: UIView!
@@ -73,10 +40,9 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	}
 	
 	private func handleResponse(tasks: [Task]) {
-		let pending = TodayTile.pending(tasks)
-		let completed = TodayTile.completed(tasks)
-		remainingText.text = "\(pending.tasks.count) out of \(tasks.count) remaining"
-		updateProgressBar(value: CGFloat(completed.tasks.count) / CGFloat(tasks.count))
+		let completed = tasks.filter { $0.status == .completed }
+		remainingText.text = "\(tasks.count - completed.count) out of \(tasks.count) remaining"
+		updateProgressBar(value: CGFloat(completed.count) / CGFloat(tasks.count))
 		self.todayData = tasks
 		self.todayTableView.reloadData()
 	}
