@@ -44,6 +44,7 @@
 		EBC153882407815A002EFACD /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153872407815A002EFACD /* UITextField.swift */; };
 		EBC1538A24078568002EFACD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1538924078568002EFACD /* Constants.swift */; };
 		EBE8D49E241EB432007E19D5 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8D49D241EB432007E19D5 /* PulseAnimation.swift */; };
+		EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8D49F241F4776007E19D5 /* UIButton.swift */; };
 		EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */; };
 		EBF2A2BE240AD561001B3D67 /* TaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2BD240AD561001B3D67 /* TaskInfo.swift */; };
 		EBF2A2C0240AD6D7001B3D67 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2BF240AD6D7001B3D67 /* Response.swift */; };
@@ -90,6 +91,7 @@
 		EBC153872407815A002EFACD /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		EBC1538924078568002EFACD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EBE8D49D241EB432007E19D5 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
+		EBE8D49F241F4776007E19D5 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		EBF2A2BD240AD561001B3D67 /* TaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfo.swift; sourceTree = "<group>"; };
 		EBF2A2BF240AD6D7001B3D67 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				EB3438102408D7C3004A6A72 /* UIViewController.swift */,
 				EBF2A2C8240C45B0001B3D67 /* RxSwift.swift */,
 				EBB3323A240E210C005666F4 /* UiView.swift */,
+				EBE8D49F241F4776007E19D5 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
 				EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */,
+				EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */,
 				EB34380F2408261E004A6A72 /* TodayViewController.swift in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,
 				EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */,

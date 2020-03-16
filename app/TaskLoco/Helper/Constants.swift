@@ -52,3 +52,7 @@ enum DateFormat {
 	static var monthDateCommaYear = "MMM dd,yyyy"
 	static var monthDateYearDash = "MM/dd/yyyy"
 }
+
+enum LayerConstants {
+	static var pulse = "pulse"
+}

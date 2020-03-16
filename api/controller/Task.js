@@ -1,5 +1,6 @@
 const Task = require('../model/Task');
 const utils = require('../util/Utils');
+const _ = require('lodash');
 
 exports.create = function (req, res) {
     req.validateKey(res, () => {
@@ -22,8 +23,16 @@ exports.tasks = function (req, res) {
 
 exports.todayTasks = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Today Tasks",
-            Task.find({responsible: req.params.username, completeBy: new Date().toLocaleDateString()}))
+        Task.find({responsible: req.params.username, completeBy: new Date().toLocaleDateString()})
+            .then(data => {
+                let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed");
+                let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress");
+                let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending");
+                let completed = data.filter(task => task.priority === "Standard" && task.status === "Completed");
+                let result = _.union(highPriority, inProgress, pending, completed);
+                res.createResponse("Fetch Today Tasks Successful", result, null)
+            })
+            .catch(error => res.createResponse("Fetch Today Tasks Failed", null, error));
     });
 };
 

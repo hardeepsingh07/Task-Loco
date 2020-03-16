@@ -6,7 +6,7 @@ const invalidApiKeyError = {name: "InvalidApiKey", message: "Api Key doesn't not
 express.response.createResponse = function(message, data, error) {
     console.log(`${message}: ${error ? error : JSON.stringify(data)}`);
     let outwardError = error ? {name: "Error Occurred", message: message} : null;
-    let response = new ApiResponse(data? 200: 250, message, data, outwardError);
+    let response = new ApiResponse(data ? 200: 250, message, data, outwardError);
     this.send(response)
 };
 

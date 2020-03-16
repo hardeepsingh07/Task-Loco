@@ -38,23 +38,13 @@ class TaskCell: UITableViewCell {
 		responsible.text = task.responsible
 		status.text = task.status.rawValue
 		statusBackground.backgroundColor = task.status.color
-		indicateHighPriority(task.priority)
+		indicateHighPriority(task.priority, task.status)
 	}
 	
-	private func indicateHighPriority(_ priority: Priority) {
-		let layerName = "Pulsing"
-		if(priority == .high) {
-			let pulse = PulseAnimation(numberOfPulse: Float.infinity, radius: 20, duration: 2.5, postion: highPriorityButton.center)
-			pulse.name = layerName
-			highPriorityButton.isHidden = false
-			contentView.layer.insertSublayer(pulse, below: highPriorityButton.layer)
-		} else {
-			highPriorityButton.isHidden = true
-			contentView.layer.sublayers?.forEach({ (layer) in
-				if(layer.name == layerName) {
-					layer.removeFromSuperlayer()
-				}
-			})
-		}
+	private func indicateHighPriority(_ priority: Priority, _ status: Status) {
+		highPriorityButton.isHidden = priority == .standard
+		priority == .high && status != .completed
+			? highPriorityButton.pulse(contentView.layer)
+			: highPriorityButton.removePulse(contentView.layer)
 	}
 }
