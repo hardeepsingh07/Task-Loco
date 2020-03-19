@@ -28,7 +28,7 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.getTodayTasks(username: TL.authManager.provideUsername())
+		TL.taskLocoApi.getTodayTasks(username: "singhha")
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { tasks in

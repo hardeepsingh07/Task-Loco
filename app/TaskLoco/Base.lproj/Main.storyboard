@@ -350,7 +350,7 @@
             </objects>
             <point key="canvasLocation" x="758" y="595"/>
         </scene>
-        <!--View Controller-->
+        <!--Create-->
         <scene sceneID="eld-ys-Xrx">
             <objects>
                 <viewController id="sgt-Lv-IK0" sceneMemberID="viewController">
@@ -369,7 +369,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gOD-uO-18v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="EF4-qC-aBj"/>
+                    <tabBarItem key="tabBarItem" title="Create" selectedImage="plus" catalog="system" id="EF4-qC-aBj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="th5-en-d82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -608,5 +608,6 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="64" height="54"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

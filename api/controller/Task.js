@@ -28,7 +28,7 @@ exports.todayTasks = function (req, res) {
                 let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed");
                 let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress");
                 let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending");
-                let completed = data.filter(task => task.priority === "Standard" && task.status === "Completed");
+                let completed = data.filter(task => task.status === "Completed");
                 let result = _.union(highPriority, inProgress, pending, completed);
                 res.createResponse("Fetch Today Tasks Successful", result, null)
             })
