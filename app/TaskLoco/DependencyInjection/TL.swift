@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class TL {
 	
@@ -20,4 +21,6 @@ class TL {
 	public static var taskLocoApi: TaskLocoApi = TaskLocoApiManager()
 
 	public static var authManager = AuthManager(preferences: preferences, taskLocoApi: taskLocoApi)
+	
+	public static var datePicker = UIDatePicker()
 }

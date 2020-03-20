@@ -13,7 +13,6 @@ enum ViewController {
 	static var login = "LoginViewController"
 	static var signUp = "SignupViewController"
 	static var tabBar = "TabBarViewController"
-	static var today = "TodayViewController"
 }
 
 enum CellConstants {
@@ -27,6 +26,8 @@ enum ColorConstants{
 	static var lightBlue = DynamicColor(hexString: "#0096FF")
 	static var lightYellow = DynamicColor(hexString: "#FFD479")
 	static var lightGreen = DynamicColor(hexString: "#009193")
+	static var lightRed = DynamicColor(hexString: "FF7E79")
+	static var lightGrey = DynamicColor(hexString: "D6D6D6")
 }
 
 enum Alerts{
@@ -51,6 +52,11 @@ enum ErrorConstants {
 enum DateFormat {
 	static var monthDateCommaYear = "MMM dd,yyyy"
 	static var monthDateYearDash = "MM/dd/yyyy"
+}
+
+enum DatePicker {
+	static var done = "Done"
+	static var cancel = "Cancel"
 }
 
 enum LayerConstants {

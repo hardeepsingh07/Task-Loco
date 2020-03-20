@@ -17,4 +17,29 @@ extension UITextField {
 		borderStyle = .none
 		layer.addSublayer(bottomLine)
 	}
+	
+	func showDatePicker() {
+		TL.datePicker.datePickerMode = .date
+		
+		let toolbar = UIToolbar();
+		toolbar.sizeToFit()
+		let doneButton = UIBarButtonItem(title: DatePicker.done, style: .plain, target: self, action: #selector(donedatePicker));
+		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let cancelButton = UIBarButtonItem(title: DatePicker.cancel, style: .plain, target: self, action: #selector(cancelDatePicker));
+		toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+		
+		self.inputAccessoryView = toolbar
+		self.inputView = TL.datePicker
+	}
+	
+	@objc func donedatePicker() {
+		let formatter = DateFormatter()
+		formatter.dateFormat = DateFormat.monthDateCommaYear
+		self.text = formatter.string(from: TL.datePicker.date)
+		self.endEditing(true)
+	}
+	
+	@objc func cancelDatePicker() {
+		self.endEditing(true)
+	}
 }
