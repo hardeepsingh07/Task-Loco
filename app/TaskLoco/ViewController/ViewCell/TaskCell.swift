@@ -40,7 +40,7 @@ class TaskCell: UITableViewCell {
 		statusBackground.backgroundColor = task.status.color
 		indicateHighPriority(task.priority, task.status)
 	}
-	
+    
 	private func indicateHighPriority(_ priority: Priority, _ status: Status) {
 		highPriorityButton.isHidden = priority == .standard
 		priority == .high && status != .completed

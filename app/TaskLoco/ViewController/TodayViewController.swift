@@ -20,6 +20,7 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	private var todayData: [Task] = []
 	
 	private let disposeBag = DisposeBag()
+	private var alertController: UIAlertController? = nil
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,8 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 			})
 		.disposed(by: disposeBag)
 	}
-	
-	private func handleResponse(tasks: [Task]) {
+
+    private func handleResponse(tasks: [Task]) {
 		let completed = tasks.filter { $0.status == .completed }
 		remainingText.text = "\(tasks.count - completed.count) out of \(tasks.count) remaining"
 		updateProgressBar(value: CGFloat(completed.count) / CGFloat(tasks.count))
@@ -48,7 +49,7 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	}
 	
 	private func updateProgressBar(value: CGFloat) {
-		progressBar?.startProgress(to: (value*100), duration: 2.0)
+//		progressBar?.startProgress(to: (value*100), duration: 2.0)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -38,8 +38,22 @@ extension UIViewController {
 	
 	func navigateTo<T: UIViewController>(_ type: T.Type, _ viewController: String, _ dismiss: Bool = false) {
 		if(dismiss) { self.view.window?.rootViewController?.dismiss(animated: true) }
-		let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: viewController) as! T
-		self.present(signupViewController.fullScreen(), animated: true)
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: viewController) as! T
+		self.present(viewController.fullScreen(), animated: true)
+	}
+	
+	func navigateToAlertSheet<T: UIViewController>(_ type: T.Type, _ vcIdentifier: String) {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! T
+		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alertController.setValue(viewController, forKey: ViewController.contentView)
+		self.present(alertController, animated: true) {
+			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+			alertController.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+		}
+	}
+	
+	@objc func dismissAlertController(){
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func handleError(_ error: Error) {
