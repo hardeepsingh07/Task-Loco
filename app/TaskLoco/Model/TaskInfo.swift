@@ -48,16 +48,16 @@ enum Status: String, Codable {
 }
 
 struct Task: Codable {
-	let id: String?
+	let id: String? = nil
 	let title: String
 	let description: String
 	let completeBy: String
-	let assignee: String
-	let responsible: String?
+	let assignee: UserHeader
+	let responsible: UserHeader
 	let priority: Priority
 	let status: Status
-	let createdAt: String
-	let updatedAt: String
+	let createdAt: String? = nil
+	let updatedAt: String? = nil
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"

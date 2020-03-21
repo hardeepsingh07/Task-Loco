@@ -30,3 +30,15 @@ struct User: Codable {
         case username, name, email, password, apiKey, createdAt, updatedAt
     }
 }
+
+struct UserHeaderResponse: Response {
+	let responseCode: Int
+    let message: String
+    let data: [UserHeader]?
+    let error: ResponseError?
+}
+
+struct UserHeader: Codable {
+	var username: String = General.empty
+	var name: String = General.empty
+}

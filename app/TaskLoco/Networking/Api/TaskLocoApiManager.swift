@@ -30,6 +30,10 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(urlRequest: EndpointData.logout(username: username).urlRequest)
 	}
 	
+	func allUsers() -> Observable<UserHeaderResponse> {
+		return self.request(urlRequest: EndpointData.allUsers.urlRequest)
+	}
+	
 	func createTask(task: Task) -> Observable<TaskResponse> {
 		return self.request(urlRequest: EndpointData.createTask(task: task).urlRequest)
 	}

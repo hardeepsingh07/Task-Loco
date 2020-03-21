@@ -17,6 +17,8 @@ protocol TaskLocoApi {
 	
 	func logout(username: String) -> Observable<UserResponse>
 	
+	func allUsers() -> Observable<UserHeaderResponse>
+	
 	func createTask(task: Task) -> Observable<TaskResponse>
 	
 	func updateTask(task: Task) -> Observable<TaskResponse>

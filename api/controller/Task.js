@@ -23,7 +23,7 @@ exports.tasks = function (req, res) {
 
 exports.todayTasks = function (req, res) {
     req.validateKey(res, () => {
-        Task.find({responsible: req.params.username, completeBy: new Date().toLocaleDateString()})
+        Task.find({"responsible.username": req.params.username, completeBy: new Date().toLocaleDateString()})
             .then(data => {
                 let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed");
                 let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress");
@@ -79,7 +79,7 @@ function createTask(req) {
         completed: req.body.completed,
         completeBy: req.body.completeBy,
         assignee: req.body.assignee,
-        responsible: req.body.responsible,
+        responsible: {username: req.body.responsible.username, name: req.body.responsible.name},
         status: req.body.status
     });
 }

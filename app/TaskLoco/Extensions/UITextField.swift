@@ -23,23 +23,37 @@ extension UITextField {
 		
 		let toolbar = UIToolbar();
 		toolbar.sizeToFit()
-		let doneButton = UIBarButtonItem(title: DatePicker.done, style: .plain, target: self, action: #selector(donedatePicker));
+		let doneButton = UIBarButtonItem(title: DatePicker.done, style: .plain, target: self, action: #selector(doneDatePicker));
 		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-		let cancelButton = UIBarButtonItem(title: DatePicker.cancel, style: .plain, target: self, action: #selector(cancelDatePicker));
+		let cancelButton = UIBarButtonItem(title: DatePicker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
 		toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
 		
 		self.inputAccessoryView = toolbar
 		self.inputView = TL.datePicker
 	}
 	
-	@objc func donedatePicker() {
+	func showPicker() -> UIPickerView {
+		let picker = UIPickerView()
+		
+		let toolbar = UIToolbar();
+		toolbar.sizeToFit()
+		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let cancelButton = UIBarButtonItem(title: DatePicker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
+		toolbar.setItems([spaceButton,cancelButton], animated: false)
+		
+		self.inputAccessoryView = toolbar
+		self.inputView = picker
+		return picker
+	}
+	
+	@objc func doneDatePicker() {
 		let formatter = DateFormatter()
 		formatter.dateFormat = DateFormat.monthDateCommaYear
 		self.text = formatter.string(from: TL.datePicker.date)
 		self.endEditing(true)
 	}
 	
-	@objc func cancelDatePicker() {
+	@objc func cancelPicker() {
 		self.endEditing(true)
 	}
 }

@@ -13,8 +13,8 @@ exports.createTasksWithUsername = (username) => {
             title: "Task " + username + " " + i,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin laboramus, quis est, qui alienae modum statuat industriae? Laboro autem non sine causa; Tum mihi Piso: Quid ergo? Et quidem illud ipsum non nimium probo et tantum patior, philosophum loqui de cupiditatibus finiendis.",
             completeBy: date.toLocaleDateString(),
-            assignee: "Hardeep " + i,
-            responsible: username,
+            assignee: {username: "Hardeep " + i, name: "Hardeep " + i},
+            responsible: {username: "singhha", name: "Hardeep Singh"},
             priority: priority[priorityIndex],
             status: status[statusIndex]
         }).save()

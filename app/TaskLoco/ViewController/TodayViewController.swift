@@ -49,7 +49,7 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	}
 	
 	private func updateProgressBar(value: CGFloat) {
-//		progressBar?.startProgress(to: (value*100), duration: 2.0)
+		progressBar?.startProgress(to: (value*100), duration: 2.0)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -35,7 +35,7 @@ class TaskCell: UITableViewCell {
 		month.text = task.monthOfYear
 		taskTitle.text = task.title
 		taskDescription.text = task.description
-		responsible.text = task.responsible
+		responsible.text = task.responsible.name
 		status.text = task.status.rawValue
 		statusBackground.backgroundColor = task.status.color
 		indicateHighPriority(task.priority, task.status)

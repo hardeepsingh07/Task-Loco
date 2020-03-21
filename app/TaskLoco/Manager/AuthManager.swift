@@ -13,8 +13,10 @@ import RxSwift
 private enum AuthConstants {
 	static let apiKeyTag = "user-api-key"
 	static let usernameTag = "username-key"
+	static let nameTag = "name-key"
 	static let noApiKey = "no-api-key"
 	static let noUsername = "no-username"
+	static let noName = "no-name"
 }
 
 class AuthManager {
@@ -46,13 +48,15 @@ class AuthManager {
 		return preferences.string(forKey: AuthConstants.apiKeyTag) ?? AuthConstants.noApiKey
 	}
 	
-	func provideUsername() -> String {
-		return preferences.string(forKey: AuthConstants.usernameTag) ?? AuthConstants.noUsername
+	func provideUserHeader() -> UserHeader {
+		return UserHeader(username: preferences.string(forKey: AuthConstants.usernameTag) ?? AuthConstants.noUsername,
+						  name: preferences.string(forKey: AuthConstants.nameTag) ?? AuthConstants.noName)
 	}
-	
+		
 	private func handleUserResponse(_ userResponse: UserResponse) throws -> User {
 		self.preferences.set(userResponse.data?.apiKey, forKey: AuthConstants.apiKeyTag)
 		self.preferences.set(userResponse.data?.username, forKey: AuthConstants.usernameTag)
+		self.preferences.set(userResponse.data?.name, forKey: AuthConstants.nameTag)
 		guard let userInfo = userResponse.data else { throw userResponse.error ??  ErrorConstants.defaultError() }
 		return userInfo
 	}

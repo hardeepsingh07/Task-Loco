@@ -38,6 +38,11 @@ enum Alerts{
 	static var inputRequired = "All Input is Required"
 }
 
+enum General {
+	static var fourTab = "\t\t\t\t"
+	static var empty = ""
+}
+
 enum ErrorConstants {
 	static let defaultErrorTitle = "Error Occured"
 	static let defaultErrorMessage = "Unknown Reasons"
@@ -52,7 +57,7 @@ enum ErrorConstants {
 }
 
 enum DateFormat {
-	static var monthDateCommaYear = "MMM dd,yyyy"
+	static var monthDateCommaYear = "MMM dd, yyyy"
 	static var monthDateYearDash = "MM/dd/yyyy"
 }
 

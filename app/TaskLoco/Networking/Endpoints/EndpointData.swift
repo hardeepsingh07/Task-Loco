@@ -13,6 +13,7 @@ enum EndpointData{
 	case login(username: String, password: String)
 	case signUp(name: String, email: String, username: String, password: String)
 	case logout(username: String)
+	case allUsers
 	case createTask(task: Task)
 	case updateTask(task: Task)
 	case allTasks
@@ -30,6 +31,7 @@ private enum PathConstants {
 	static var user = "/user"
 	static var task = "/task"
 	static var login = "\(user)/login"
+	static var allUsers = "\(user)/names"
 	static var signUp = user
 	static var logout = "\(user)/logout"
 	static var createTask = task
@@ -79,6 +81,8 @@ extension EndpointData: Endpoint {
 			return PathConstants.signUp
 		case .logout:
 			return PathConstants.logout
+		case .allUsers:
+			return PathConstants.allUsers
 		case .createTask:
 			return PathConstants.createTask
 		case .updateTask(let task):
