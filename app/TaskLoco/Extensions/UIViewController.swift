@@ -42,8 +42,9 @@ extension UIViewController {
 		self.present(viewController.fullScreen(), animated: true)
 	}
 	
-	func navigateToAlertSheet<T: UIViewController>(_ type: T.Type, _ vcIdentifier: String) {
-		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! T
+	func navigateToAlertSheet(_ vcIdentifier: String, _ task: Task? = nil) {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! CreateTaskViewController
+		viewController.currentTaskInfo = task
 		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alertController.setValue(viewController, forKey: ViewController.contentView)
 		self.present(alertController, animated: true) {

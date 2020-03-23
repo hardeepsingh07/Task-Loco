@@ -17,12 +17,12 @@ enum EndpointData{
 	case createTask(task: Task)
 	case updateTask(task: Task)
 	case allTasks
-	case todayTasks(username: String)
-	case taskPending
-	case taskInProgress
-	case taskCompleted
-	case taskHighPriority
-	case taskStandPriority
+	case userTask(username: String)
+	case status(status: Status)
+	case priority(priority: Priority)
+	case highStatus(status: Status)
+	case standardStatus(status: Status)
+	case archive
 	case taskRemove(taskId: String)
 }
 
@@ -37,12 +37,12 @@ private enum PathConstants {
 	static var createTask = task
 	static var updateTask = "\(task)/"
 	static var allTasks = "\(task)/all"
-	static var todayTasks = "\(task)/"
-	static var taskPending = "\(task)/status/pending"
-	static var taskInProgress = "\(task)/status/inprogress"
-	static var taskCompleted = "\(task)/status/completed"
-	static var taskHighPriority = "\(task)/priority/high"
-	static var taskStandPriority = "\(task)/priority/standard"
+	static var userTask = "\(task)/user/"
+	static var status = "\(task)/status/"
+	static var priority = "\(task)/priority/"
+	static var highStatus = "\(task)/high/"
+	static var stanardStatus = "\(task)/standard/"
+	static var archiveTask = "\(task)/archive"
 	static var removeTask = "\(task)/"
 }
 
@@ -89,20 +89,20 @@ extension EndpointData: Endpoint {
 			return PathConstants.updateTask + (task.id ?? "")
 		case .allTasks:
 			return PathConstants.allTasks
-		case .todayTasks(let username):
-			return PathConstants.todayTasks + username
-		case .taskPending:
-			return PathConstants.taskPending
-		case .taskInProgress:
-			return PathConstants.taskInProgress
-		case .taskCompleted:
-			return PathConstants.taskCompleted
-		case .taskHighPriority:
-			return PathConstants.taskHighPriority
-		case .taskStandPriority:
-			return PathConstants.taskStandPriority
+		case .userTask(let username):
+			return PathConstants.userTask + username
+		case .status(let status):
+			return PathConstants.status + status.rawValue
+		case .priority(let priority):
+			return PathConstants.priority + priority.rawValue
+		case .highStatus(let status):
+			return PathConstants.highStatus + status.rawValue
+		case .standardStatus(let status):
+			return PathConstants.stanardStatus + status.rawValue
 		case .taskRemove(let taskId):
 			return PathConstants.removeTask + taskId
+		case .archive:
+			return PathConstants.archiveTask
 		}
 	}
 	
@@ -137,20 +137,18 @@ extension EndpointData: Endpoint {
 					ParameterConstants.password: password]
 		case .logout(let username):
 			return [ParameterConstants.username: username]
-		case .createTask(let task):
+		case .createTask(let task), .updateTask(let task):
 			return [ParameterConstants.title: task.title,
 					ParameterConstants.description: task.description,
 					ParameterConstants.completeBy: task.completeBy,
-					ParameterConstants.assignee: task.assignee,
-					ParameterConstants.responsible: task.responsible,
-					ParameterConstants.priority: task.priority,
-					ParameterConstants.status: task.status]
-		case .updateTask(let task):
-			return [ParameterConstants.title: task.title,
-					ParameterConstants.description: task.description,
-					ParameterConstants.completeBy: task.completeBy,
-					ParameterConstants.assignee: task.assignee,
-					ParameterConstants.responsible: task.responsible,
+					ParameterConstants.assignee: [
+						ParameterConstants.username: task.assignee.username,
+						ParameterConstants.name: task.assignee.name,
+					],
+					ParameterConstants.responsible: [
+						ParameterConstants.username: task.responsible.username,
+						ParameterConstants.name: task.responsible.name,
+					],
 					ParameterConstants.priority: task.priority,
 					ParameterConstants.status: task.status]
 		default:

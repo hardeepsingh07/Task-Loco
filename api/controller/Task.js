@@ -21,48 +21,43 @@ exports.tasks = function (req, res) {
     });
 };
 
-exports.todayTasks = function (req, res) {
+exports.userTask = function (req, res) {
     req.validateKey(res, () => {
-        Task.find({"responsible.username": req.params.username, completeBy: new Date().toLocaleDateString()})
+        Task.find({"responsible.username": req.params.username})
             .then(data => {
-                let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed");
-                let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress");
-                let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending");
-                let completed = data.filter(task => task.status === "Completed");
-                let result = _.union(highPriority, inProgress, pending, completed);
-                res.createResponse("Fetch Today Tasks Successful", result, null)
+                res.createResponse("Fetch Today Tasks Successful", filterData(data), null)
             })
             .catch(error => res.createResponse("Fetch Today Tasks Failed", null, error));
     });
 };
 
-exports.tasksCompleted = function (req, res) {
+exports.archive = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Completed Tasks", Task.find({status: "Completed"}))
+        res.generateAndRespond("Fetch Closed Tasks", Task.find({closed: true}))
     });
 };
 
-exports.tasksPending = function (req, res) {
+exports.statusTask = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Pending Tasks", Task.find({status: "Pending"}))
+        res.generateAndRespond("Fetch Completed Tasks", Task.find({status: req.params.status}))
     });
 };
 
-exports.tasksInProgress = function (req, res) {
+exports.highPriorityWithStatus = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch In Progress Tasks", Task.find({status: "In Progress"}))
+        res.generateAndRespond("Fetch High Priority Status Tasks", Task.find({priority: "High", status: req.params.status}))
     });
 };
 
-exports.tasksHighPriority = function (req, res) {
+exports.standardPriorityWithStatus = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch High Priority Tasks", Task.find({priority: "High"}))
+        res.generateAndRespond("Fetch Standard Priority Status Tasks", Task.find({priority: "Standard", status: req.params.status}))
     });
 };
 
-exports.tasksStandardPriority = function (req, res) {
+exports.priorityTask = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Standard Priority Tasks", Task.find({priority: "Standard"}))
+        res.generateAndRespond("Fetch High Priority Tasks", Task.find({priority: req.params.priority}))
     });
 };
 
@@ -82,5 +77,13 @@ function createTask(req) {
         responsible: {username: req.body.responsible.username, name: req.body.responsible.name},
         status: req.body.status
     });
+}
+
+function filterData(data) {
+    let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed" && !task.closed);
+    let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress" && !task.closed);
+    let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending" && !task.closed);
+    let completed = data.filter(task => task.status === "Completed" && !task.closed);
+    return _.union(highPriority, inProgress, pending, completed);
 }
 

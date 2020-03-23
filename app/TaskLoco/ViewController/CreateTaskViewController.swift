@@ -18,6 +18,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var inProgressButton: UIButton!
     @IBOutlet weak var completedButton: UIButton!
     @IBOutlet weak var taskTitle: UITextField!
+    @IBOutlet weak var taskAssignee: UITextField!
     @IBOutlet weak var taskResponsible: UITextField!
     @IBOutlet weak var taskCompletedBy: UITextField!
     @IBOutlet weak var taskDescription: UITextField!
@@ -28,12 +29,15 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 	private var allUsers: [UserHeader] = []
 	private var currentStatus = Status.pending
 	private var currentUserHeader = UserHeader()
+	var currentTaskInfo: Task? = nil
     
     override func viewDidLoad() {
 		super.viewDidLoad()
 		setupBorder()
-		initButtonBackground()
 		initPicker()
+		initButtonBackground()
+		updateStatusView(currentTaskInfo?.status ?? currentStatus)
+		updateFields()
 	}
 	
 	private func setupBorder() {
@@ -41,13 +45,13 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 		taskResponsible.bottomBorder(uiColor: UIColor.lightGray)
 		taskCompletedBy.bottomBorder(uiColor: UIColor.lightGray)
 		taskDescription.bottomBorder(uiColor: UIColor.lightGray)
+		taskAssignee.bottomBorder(uiColor: UIColor.lightGray)
 	}
 	
 	private func initButtonBackground() {
 		pendingButton.backgroundColor = Status.pending.color
         inProgressButton.backgroundColor = Status.inProgress.color
         completedButton.backgroundColor = Status.completed.color
-		updateStatusView(currentStatus)
 	}
 	
 	private func initPicker() {
@@ -64,7 +68,16 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 		createButton.backgroundColor = currentStatus.color
     }
 	
+	private func updateFields() {
+		taskTitle.text = currentTaskInfo?.title ?? General.empty
+		taskDescription.text = currentTaskInfo?.description ?? General.empty
+		taskCompletedBy.text = currentTaskInfo?.completeBy ?? General.empty
+		taskResponsible.text = currentTaskInfo?.responsible.name ?? General.empty
+        taskAssignee.text = currentTaskInfo?.assignee.name ?? TL.authManager.provideUserHeader().name
+	}
+	
 	override func viewDidAppear(_ animated: Bool) {
+		updateHighPriority()
 		TL.taskLocoApi.allUsers()
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
@@ -85,6 +98,16 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
             highPriorityButton.pulse(headerBackground.layer)
         }
     }
+	
+	func updateHighPriority() {
+		if(currentTaskInfo?.priority == .high) {
+			highPriorityButton.backgroundColor = ColorConstants.lightRed
+			highPriorityButton.pulse(headerBackground.layer)
+		} else {
+			highPriorityButton.backgroundColor = ColorConstants.lightGrey
+			highPriorityButton.removePulse(headerBackground.layer)
+		}
+	}
 	
 	private func isPulsing() -> Bool {
 		return highPriorityButton.isPulsing(headerBackground.layer)

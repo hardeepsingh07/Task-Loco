@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import UICircularProgressRing
 
-class TodayViewController: UIViewController, UITableViewDataSource {
+class TodayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var todayTableView: UITableView!
@@ -25,11 +25,12 @@ class TodayViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 		todayTableView.dataSource = self
+		todayTableView.delegate = self
 		self.progressBar = addProgressBar(headerView)
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.getTodayTasks(username: "singhha")
+		TL.taskLocoApi.userTask(username: "singhha")
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { tasks in
@@ -58,7 +59,11 @@ class TodayViewController: UIViewController, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.today, for: indexPath) as! TaskCell
-		cell.updateView(self.todayData[indexPath.row])
+		cell.updateView(self.todayData[indexPath.row], .userCell)
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		navigateToAlertSheet(ViewController.createTask, self.todayData[indexPath.row])
 	}
 }

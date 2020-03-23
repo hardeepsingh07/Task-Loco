@@ -19,65 +19,65 @@ enum ResponseCode {
 class TaskLocoApiManager: TaskLocoApi {
 	
 	func login(username: String, password: String) -> Observable<UserResponse> {
-		return self.request(urlRequest: EndpointData.login(username: username, password: password).urlRequest)
+		return self.request(endpointData: EndpointData.login(username: username, password: password))
 	}
 	
 	func signUp(name: String, email: String, username: String, password: String) -> Observable<UserResponse> {
-		return self.request(urlRequest: EndpointData.signUp(name: name, email: email, username: username, password: password).urlRequest)
+		return self.request(endpointData: EndpointData.signUp(name: name, email: email, username: username, password: password))
 	}
 	
 	func logout(username: String) -> Observable<UserResponse> {
-		return self.request(urlRequest: EndpointData.logout(username: username).urlRequest)
+		return self.request(endpointData: EndpointData.logout(username: username))
 	}
 	
 	func allUsers() -> Observable<UserHeaderResponse> {
-		return self.request(urlRequest: EndpointData.allUsers.urlRequest)
+		return self.request(endpointData: EndpointData.allUsers)
 	}
 	
 	func createTask(task: Task) -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.createTask(task: task).urlRequest)
+		return self.request(endpointData: EndpointData.createTask(task: task))
 	}
 	
 	func updateTask(task: Task) -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.updateTask(task: task).urlRequest)
+		return self.request(endpointData: EndpointData.updateTask(task: task))
 	}
 	
 	func getAllTasks() -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.allTasks.urlRequest)
+		return self.request(endpointData: EndpointData.allTasks)
 	}
 	
-	func getTodayTasks(username: String) -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.todayTasks(username: username).urlRequest)
+	func userTask(username: String) -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.userTask(username: username))
 	}
 	
-	func taskPending() -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.taskPending.urlRequest)
+	func statusTask(status: Status) -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.status(status: status))
 	}
 	
-	func taskInProgress() -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.taskInProgress.urlRequest)
+	func priorityTask(priority: Priority) -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.priority(priority: priority))
 	}
 	
-	func taskCompleted() -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.taskCompleted.urlRequest)
+	func highStatusTask(status: Status) -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.highStatus(status: status))
 	}
 	
-	func taskHighPriority() -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.taskHighPriority.urlRequest)
+	func standardStatusTask(status: Status) -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.highStatus(status: status))
 	}
 	
-	func taskStandardPriority() -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.taskStandPriority.urlRequest)
+	func archiveTask() -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.archive)
 	}
 	
 	func taskRemove(taskId: String) -> Observable<TaskResponse> {
-		return self.request(urlRequest: EndpointData.taskRemove(taskId: taskId).urlRequest)
+		return self.request(endpointData: EndpointData.taskRemove(taskId: taskId))
 	}
 	
 	
-	private func request<T: Codable>(urlRequest: URLRequest) -> Observable<T>  {
+	private func request<T: Codable>(endpointData: EndpointData) -> Observable<T>  {
 		return Observable<T>.create { observer in
-			let request = AF.request(urlRequest).responseDecodable { (response: DataResponse<T, AFError>) in
+			let request = AF.request(endpointData.urlRequest).responseDecodable { (response: DataResponse<T, AFError>) in
 				switch response.result {
 				case .success(let data):
 					observer.onNext(data)

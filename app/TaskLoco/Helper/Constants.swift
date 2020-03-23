@@ -19,7 +19,12 @@ enum ViewController {
 
 enum CellConstants {
 	static var today = "TodayCell"
-	static var task = "TaskPrototypeCell"
+	static var archive = "ArchiveCell"
+}
+
+enum CellType {
+	case userCell
+	case archiveCell
 }
 
 enum ColorConstants{

@@ -25,17 +25,17 @@ protocol TaskLocoApi {
 	
 	func getAllTasks() -> Observable<TaskResponse>
 	
-	func getTodayTasks(username: String) -> Observable<TaskResponse>
+	func userTask(username: String) -> Observable<TaskResponse>
 	
-	func taskPending() -> Observable<TaskResponse>
+	func statusTask(status: Status) -> Observable<TaskResponse>
 	
-	func taskInProgress() -> Observable<TaskResponse>
+	func priorityTask(priority: Priority) -> Observable<TaskResponse>
 
-	func taskCompleted() -> Observable<TaskResponse>
+	func highStatusTask(status: Status) -> Observable<TaskResponse>
 
-	func taskHighPriority() -> Observable<TaskResponse>
+	func standardStatusTask(status: Status) -> Observable<TaskResponse>
 	
-	func taskStandardPriority() -> Observable<TaskResponse>
-	
+	func archiveTask() -> Observable<TaskResponse>
+		
 	func taskRemove(taskId: String) -> Observable<TaskResponse>
 }
