@@ -11,6 +11,7 @@
 		EB1D1FD52406C4FB00352E00 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB1D1FD42406C4FB00352E00 /* RxSwift */; };
 		EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE32406C75300352E00 /* EndpointData.swift */; };
 		EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE52406C76F00352E00 /* Endpoint.swift */; };
+		EB2615C124294B7100939364 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2615C024294B7100939364 /* SettingsViewController.swift */; };
 		EB32F92B241C5728001DB333 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = EB32F92A241C5728001DB333 /* DynamicColor */; };
 		EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* UserTaskViewController.swift */; };
 		EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3438102408D7C3004A6A72 /* UIViewController.swift */; };
@@ -22,7 +23,7 @@
 		EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB63E8162402F8C90090791F /* TaskLoco.xcdatamodeld */; };
 		EB63E81A2402F8CB0090791F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB63E8192402F8CB0090791F /* Assets.xcassets */; };
 		EB63E81D2402F8CB0090791F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB63E81B2402F8CB0090791F /* LaunchScreen.storyboard */; };
-		EB64D54224036F9C0000436B /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D54124036F9C0000436B /* AuthManager.swift */; };
+		EB64D54224036F9C0000436B /* UserManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D54124036F9C0000436B /* UserManger.swift */; };
 		EB64D55224036FC60000436B /* WorkSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54424036FC60000436B /* WorkSans-Regular.otf */; };
 		EB64D55324036FC60000436B /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54524036FC60000436B /* Oxygen-Regular.ttf */; };
 		EB64D55424036FC60000436B /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB64D54624036FC60000436B /* RobotoSlab-Bold.ttf */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		EB1D1FE32406C75300352E00 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
 		EB1D1FE52406C76F00352E00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		EB2615C024294B7100939364 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EB34380E2408261E004A6A72 /* UserTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTaskViewController.swift; sourceTree = "<group>"; };
 		EB3438102408D7C3004A6A72 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		EB63E80A2402F8C90090791F /* TaskLoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskLoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +73,7 @@
 		EB63E8192402F8CB0090791F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB63E81C2402F8CB0090791F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB63E81E2402F8CB0090791F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB64D54124036F9C0000436B /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		EB64D54124036F9C0000436B /* UserManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManger.swift; sourceTree = "<group>"; };
 		EB64D54324036FB60000436B /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 		EB64D54424036FC60000436B /* WorkSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.otf"; sourceTree = "<group>"; };
 		EB64D54524036FC60000436B /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
@@ -200,8 +202,9 @@
 				EBB36A4924256BCC001CC1B5 /* TabBarViewController.swift */,
 				EB34380E2408261E004A6A72 /* UserTaskViewController.swift */,
 				EBB36A4B2425B581001CC1B5 /* CreateTaskViewController.swift */,
-				EBF2A2BA240AD3A3001B3D67 /* ViewCell */,
 				EBD3018624281BCB00D5C7A8 /* ArchieveViewController.swift */,
+				EB2615C024294B7100939364 /* SettingsViewController.swift */,
+				EBF2A2BA240AD3A3001B3D67 /* ViewCell */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -231,7 +234,7 @@
 		EB64D54024036F7D0000436B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				EB64D54124036F9C0000436B /* AuthManager.swift */,
+				EB64D54124036F9C0000436B /* UserManger.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -408,10 +411,11 @@
 				EBE8D49E241EB432007E19D5 /* PulseAnimation.swift in Sources */,
 				EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */,
 				EBF2A2C4240C1FCD001B3D67 /* NetworkInterceptor.swift in Sources */,
+				EB2615C124294B7100939364 /* SettingsViewController.swift in Sources */,
 				EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */,
 				EBD3018724281BCB00D5C7A8 /* ArchieveViewController.swift in Sources */,
 				EBF2A2C0240AD6D7001B3D67 /* Response.swift in Sources */,
-				EB64D54224036F9C0000436B /* AuthManager.swift in Sources */,
+				EB64D54224036F9C0000436B /* UserManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

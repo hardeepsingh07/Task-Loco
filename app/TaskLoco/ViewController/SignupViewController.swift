@@ -28,7 +28,7 @@ class SignupViewController: UIViewController {
 	
 	@IBAction func signUpAction(_ sender: Any) {
 		if(validateInput(textFields: nameTF, emailTF, usernameTF, passwordTF)) {
-			TL.authManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
+			TL.userManager.signUp(name: nameTF.text!, email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { userInfo in
 					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)

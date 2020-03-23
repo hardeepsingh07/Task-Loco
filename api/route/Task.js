@@ -12,5 +12,6 @@ router.get("/high/:status", task.highPriorityWithStatus);
 router.get("/standard/:status", task.standardPriorityWithStatus);
 router.get("/archive", task.archive);
 router.delete("/:taskId", task.remove);
+router.get("/state/:priority/:status", task.testing);
 
 module.exports = router;

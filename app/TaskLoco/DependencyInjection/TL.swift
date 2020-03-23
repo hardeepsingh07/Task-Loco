@@ -14,13 +14,13 @@ class TL {
 	
 	public static var preferences = UserDefaults.standard
 	
-	private static var networkInterceptor = NetworkInterceptor(authManager: authManager)
+	private static var networkInterceptor = NetworkInterceptor(authManager: userManager)
 	
 	public static var session = Session(interceptor: networkInterceptor)
 	
 	public static var taskLocoApi: TaskLocoApi = TaskLocoApiManager()
 
-	public static var authManager = AuthManager(preferences: preferences, taskLocoApi: taskLocoApi)
+	public static var userManager = UserManger(preferences: preferences, taskLocoApi: taskLocoApi)
 	
 	public static var datePicker = UIDatePicker()
 }

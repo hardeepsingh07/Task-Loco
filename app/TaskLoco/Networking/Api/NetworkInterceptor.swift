@@ -15,9 +15,9 @@ private enum QueryConstants {
 
 class NetworkInterceptor: RequestInterceptor {
 	
-	private let authManager: AuthManager
+	private let authManager: UserManger
 	
-	init(authManager: AuthManager) {
+	init(authManager: UserManger) {
 		self.authManager = authManager
 	}
 	

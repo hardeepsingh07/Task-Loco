@@ -49,6 +49,10 @@ exports.highPriorityWithStatus = function (req, res) {
     });
 };
 
+exports.testing = function (req, res) {
+    res.generateAndRespond("Testing Tasks", Task.find({priority: req.params.priority, status: req.params.status ? "//" : req.params.status}))
+};
+
 exports.standardPriorityWithStatus = function (req, res) {
     req.validateKey(res, () => {
         res.generateAndRespond("Fetch Standard Priority Status Tasks", Task.find({priority: "Standard", status: req.params.status}))

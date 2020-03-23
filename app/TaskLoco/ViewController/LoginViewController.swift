@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     
 	@IBAction func loginAction(_ sender: Any) {
 		if(validateInput(textFields: usernameTF, passwordTF)) {
-			TL.authManager.login(username: usernameTF.text!, password: passwordTF.text!)
+			TL.userManager.login(username: usernameTF.text!, password: passwordTF.text!)
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { userInfo in
 					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)

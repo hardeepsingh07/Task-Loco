@@ -73,7 +73,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 		taskDescription.text = currentTaskInfo?.description ?? General.empty
 		taskCompletedBy.text = currentTaskInfo?.completeBy ?? General.empty
 		taskResponsible.text = currentTaskInfo?.responsible.name ?? General.empty
-        taskAssignee.text = currentTaskInfo?.assignee.name ?? TL.authManager.provideUserHeader().name
+        taskAssignee.text = currentTaskInfo?.assignee.name ?? TL.userManager.provideUserHeader().name
 		createButton.setTitle(currentTaskInfo != nil ? ButtonConstants.update : ButtonConstants.create, for: .normal)
 	}
 	
@@ -135,6 +135,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 				.subscribe(onNext: { task in
 					self.dismiss(animated: true, completion: nil)
 				}, onError: { error in
+					self.handleError(error)
 					self.dismiss(animated: true, completion: nil)
 				})
 			.disposed(by: disposeBag)
@@ -146,7 +147,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 					title: taskTitle.text!,
 					description: taskDescription.text!,
 					completeBy: taskCompletedBy.text!,
-					assignee: TL.authManager.provideUserHeader(),
+					assignee: TL.userManager.provideUserHeader(),
 					responsible: currentTaskInfo?.responsible ?? currentUserHeader,
 					priority: isPulsing() ? Priority.high: Priority.standard,
 					status: currentStatus,

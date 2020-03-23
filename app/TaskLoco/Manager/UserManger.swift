@@ -13,13 +13,14 @@ import RxSwift
 private enum AuthConstants {
 	static let apiKeyTag = "user-api-key"
 	static let usernameTag = "username-key"
+	static let closedTag = "closed-key"
 	static let nameTag = "name-key"
 	static let noApiKey = "no-api-key"
 	static let noUsername = "no-username"
 	static let noName = "no-name"
 }
 
-class AuthManager {
+class UserManger {
 	
 	private let preferences: UserDefaults
 	private let taskLocoApi: TaskLocoApi
@@ -59,5 +60,13 @@ class AuthManager {
 		self.preferences.set(userResponse.data?.name, forKey: AuthConstants.nameTag)
 		guard let userInfo = userResponse.data else { throw userResponse.error ??  ErrorConstants.defaultError() }
 		return userInfo
+	}
+	
+	func updateClosedSetting(enabled: Bool) {
+		self.preferences.set(enabled, forKey: AuthConstants.closedTag)
+	}
+	
+	func isClosedEnabled() -> Bool {
+		return self.preferences.bool(forKey: AuthConstants.closedTag)
 	}
 }
