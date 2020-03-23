@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import UICircularProgressRing
 
-class TodayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UserTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var todayTableView: UITableView!

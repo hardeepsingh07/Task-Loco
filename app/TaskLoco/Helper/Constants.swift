@@ -74,3 +74,8 @@ enum DatePicker {
 enum LayerConstants {
 	static var pulse = "pulse"
 }
+
+enum ButtonConstants {
+	static var create = "Create"
+	static var update = "Update"
+}

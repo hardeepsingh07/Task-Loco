@@ -12,7 +12,7 @@
 		EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE32406C75300352E00 /* EndpointData.swift */; };
 		EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE52406C76F00352E00 /* Endpoint.swift */; };
 		EB32F92B241C5728001DB333 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = EB32F92A241C5728001DB333 /* DynamicColor */; };
-		EB34380F2408261E004A6A72 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* TodayViewController.swift */; };
+		EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* UserTaskViewController.swift */; };
 		EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3438102408D7C3004A6A72 /* UIViewController.swift */; };
 		EB6038A42406330C00962991 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB6038A32406330C00962991 /* Alamofire */; };
 		EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63E80D2402F8C90090791F /* AppDelegate.swift */; };
@@ -60,7 +60,7 @@
 /* Begin PBXFileReference section */
 		EB1D1FE32406C75300352E00 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
 		EB1D1FE52406C76F00352E00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		EB34380E2408261E004A6A72 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		EB34380E2408261E004A6A72 /* UserTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTaskViewController.swift; sourceTree = "<group>"; };
 		EB3438102408D7C3004A6A72 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		EB63E80A2402F8C90090791F /* TaskLoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskLoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB63E80D2402F8C90090791F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				EB63E8112402F8C90090791F /* LoginViewController.swift */,
 				EBC153852407790B002EFACD /* SignupViewController.swift */,
 				EBB36A4924256BCC001CC1B5 /* TabBarViewController.swift */,
-				EB34380E2408261E004A6A72 /* TodayViewController.swift */,
+				EB34380E2408261E004A6A72 /* UserTaskViewController.swift */,
 				EBB36A4B2425B581001CC1B5 /* CreateTaskViewController.swift */,
 				EBF2A2BA240AD3A3001B3D67 /* ViewCell */,
 				EBD3018624281BCB00D5C7A8 /* ArchieveViewController.swift */,
@@ -399,7 +399,7 @@
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
 				EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */,
 				EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */,
-				EB34380F2408261E004A6A72 /* TodayViewController.swift in Sources */,
+				EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,
 				EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */,
 				EBC1538A24078568002EFACD /* Constants.swift in Sources */,

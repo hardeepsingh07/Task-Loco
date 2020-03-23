@@ -4,13 +4,13 @@ const _ = require('lodash');
 
 exports.create = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("New Task Creation", createTask(req).save())
+        res.generateAndRespondWithArray("New Task Creation", createTask(req).save())
     });
 };
 
 exports.update = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Task Update",
+        res.generateAndRespondWithArray("Task Update",
             Task.findByIdAndUpdate(req.params.taskId, req.body, {new: true}))
     });
 };

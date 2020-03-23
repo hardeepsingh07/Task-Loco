@@ -48,7 +48,7 @@ enum Status: String, Codable {
 }
 
 struct Task: Codable {
-	let id: String? = nil
+	let id: String?
 	let title: String
 	let description: String
 	let completeBy: String
@@ -58,10 +58,11 @@ struct Task: Codable {
 	let status: Status
 	let createdAt: String? = nil
 	let updatedAt: String? = nil
+	let closed: Bool
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"
-		case title, description, completeBy, assignee, responsible, priority, status, createdAt, updatedAt
+		case title, description, completeBy, assignee, responsible, priority, status, createdAt, updatedAt, closed
 	}
 	
 	var completeByAsDate: Date {

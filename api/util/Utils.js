@@ -16,6 +16,12 @@ express.response.generateAndRespond = function(message, promise) {
         .catch(error => this.createResponse(message + " Failed", null, error))
 };
 
+express.response.generateAndRespondWithArray = function(message, promise) {
+    promise
+        .then(data => this.createResponse(message + " Successful", [data], null))
+        .catch(error => this.createResponse(message + " Failed", null, error))
+};
+
 express.request.validateKey = function(res, action) {
     User.findOne({apiKey: this.query.apiKey})
         .then(data => data ? action() : res.createResponse("Invalid Api Key", null, invalidApiKeyError))

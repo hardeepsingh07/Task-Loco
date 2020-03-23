@@ -74,6 +74,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 		taskCompletedBy.text = currentTaskInfo?.completeBy ?? General.empty
 		taskResponsible.text = currentTaskInfo?.responsible.name ?? General.empty
         taskAssignee.text = currentTaskInfo?.assignee.name ?? TL.authManager.provideUserHeader().name
+		createButton.setTitle(currentTaskInfo != nil ? ButtonConstants.update : ButtonConstants.create, for: .normal)
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -124,8 +125,12 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 	
     @IBAction func createButtonAction(_ sender: Any) {
-		if (validateInput(textFields: taskTitle, taskDescription, taskCompletedBy)) {
-			TL.taskLocoApi.createTask(task: generateTask())
+		if (validateInput(textFields: taskTitle, taskDescription, taskCompletedBy, taskResponsible)) {
+			let observer = currentTaskInfo == nil
+				? TL.taskLocoApi.createTask(task: generateTask())
+				: TL.taskLocoApi.updateTask(task: generateTask())
+			
+			observer
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { task in
 					self.dismiss(animated: true, completion: nil)
@@ -137,13 +142,15 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 	
 	private func generateTask() -> Task {
-		return Task(title: taskTitle.text!,
+		return Task(id: currentTaskInfo?.id,
+					title: taskTitle.text!,
 					description: taskDescription.text!,
 					completeBy: taskCompletedBy.text!,
 					assignee: TL.authManager.provideUserHeader(),
-					responsible: currentUserHeader,
+					responsible: currentTaskInfo?.responsible ?? currentUserHeader,
 					priority: isPulsing() ? Priority.high: Priority.standard,
-					status: currentStatus)
+					status: currentStatus,
+					closed: currentStatus == .completed)
 	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {

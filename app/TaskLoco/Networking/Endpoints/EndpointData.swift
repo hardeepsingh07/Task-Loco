@@ -64,6 +64,7 @@ private enum ParameterConstants {
 	static var responsible = "responsible"
 	static var priority = "priority"
 	static var status = "status"
+	static var closed = "closed"
 }
 
 extension EndpointData: Endpoint {
@@ -149,8 +150,9 @@ extension EndpointData: Endpoint {
 						ParameterConstants.username: task.responsible.username,
 						ParameterConstants.name: task.responsible.name,
 					],
-					ParameterConstants.priority: task.priority,
-					ParameterConstants.status: task.status]
+					ParameterConstants.priority: task.priority.rawValue,
+					ParameterConstants.status: task.status.rawValue,
+					ParameterConstants.closed: task.closed]
 		default:
 			return [:]
 		}
@@ -167,7 +169,9 @@ extension EndpointData: Endpoint {
 		
 		switch self.httpMethod {
 		case .post:
-			return try! encoding.encode(urlRequest, with: parameters)
+			let param = parameters
+			print(param)
+			return try! encoding.encode(urlRequest, with: param)
 		default:
 			return urlRequest
 		}
