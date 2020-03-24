@@ -50,20 +50,8 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(endpointData: EndpointData.userTask(username: username))
 	}
 	
-	func statusTask(status: Status) -> Observable<TaskResponse> {
-		return self.request(endpointData: EndpointData.status(status: status))
-	}
-	
-	func priorityTask(priority: Priority) -> Observable<TaskResponse> {
-		return self.request(endpointData: EndpointData.priority(priority: priority))
-	}
-	
-	func highStatusTask(status: Status) -> Observable<TaskResponse> {
-		return self.request(endpointData: EndpointData.highStatus(status: status))
-	}
-	
-	func standardStatusTask(status: Status) -> Observable<TaskResponse> {
-		return self.request(endpointData: EndpointData.highStatus(status: status))
+	func filterTask(status: Status?, priority: Priority?, username: String?) -> Observable<TaskResponse> {
+		return self.request(endpointData: EndpointData.filterTask(status: status, priority: priority, username: username))
 	}
 	
 	func archiveTask() -> Observable<TaskResponse> {

@@ -18,10 +18,7 @@ enum EndpointData{
 	case updateTask(task: Task)
 	case allTasks
 	case userTask(username: String)
-	case status(status: Status)
-	case priority(priority: Priority)
-	case highStatus(status: Status)
-	case standardStatus(status: Status)
+	case filterTask(status: Status?, priority: Priority?, username: String?)
 	case archive
 	case taskRemove(taskId: String)
 }
@@ -38,12 +35,16 @@ private enum PathConstants {
 	static var updateTask = "\(task)/"
 	static var allTasks = "\(task)/all"
 	static var userTask = "\(task)/user/"
-	static var status = "\(task)/status/"
-	static var priority = "\(task)/priority/"
-	static var highStatus = "\(task)/high/"
-	static var stanardStatus = "\(task)/standard/"
+	static var filterTask = "\(task)/filter/"
 	static var archiveTask = "\(task)/archive"
 	static var removeTask = "\(task)/"
+}
+
+enum QueryConstants {
+	static var apiKey = "apiKey"
+	static var status = "status"
+	static var priority = "priority"
+	static var username = "username"
 }
 
 private enum UrlConstants {
@@ -92,14 +93,8 @@ extension EndpointData: Endpoint {
 			return PathConstants.allTasks
 		case .userTask(let username):
 			return PathConstants.userTask + username
-		case .status(let status):
-			return PathConstants.status + status.rawValue
-		case .priority(let priority):
-			return PathConstants.priority + priority.rawValue
-		case .highStatus(let status):
-			return PathConstants.highStatus + status.rawValue
-		case .standardStatus(let status):
-			return PathConstants.stanardStatus + status.rawValue
+		case .filterTask:
+			return PathConstants.filterTask
 		case .taskRemove(let taskId):
 			return PathConstants.removeTask + taskId
 		case .archive:
@@ -123,7 +118,12 @@ extension EndpointData: Endpoint {
 	}
 	
 	var encoding: ParameterEncoding {
-		return JSONEncoding.default
+		switch httpMethod {
+		case .post, .put:
+			return JSONEncoding.default
+		default:
+			return URLEncoding.default
+		}
 	}
 	
 	var parameters: Parameters {
@@ -153,6 +153,12 @@ extension EndpointData: Endpoint {
 					ParameterConstants.priority: task.priority.rawValue,
 					ParameterConstants.status: task.status.rawValue,
 					ParameterConstants.closed: task.closed]
+		case .filterTask(let status, let priority, let username):
+			var dictionary: [String: String] = [:]
+			if(status != nil) { dictionary[QueryConstants.status] = status?.rawValue }
+			if(priority != nil) { dictionary[QueryConstants.priority] = priority?.rawValue }
+			if(username != nil) { dictionary[QueryConstants.username] = username }
+			return dictionary
 		default:
 			return [:]
 		}
@@ -169,11 +175,9 @@ extension EndpointData: Endpoint {
 		
 		switch self.httpMethod {
 		case .post:
-			let param = parameters
-			print(param)
-			return try! encoding.encode(urlRequest, with: param)
+			return try! encoding.encode(urlRequest, with: parameters)
 		default:
-			return urlRequest
+			return try! encoding.encode(urlRequest, with: parameters)
 		}
 	}
 }

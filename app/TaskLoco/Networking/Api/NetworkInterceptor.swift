@@ -9,10 +9,6 @@
 import Foundation
 import Alamofire
 
-private enum QueryConstants {
-	static var apiKey = "apiKey"
-}
-
 class NetworkInterceptor: RequestInterceptor {
 	
 	private let authManager: UserManger
@@ -22,9 +18,7 @@ class NetworkInterceptor: RequestInterceptor {
 	}
 	
 	func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-		print("\(urlRequest.httpMethod ?? ""): \(urlRequest)")
 		let params: Parameters = [QueryConstants.apiKey: authManager.provideApiKey()]
-
 		do {
 			let newRequest = try URLEncoding.default.encode(urlRequest, with: params)
 			print("\(newRequest.httpMethod ?? ""): \(newRequest)")

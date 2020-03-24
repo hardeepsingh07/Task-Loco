@@ -940,6 +940,26 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bx-jI-zNP">
+                                <rect key="frame" x="32" y="747" width="350" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.4941176471" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h6e-eE-hvu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createButtonAction:" destination="j4X-4C-nRz" eventType="touchUpInside" id="CQW-E7-Nsb"/>
+                                    <action selector="logoutButton:" destination="bpj-0o-Kbi" eventType="touchUpInside" id="9ch-z0-G8Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -949,15 +969,18 @@
                             <constraint firstItem="vxh-qi-NSp" firstAttribute="leading" secondItem="u3l-hG-TM9" secondAttribute="leading" constant="16" id="5Ry-iB-JDD"/>
                             <constraint firstItem="59o-jA-b21" firstAttribute="top" secondItem="NLs-Sd-Mjm" secondAttribute="top" constant="13" id="5X5-I0-wxQ"/>
                             <constraint firstItem="RZT-vm-tTJ" firstAttribute="bottom" secondItem="wJ9-iI-z24" secondAttribute="bottom" constant="10" id="88V-E6-Qo6"/>
+                            <constraint firstItem="6bx-jI-zNP" firstAttribute="leading" secondItem="u3l-hG-TM9" secondAttribute="leading" constant="32" id="9A7-xu-elG"/>
                             <constraint firstItem="NLs-Sd-Mjm" firstAttribute="top" secondItem="xTd-mY-Fne" secondAttribute="bottom" constant="16" id="EGg-aI-D16"/>
                             <constraint firstAttribute="trailing" secondItem="wJ9-iI-z24" secondAttribute="trailing" constant="16" id="EWY-y8-csa"/>
                             <constraint firstItem="xTd-mY-Fne" firstAttribute="leading" secondItem="u3l-hG-TM9" secondAttribute="leading" constant="16" id="Kpp-d9-ezn"/>
                             <constraint firstItem="wJ9-iI-z24" firstAttribute="top" secondItem="RZT-vm-tTJ" secondAttribute="top" constant="13" id="PGw-MJ-CYg"/>
                             <constraint firstItem="RZT-vm-tTJ" firstAttribute="top" secondItem="9nh-MV-Uyy" secondAttribute="bottom" constant="16" id="PJ3-q3-RqR"/>
                             <constraint firstAttribute="trailing" secondItem="59o-jA-b21" secondAttribute="trailing" constant="16" id="S9I-7b-EmH"/>
+                            <constraint firstItem="u3l-hG-TM9" firstAttribute="bottom" secondItem="6bx-jI-zNP" secondAttribute="bottom" constant="16" id="STC-u9-qTw"/>
                             <constraint firstItem="9nh-MV-Uyy" firstAttribute="top" secondItem="u3l-hG-TM9" secondAttribute="top" id="V0y-pV-2Ll"/>
                             <constraint firstItem="vxh-qi-NSp" firstAttribute="top" secondItem="RZT-vm-tTJ" secondAttribute="bottom" constant="12" id="Y4J-dt-HvD"/>
                             <constraint firstItem="xTd-mY-Fne" firstAttribute="top" secondItem="vxh-qi-NSp" secondAttribute="bottom" constant="4" id="YRI-oe-W4T"/>
+                            <constraint firstItem="u3l-hG-TM9" firstAttribute="trailing" secondItem="6bx-jI-zNP" secondAttribute="trailing" constant="32" id="fSc-mS-B62"/>
                             <constraint firstItem="wJ9-iI-z24" firstAttribute="leading" secondItem="RZT-vm-tTJ" secondAttribute="trailing" constant="4" id="j5U-PF-Ujg"/>
                             <constraint firstItem="NLs-Sd-Mjm" firstAttribute="leading" secondItem="u3l-hG-TM9" secondAttribute="leading" constant="16" id="sCH-TV-Xgx"/>
                             <constraint firstItem="u3l-hG-TM9" firstAttribute="trailing" secondItem="9nh-MV-Uyy" secondAttribute="trailing" id="slp-aI-8LU"/>
