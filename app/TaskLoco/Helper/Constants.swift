@@ -41,6 +41,10 @@ enum Alerts{
 	static var dismiss = "Dismiss"
 	static var invalidInput = "Invalid Input"
 	static var inputRequired = "All Input is Required"
+	static var confirmationTitle = "Task is Completed"
+	static var confirmationMessage = "Do you want to archive the task?"
+	static var archive = "Archive"
+	static var cancel = "Cancel"
 }
 
 enum General {

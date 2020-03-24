@@ -38,11 +38,13 @@ exports.archive = function (req, res) {
 };
 
 exports.filter = function (req, res) {
-    res.generateAndRespond("Filter Tasks", Task.find({
-        priority: {$regex: req.query.priority ? req.query.priority : "$", $options: 'i'},
-        status: {$regex: req.query.status ? req.query.status : "$", $options: 'i'},
-        "responsible.username": {$regex: req.query.username ? req.query.username : "$", $options: 'i'}
-    }))
+    req.validateKey(res, () => {
+        res.generateAndRespond("Filter Tasks", Task.find({
+            priority: {$regex: req.query.priority ? req.query.priority : "$", $options: 'i'},
+            status: {$regex: req.query.status ? req.query.status : "$", $options: 'i'},
+            "responsible.username": {$regex: req.query.username ? req.query.username : "$", $options: 'i'}
+        }))
+    });
 };
 
 exports.remove = function (req, res) {

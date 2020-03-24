@@ -58,7 +58,7 @@ struct Task: Codable {
 	let status: Status
 	let createdAt: String? = nil
 	let updatedAt: String? = nil
-	let closed: Bool
+	var closed: Bool = false
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"

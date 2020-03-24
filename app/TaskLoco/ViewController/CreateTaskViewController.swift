@@ -30,6 +30,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 	private var currentStatus = Status.pending
 	private var currentUserHeader = UserHeader()
 	var currentTaskInfo: Task? = nil
+	private var shouldClose = false
     
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -121,6 +122,9 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 		updateStatusView(.inProgress)
     }
     @IBAction func completedButtonAction(_ sender: Any) {
+		TL.userManager.isClosedEnabled()
+			? self.shouldClose = true
+			: confirmationAlert(archive: { (action) in self.shouldClose = true }) { (action) in self.shouldClose = false }
 		updateStatusView(.completed)
     }
 	
@@ -151,7 +155,7 @@ class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPicker
 					responsible: currentTaskInfo?.responsible ?? currentUserHeader,
 					priority: isPulsing() ? Priority.high: Priority.standard,
 					status: currentStatus,
-					closed: currentStatus == .completed)
+					closed: currentStatus == .completed && shouldClose)
 	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {

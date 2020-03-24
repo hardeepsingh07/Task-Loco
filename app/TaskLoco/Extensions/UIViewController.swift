@@ -26,6 +26,13 @@ extension UIViewController {
 		self.present(alertController, animated: true)
 	}
 	
+	func confirmationAlert(archive: @escaping (_ action: UIAlertAction) -> Void, cancel: @escaping (_ action: UIAlertAction) -> Void) {
+		let refreshAlert = UIAlertController(title: Alerts.confirmationTitle, message: Alerts.confirmationMessage, preferredStyle: UIAlertController.Style.actionSheet)
+		refreshAlert.addAction(UIAlertAction(title: Alerts.archive, style: .default, handler: archive))
+		refreshAlert.addAction(UIAlertAction(title: Alerts.cancel, style: .cancel, handler: cancel))
+		self.present(refreshAlert, animated: true)
+	}
+	
 	func validateInput(textFields: UITextField...) -> Bool {
 		for field in textFields {
 			if(field.text == nil && field.text!.isEmpty) {
