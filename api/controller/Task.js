@@ -37,32 +37,12 @@ exports.archive = function (req, res) {
     });
 };
 
-exports.statusTask = function (req, res) {
-    req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Completed Tasks", Task.find({status: req.params.status}))
-    });
-};
-
-exports.highPriorityWithStatus = function (req, res) {
-    req.validateKey(res, () => {
-        res.generateAndRespond("Fetch High Priority Status Tasks", Task.find({priority: "High", status: req.params.status}))
-    });
-};
-
-exports.testing = function (req, res) {
-    res.generateAndRespond("Testing Tasks", Task.find({priority: req.params.priority, status: req.params.status ? "//" : req.params.status}))
-};
-
-exports.standardPriorityWithStatus = function (req, res) {
-    req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Standard Priority Status Tasks", Task.find({priority: "Standard", status: req.params.status}))
-    });
-};
-
-exports.priorityTask = function (req, res) {
-    req.validateKey(res, () => {
-        res.generateAndRespond("Fetch High Priority Tasks", Task.find({priority: req.params.priority}))
-    });
+exports.filter = function (req, res) {
+    res.generateAndRespond("Filter Tasks", Task.find({
+        priority: {$regex: req.query.priority ? req.query.priority : "$", $options: 'i'},
+        status: {$regex: req.query.status ? req.query.status : "$", $options: 'i'},
+        "responsible.username": {$regex: req.query.username ? req.query.username : "$", $options: 'i'}
+    }))
 };
 
 exports.remove = function (req, res) {
