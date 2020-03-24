@@ -26,8 +26,7 @@ class SettingsViewController: UIViewController {
     @IBAction func onSwitchChanged(_ sender: UISwitch) {
 		TL.userManager.updateClosedSetting(enabled: sender.isOn)
     }
-    
-    @IBAction func logoutButton(_ sender: Any) {
-		navigateTo(LoginViewController.self, ViewController.login, true)
+    @IBAction func onImageViewClicked(_ sender: Any) {
+        navigateTo(LoginViewController.self, ViewController.login, true)
     }
 }
