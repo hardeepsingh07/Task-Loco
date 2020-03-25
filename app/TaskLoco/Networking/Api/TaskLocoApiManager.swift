@@ -54,10 +54,6 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(endpointData: EndpointData.filterTask(status: status, priority: priority, username: username))
 	}
 	
-	func archiveTask() -> Observable<TaskResponse> {
-		return self.request(endpointData: EndpointData.archive)
-	}
-	
 	func taskRemove(taskId: String) -> Observable<TaskResponse> {
 		return self.request(endpointData: EndpointData.taskRemove(taskId: taskId))
 	}

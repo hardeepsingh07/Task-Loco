@@ -28,8 +28,6 @@ protocol TaskLocoApi {
 	func userTask(username: String) -> Observable<TaskResponse>
 	
 	func filterTask(status: Status?, priority: Priority?, username: String?) -> Observable<TaskResponse>
-	
-	func archiveTask() -> Observable<TaskResponse>
-		
+			
 	func taskRemove(taskId: String) -> Observable<TaskResponse>
 }

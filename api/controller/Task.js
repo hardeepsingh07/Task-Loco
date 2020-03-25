@@ -33,7 +33,7 @@ exports.userTask = function (req, res) {
 
 exports.archive = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Closed Tasks", Task.find({closed: true}))
+        res.generateAndRespond("Fetch Closed Tasks", Task.find({status: "Closed"}))
     });
 };
 

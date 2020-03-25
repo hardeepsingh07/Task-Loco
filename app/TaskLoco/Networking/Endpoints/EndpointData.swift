@@ -19,7 +19,6 @@ enum EndpointData{
 	case allTasks
 	case userTask(username: String)
 	case filterTask(status: Status?, priority: Priority?, username: String?)
-	case archive
 	case taskRemove(taskId: String)
 }
 
@@ -36,7 +35,6 @@ private enum PathConstants {
 	static var allTasks = "\(task)/all"
 	static var userTask = "\(task)/user/"
 	static var filterTask = "\(task)/filter/"
-	static var archiveTask = "\(task)/archive"
 	static var removeTask = "\(task)/"
 }
 
@@ -97,8 +95,6 @@ extension EndpointData: Endpoint {
 			return PathConstants.filterTask
 		case .taskRemove(let taskId):
 			return PathConstants.removeTask + taskId
-		case .archive:
-			return PathConstants.archiveTask
 		}
 	}
 	
@@ -151,8 +147,7 @@ extension EndpointData: Endpoint {
 						ParameterConstants.name: task.responsible.name,
 					],
 					ParameterConstants.priority: task.priority.rawValue,
-					ParameterConstants.status: task.status.rawValue,
-					ParameterConstants.closed: task.closed]
+					ParameterConstants.status: task.status.rawValue]
 		case .filterTask(let status, let priority, let username):
 			var dictionary: [String: String] = [:]
 			if(status != nil) { dictionary[QueryConstants.status] = status?.rawValue }

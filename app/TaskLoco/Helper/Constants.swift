@@ -22,11 +22,6 @@ enum CellConstants {
 	static var archive = "ArchiveCell"
 }
 
-enum CellType {
-	case userCell
-	case archiveCell
-}
-
 enum ColorConstants{
 	static var primaryColorAlpha = UIColor(red:0.00, green:0.33, blue:0.58, alpha:0.8)
 	static var primaryColor = UIColor(red:0.00, green:0.33, blue:0.58, alpha:1)
@@ -82,4 +77,5 @@ enum LayerConstants {
 enum ButtonConstants {
 	static var create = "Create"
 	static var update = "Update"
+	static var reassign = "Re-Assign"
 }

@@ -9,39 +9,50 @@
 import UIKit
 import RxSwift
 
-class ArchiveViewController: UIViewController, UITableViewDataSource {
+class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 	
-    @IBOutlet weak var archiveTableView: UITableView!
+    @IBOutlet weak var archiveCollectionView: UICollectionView!
     private var archiveTasks: [Task] = []
 	
 	private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-        archiveTableView.dataSource = self
+        initCollectionView()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.archiveTask()
+		TL.taskLocoApi.filterTask(status: Status.closed, priority: nil, username: nil)
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { archiveTasks  in
 				self.archiveTasks = archiveTasks
-				self.archiveTableView.reloadData()
+				self.archiveCollectionView.reloadData()
 			}, onError: { error in
 				self.handleError(error)
 			})
 			.disposed(by: disposeBag)
 	}
+	
+	private func initCollectionView() {
+		archiveCollectionView.dataSource = self
+		archiveCollectionView.delegate = self
+		let width = (view.frame.size.width - 30) / 2
+		let layout = archiveCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+		layout.itemSize = CGSize(width: width, height: layout.itemSize.height)
+	}
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return archiveTasks.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.archive, for: indexPath) as! TaskCell
-		cell.updateView(self.archiveTasks[indexPath.row], .archiveCell)
-		return cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.archive, for: indexPath) as! ArchiveCell
+        cell.updateCell(self.archiveTasks[indexPath.row])
+        return cell
     }
-    
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		navigateToAlertSheet(ViewController.createTask, self.archiveTasks[indexPath.row])
+	}
 }

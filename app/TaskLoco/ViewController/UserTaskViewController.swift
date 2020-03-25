@@ -59,7 +59,7 @@ class UserTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.today, for: indexPath) as! TaskCell
-		cell.updateView(self.todayData[indexPath.row], .userCell)
+		cell.updateView(self.todayData[indexPath.row])
 		return cell
 	}
 	

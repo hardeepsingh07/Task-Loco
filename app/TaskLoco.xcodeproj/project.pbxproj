@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB0A10BE2410AFE5002F316A /* UICircularProgressRing in Frameworks */ = {isa = PBXBuildFile; productRef = EB0A10BD2410AFE5002F316A /* UICircularProgressRing */; };
+		EB0AC021242B1756006FE066 /* ArchiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0AC020242B1756006FE066 /* ArchiveCell.swift */; };
 		EB1D1FD52406C4FB00352E00 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB1D1FD42406C4FB00352E00 /* RxSwift */; };
 		EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE32406C75300352E00 /* EndpointData.swift */; };
 		EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D1FE52406C76F00352E00 /* Endpoint.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB0AC020242B1756006FE066 /* ArchiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCell.swift; sourceTree = "<group>"; };
 		EB1D1FE32406C75300352E00 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
 		EB1D1FE52406C76F00352E00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		EB2615C024294B7100939364 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -148,8 +150,8 @@
 		EB1D1FE22406C74300352E00 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				EB1D1FE32406C75300352E00 /* EndpointData.swift */,
 				EB1D1FE52406C76F00352E00 /* Endpoint.swift */,
+				EB1D1FE32406C75300352E00 /* EndpointData.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF2A2BB240AD3B9001B3D67 /* TaskCell.swift */,
+				EB0AC020242B1756006FE066 /* ArchiveCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
 				EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */,
+				EB0AC021242B1756006FE066 /* ArchiveCell.swift in Sources */,
 				EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */,
 				EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,

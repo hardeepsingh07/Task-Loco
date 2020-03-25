@@ -29,7 +29,7 @@ class TaskCell: UITableViewCell {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 	}
 	
-	func updateView(_ task: Task, _ cellType: CellType) {
+	func updateView(_ task: Task) {
 		dayOfWeek.text = task.dayOfWeek
 		dateOfMonth.text = task.dayOfMonth
 		month.text = task.monthOfYear
@@ -37,18 +37,9 @@ class TaskCell: UITableViewCell {
 		taskDescription.text = task.description
 		responsible.text = task.responsible.name
 		highPriorityButton.isHidden = task.priority == .standard
-		handleCellVariations(task, cellType)
-	}
-	
-	private func handleCellVariations(_ task: Task, _ cellType: CellType) {
-		switch cellType {
-		case .userCell:
-			status.text = task.status.rawValue
-			statusBackground.backgroundColor = task.status.color
-			pulsateHighPriority(task.priority, task.status)
-		default:
-			print("Cell Type: \(cellType)")
-		}
+		status.text = task.status.rawValue
+		statusBackground.backgroundColor = task.status.color
+		pulsateHighPriority(task.priority, task.status)
 	}
 	
 	private func pulsateHighPriority(_ priority: Priority, _ status: Status) {

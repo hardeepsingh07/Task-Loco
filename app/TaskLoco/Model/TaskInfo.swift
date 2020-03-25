@@ -34,6 +34,7 @@ enum Status: String, Codable {
 	case completed = "Completed"
 	case inProgress = "In Progress"
 	case pending = "Pending"
+	case closed = "Closed"
 	
 	var color: UIColor {
 		switch self {
@@ -43,6 +44,8 @@ enum Status: String, Codable {
 			return ColorConstants.lightYellow
 		case .completed:
 			return ColorConstants.lightGreen
+		case .closed:
+			return ColorConstants.lightGrey
 		}
 	}
 }
@@ -58,11 +61,10 @@ struct Task: Codable {
 	let status: Status
 	let createdAt: String? = nil
 	let updatedAt: String? = nil
-	var closed: Bool = false
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "_id"
-		case title, description, completeBy, assignee, responsible, priority, status, createdAt, updatedAt, closed
+		case title, description, completeBy, assignee, responsible, priority, status, createdAt, updatedAt
 	}
 	
 	var completeByAsDate: Date {
