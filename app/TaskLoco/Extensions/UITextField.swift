@@ -23,9 +23,9 @@ extension UITextField {
 		
 		let toolbar = UIToolbar();
 		toolbar.sizeToFit()
-		let doneButton = UIBarButtonItem(title: DatePicker.done, style: .plain, target: self, action: #selector(doneDatePicker));
+		let doneButton = UIBarButtonItem(title: Picker.done, style: .plain, target: self, action: #selector(doneDatePicker));
 		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-		let cancelButton = UIBarButtonItem(title: DatePicker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
+		let cancelButton = UIBarButtonItem(title: Picker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
 		toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
 		
 		self.inputAccessoryView = toolbar
@@ -38,7 +38,7 @@ extension UITextField {
 		let toolbar = UIToolbar();
 		toolbar.sizeToFit()
 		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-		let cancelButton = UIBarButtonItem(title: DatePicker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
+		let cancelButton = UIBarButtonItem(title: Picker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
 		toolbar.setItems([spaceButton,cancelButton], animated: false)
 		
 		self.inputAccessoryView = toolbar

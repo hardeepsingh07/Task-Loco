@@ -66,9 +66,10 @@ enum DateFormat {
 	static var monthDateYearDash = "MM/dd/yyyy"
 }
 
-enum DatePicker {
+enum Picker {
 	static var done = "Done"
 	static var cancel = "Cancel"
+	static var finish = "Finish"
 }
 
 enum LayerConstants {

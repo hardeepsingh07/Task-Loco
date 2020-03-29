@@ -1,7 +1,7 @@
 const Task = require('../model/Task');
 
 //Create Task with Username and Today Date
-exports.createTasksWithUsername = (username) => {
+exports.createTasksWithUsername = (responsbile) => {
     let priority = ["High", "Standard"];
     let status = ["Pending", "In Progress", "Completed"];
 
@@ -10,16 +10,16 @@ exports.createTasksWithUsername = (username) => {
         let priorityIndex = Math.floor(Math.random() * priority.length);
         let statusIndex = Math.floor(Math.random() * status.length);
         new Task({
-            title: "Task " + username + " " + i,
+            title: "Task " + responsbile.username + " " + i,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin laboramus, quis est, qui alienae modum statuat industriae? Laboro autem non sine causa; Tum mihi Piso: Quid ergo? Et quidem illud ipsum non nimium probo et tantum patior, philosophum loqui de cupiditatibus finiendis.",
             completeBy: date.toLocaleDateString(),
             assignee: {username: "Hardeep " + i, name: "Hardeep " + i},
-            responsible: {username: "singhha", name: "Hardeep Singh"},
+            responsible: responsbile,
             priority: priority[priorityIndex],
             status: status[statusIndex]
         }).save()
     }
-    console.log("Generated " + username + " Tasks")
+    console.log("Generated " + responsbile.username + " Tasks")
 };
 
 exports.createCloseTasks = (startIndex) => {

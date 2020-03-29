@@ -11,6 +11,9 @@ import UICircularProgressRing
 
 extension UIViewController {
 	
+	private static var picker = UIPickerView.init()
+	private static var toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+	
 	func fullScreen() -> UIViewController {
 		self.modalPresentationStyle = .fullScreen
 		return self
@@ -84,6 +87,22 @@ extension UIViewController {
 							 addLayoutConstraint(progressBar, .width, 75),
 							 addLayoutConstraint(progressBar, .height, 75)])
 		return progressBar
+	}
+	
+	func showPicker() -> UIPickerView? {
+		UIViewController.picker.backgroundColor = UIColor.white
+		UIViewController.picker.autoresizingMask = .flexibleWidth
+		UIViewController.picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+		self.view.addSubview(UIViewController.picker)
+
+		UIViewController.toolBar.setItems([UIBarButtonItem(title: Picker.finish, style: .plain, target: self, action: #selector(onFinish))], animated: false)
+		self.view.addSubview(UIViewController.toolBar)
+		return UIViewController.picker
+	}
+	
+	@objc func onFinish() {
+		UIViewController.picker.removeFromSuperview()
+		UIViewController.toolBar.removeFromSuperview()
 	}
 	
 	private func addDirectionConstraint(_ view: UIView, _ secondView: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {

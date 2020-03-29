@@ -19,7 +19,6 @@ struct TaskResponse: Response {
 enum Priority: String, Codable {
     case high = "High"
     case standard = "Standard"
-	case none = "P"
 	
 	var color: UIColor {
 		switch self {
@@ -27,8 +26,6 @@ enum Priority: String, Codable {
 			return UIColor.red
 		case .standard:
 			return UIColor.lightGray
-		default:
-			return UIColor.red
 		}
 	}
 }
@@ -38,11 +35,10 @@ enum Status: String, Codable {
 	case inProgress = "In Progress"
 	case pending = "Pending"
 	case closed = "Closed"
-	case none = "S"
 	
 	var color: UIColor {
 		switch self {
-		case .pending, .none:
+		case .pending:
 			return ColorConstants.lightBlue
 		case .inProgress:
 			return ColorConstants.lightYellow

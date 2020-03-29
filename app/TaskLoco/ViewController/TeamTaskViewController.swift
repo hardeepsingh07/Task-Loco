@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 	
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var priorityMenuButton: UIButton!
@@ -17,6 +17,7 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var statusMenuButton: UIButton!
     @IBOutlet weak var statusButtonStack: UIStackView!
     @IBOutlet weak var userMenuButton: UIButton!
+    @IBOutlet weak var clearMenuButton: UIButton!
     
     @IBOutlet weak var teamTaskTableView: UITableView!
     
@@ -28,25 +29,22 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var statusFilterText: UILabel!
     @IBOutlet weak var usernameFilterText: UILabel!
 	
+	private var namesPicker: UIPickerView? = nil
+	
 	private let disposeBag = DisposeBag()
 	private var tasks: [Task] = []
 	private var team: [UserHeader] = []
     private var currentStatus: Status? = nil
     private var currentPriority: Priority? = nil
-    private var currentUsername: String? = nil
+    private var currentUserHeader: UserHeader? = nil
     private var menuOpen: Bool = false
     
     override func viewDidLoad() {
 		super.viewDidLoad()
 		
-        priorityFilterText.text = currentPriority?.rawValue ?? General.all
-		statusFilterText.isHidden = currentStatus == nil
-        statusFilterText.text = currentStatus?.rawValue ?? General.all
-		usernameFilterText.isHidden = currentUsername == nil
-        usernameFilterText.text = currentPriority?.rawValue ?? General.all
-        
-        teamTaskTableView.dataSource = self
-        teamTaskTableView.delegate = self
+        updateFilterText()
+        initMenuButtons()
+		initTableView()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -54,26 +52,42 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 	}
     
     private func updateTaskView() {
-        TL.taskLocoApi.filterTask(status: currentStatus, priority: currentPriority, username: currentUsername)
-            .observeOn(MainScheduler.instance)
-            .mapToHandleResponse()
-            .subscribe(onNext: { tasks  in
-                self.tasks = tasks
-                self.teamTaskTableView.reloadData()
-                self.updateFilterText()
+		Observable.zip(
+			TL.taskLocoApi.filterTask(status: currentStatus, priority: currentPriority, username: currentUserHeader?.username)
+				.mapToHandleResponse()
+				.map({ $0.filter({ $0.status != .closed })}),
+			TL.taskLocoApi.allUsers().mapToHandleResponse(), resultSelector: { return ($0, $1) })
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: { result in
+				self.tasks = result.0
+				self.team = result.1
+				self.teamTaskTableView.reloadData()
+				self.updateFilterText()
 				self.updateAnalyticsView()
-            }, onError: { error in
-                self.handleError(error)
-            })
-            .disposed(by: disposeBag)
+			}, onError: { error in
+				self.handleError(error)
+			}).disposed(by: disposeBag)
     }
+	
+	private func initMenuButtons() {
+		self.priorityMenuButton.isHidden = true
+		self.statusMenuButton.isHidden = true
+		self.userMenuButton.isHidden = true
+		self.clearMenuButton.isHidden = true
+	}
+	
+	private func initTableView() {
+		teamTaskTableView.dataSource = self
+        teamTaskTableView.delegate = self
+	}
     
     private func updateFilterText() {
         priorityFilterText.text = currentPriority?.rawValue ?? General.all
         statusFilterText.isHidden = currentStatus == nil
         statusFilterText.text = currentStatus?.rawValue ?? General.all
-        usernameFilterText.isHidden = currentUsername == nil
-        usernameFilterText.text = currentPriority?.rawValue ?? General.all
+        usernameFilterText.isHidden = currentUserHeader == nil
+		usernameFilterText.text = currentUserHeader?.name ?? General.all
+		priorityFilterText.isHidden = currentPriority == nil && (currentStatus != nil || currentUserHeader != nil)
     }
     
     private func updateAnalyticsView() {
@@ -111,6 +125,14 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
             break
         case 3:
             showUserPicker()
+            break;
+        case 4:
+            currentPriority = nil
+            currentStatus = nil
+            currentUserHeader = nil
+            toggleFilterMenu()
+			if(!menuOpen) { self.updateTaskView() }
+            break;
         default:
             print("Unknown Button Tag: \(sender.tag)")
         }
@@ -154,19 +176,37 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
             self.priorityMenuButton.isHidden = !self.priorityMenuButton.isHidden
             self.statusMenuButton.isHidden = !self.statusMenuButton.isHidden
             self.userMenuButton.isHidden = !self.userMenuButton.isHidden
+            self.clearMenuButton.isHidden = !self.clearMenuButton.isHidden
 			self.togglePanelMenu(hidePriority: true, hideStatus: true)
             self.menuOpen = !self.menuOpen
         })
     }
 	
 	private func togglePanelMenu(hidePriority: Bool, hideStatus: Bool) {
-		UIView.animate(withDuration: 0.5, animations: {
+//		UIView.animate(withDuration: 0.5, animations: {
 			self.priorityButtonsStack.isHidden = hidePriority
 			self.statusButtonStack.isHidden = hideStatus
-		})
+//		})
 	}
     
     private func showUserPicker() {
-        
+		namesPicker = showPicker()
+		namesPicker?.delegate = self
     }
+	
+	func numberOfComponents(in pickerView: UIPickerView) -> Int {
+		return 1
+	}
+
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return team.count
+	}
+
+	func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		return team[row].name + General.fourTab + team[row].username
+	}
+
+	func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		currentUserHeader = team[row]
+	}
 }
