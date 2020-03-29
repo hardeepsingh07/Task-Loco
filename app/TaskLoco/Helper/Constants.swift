@@ -13,12 +13,12 @@ enum ViewController {
 	static var login = "LoginViewController"
 	static var signUp = "SignupViewController"
 	static var tabBar = "TabBarViewController"
-	static var createTask = "CreateTaskViewController"
+	static var createTask = "TaskViewController"
 	static var contentView = "ContentViewController"
 }
 
 enum CellConstants {
-	static var today = "TodayCell"
+	static var task = "TaskCell"
 	static var archive = "ArchiveCell"
 }
 

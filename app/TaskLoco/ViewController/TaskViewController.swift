@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class CreateTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 	
     @IBOutlet weak var headerBackground: UIView!
     @IBOutlet weak var headerTitle: UILabel!

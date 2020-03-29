@@ -50,7 +50,7 @@ extension UIViewController {
 	}
 	
 	func navigateToAlertSheet(_ vcIdentifier: String, _ task: Task? = nil) {
-		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! CreateTaskViewController
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! TaskViewController
 		viewController.currentTaskInfo = task
 		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alertController.setValue(viewController, forKey: ViewController.contentView)

@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 	}
 	
 	func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-		if viewController is CreateTaskViewController {
+		if viewController is TaskViewController {
 			navigateToAlertSheet(ViewController.createTask)
 			return false
 		}
