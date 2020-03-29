@@ -45,6 +45,7 @@ enum Alerts{
 enum General {
 	static var fourTab = "\t\t\t\t"
 	static var empty = ""
+	static var all = "All"
 }
 
 enum ErrorConstants {
@@ -78,4 +79,10 @@ enum ButtonConstants {
 	static var create = "Create"
 	static var update = "Update"
 	static var reassign = "Re-Assign"
+}
+
+enum TaskAnalytics {
+	static var member = " Member"
+	static var tasks = " Tasks"
+	static var completed = " Completed"
 }

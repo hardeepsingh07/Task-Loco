@@ -29,7 +29,7 @@ class TaskCell: UITableViewCell {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 	}
 	
-	func updateView(_ task: Task) {
+	func updateCell(_ task: Task) {
 		dayOfWeek.text = task.dayOfWeek
 		dateOfMonth.text = task.dayOfMonth
 		month.text = task.monthOfYear

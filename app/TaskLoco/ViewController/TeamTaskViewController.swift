@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RxSwift
 
-class TeamTaskViewController: UIViewController {
+class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var priorityMenuButton: UIButton!
@@ -17,14 +18,90 @@ class TeamTaskViewController: UIViewController {
     @IBOutlet weak var statusButtonStack: UIStackView!
     @IBOutlet weak var userMenuButton: UIButton!
     
+    @IBOutlet weak var teamTaskTableView: UITableView!
+    
+    @IBOutlet weak var membersCount: UILabel!
+    @IBOutlet weak var taskCount: UILabel!
+    @IBOutlet weak var completeCount: UILabel!
+	
+    @IBOutlet weak var priorityFilterText: UILabel!
+    @IBOutlet weak var statusFilterText: UILabel!
+    @IBOutlet weak var usernameFilterText: UILabel!
+	
+	private let disposeBag = DisposeBag()
+	private var tasks: [Task] = []
+	private var team: [UserHeader] = []
+    private var currentStatus: Status? = nil
+    private var currentPriority: Priority? = nil
+    private var currentUsername: String? = nil
+    private var menuOpen: Bool = false
+    
     override func viewDidLoad() {
 		super.viewDidLoad()
+		
+        priorityFilterText.text = currentPriority?.rawValue ?? General.all
+		statusFilterText.isHidden = currentStatus == nil
+        statusFilterText.text = currentStatus?.rawValue ?? General.all
+		usernameFilterText.isHidden = currentUsername == nil
+        usernameFilterText.text = currentPriority?.rawValue ?? General.all
+        
+        teamTaskTableView.dataSource = self
+        teamTaskTableView.delegate = self
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		updateTaskView()
+	}
+    
+    private func updateTaskView() {
+        TL.taskLocoApi.filterTask(status: currentStatus, priority: currentPriority, username: currentUsername)
+            .observeOn(MainScheduler.instance)
+            .mapToHandleResponse()
+            .subscribe(onNext: { tasks  in
+                self.tasks = tasks
+                self.teamTaskTableView.reloadData()
+                self.updateFilterText()
+				self.updateAnalyticsView()
+            }, onError: { error in
+                self.handleError(error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func updateFilterText() {
+        priorityFilterText.text = currentPriority?.rawValue ?? General.all
+        statusFilterText.isHidden = currentStatus == nil
+        statusFilterText.text = currentStatus?.rawValue ?? General.all
+        usernameFilterText.isHidden = currentUsername == nil
+        usernameFilterText.text = currentPriority?.rawValue ?? General.all
+    }
+    
+    private func updateAnalyticsView() {
+		membersCount.text = String(team.count) + TaskAnalytics.member
+		taskCount.text = String(tasks.count) + TaskAnalytics.tasks
+		completeCount.text = String(tasks.filter({ $0.status == .completed}).count) + TaskAnalytics.completed
+    }
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.tasks.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.task, for: indexPath) as! TaskCell
+		cell.updateCell(self.tasks[indexPath.row])
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		navigateToAlertSheet(ViewController.createTask, self.tasks[indexPath.row])
+	}
+	
     
     @IBAction func filterMenuButtonSelected(_ sender: UIButton) {
         switch sender.tag {
         case 0:
             toggleFilterMenu()
+			if(!menuOpen) { self.updateTaskView() }
             break
         case 1:
 			togglePanelMenu(hidePriority: !self.priorityButtonsStack.isHidden, hideStatus: true)
@@ -40,39 +117,35 @@ class TeamTaskViewController: UIViewController {
     }
     
     @IBAction func priorityButtonSelected(_ sender: UIButton) {
-		var priority: Priority
 		switch sender.tag {
         case 0:
-			priority = Priority.high
+			currentPriority = Priority.high
         case 1:
-            priority = Priority.standard
+            currentPriority = Priority.standard
         default:
-			priority = Priority.none
             print("Unknown Button Tag: \(sender.tag)")
         }
-		priorityMenuButton.setTitle(String(priority.rawValue.first ?? "P"), for: .normal)
-		priorityMenuButton.backgroundColor = priority.color
+		priorityMenuButton.setTitle(String(currentPriority?.rawValue.first ?? "P"), for: .normal)
+		priorityMenuButton.backgroundColor = currentPriority?.color ?? Priority.high.color
 		togglePanelMenu(hidePriority: true, hideStatus: true)
     }
     
     @IBAction func statusButtonSelected(_ sender: UIButton) {
-		var status: Status
         switch sender.tag {
         case 0:
-			status = Status.pending
+			currentStatus = Status.pending
             break;
         case 1:
-            status = Status.inProgress
+            currentStatus = Status.inProgress
             break;
         case 2:
-            status = Status.completed
+            currentStatus = Status.completed
             break;
         default:
-			status = Status.none
             print("Unknown Button Tag: \(sender.tag)")
         }
-		statusMenuButton.setTitle(String(status.rawValue.first ?? "S"), for: .normal)
-		statusMenuButton.backgroundColor = status.color
+		statusMenuButton.setTitle(String(currentStatus?.rawValue.first ?? "S"), for: .normal)
+		statusMenuButton.backgroundColor = currentStatus?.color ?? Status.pending.color
 		togglePanelMenu(hidePriority: true, hideStatus: true)
     }
     
@@ -82,6 +155,7 @@ class TeamTaskViewController: UIViewController {
             self.statusMenuButton.isHidden = !self.statusMenuButton.isHidden
             self.userMenuButton.isHidden = !self.userMenuButton.isHidden
 			self.togglePanelMenu(hidePriority: true, hideStatus: true)
+            self.menuOpen = !self.menuOpen
         })
     }
 	
