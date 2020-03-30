@@ -20,6 +20,8 @@ enum ViewController {
 enum CellConstants {
 	static var task = "TaskCell"
 	static var archive = "ArchiveCell"
+	static var user = "UserCell"
+	static var add = "AddCell"
 }
 
 enum ColorConstants{
@@ -46,6 +48,7 @@ enum General {
 	static var fourTab = "\t\t\t\t"
 	static var empty = ""
 	static var all = "All"
+	static var x: Character = "X"
 }
 
 enum ErrorConstants {
