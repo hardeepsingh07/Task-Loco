@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {res.json({api: "Welcome to Task Loco Api"})});
 app.use('/user', require('./route/User'));
 app.use('/task', require('./route/Task'));
+app.use('/project', require('./route/Project'));
 app.listen(API_PORT, function () {console.log("Task Loco API is running on port: " + API_PORT)});
 
 //Generate Test Task Data

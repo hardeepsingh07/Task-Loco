@@ -2,12 +2,14 @@ const Project = require('../model/Project');
 const utils = require('../util/Utils');
 
 exports.create = function (req, res) {
-    Project.exists({projectId: req.body.projectId})
-        .then(exists => {
-            exists
-                ? res.createResponse("New Project Creation Failed", null, projectExistsError())
-                : res.generateAndRespond("New Project Creation", createProject(req).save());
-        }).catch(error => res.createResponse("New Project Creation Failed", null, userExistsError()));
+    req.validateKey(res, () => {
+        Project.exists({projectId: req.body.projectId})
+            .then(exists => {
+                exists
+                    ? res.createResponse("New Project Creation Failed", null, projectExistsError())
+                    : res.generateAndRespond("New Project Creation", createProject(req).save());
+            }).catch(error => res.createResponse("New Project Creation Failed", null, projectExistsError()));
+    });
 };
 
 exports.all = function (req, res) {
@@ -18,19 +20,19 @@ exports.all = function (req, res) {
 
 exports.userProjects = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch User Project", User.find({'users.username': req.params.username}))
+        res.generateAndRespond("Fetch User Project", Project.find({'users.username': req.params.username}))
     });
 };
 
 exports.project = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Project", User.find({projectId: req.params.projectId}))
+        res.generateAndRespond("Fetch Project", Project.find({projectId: req.params.projectId}))
     });
 };
 
 exports.remove = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Project Remove", User.findOneAndRemove({projectId: req.params.projectId}))
+        res.generateAndRespond("Project Remove", Project.findOneAndRemove({projectId: req.params.projectId}))
     });
 };
 
