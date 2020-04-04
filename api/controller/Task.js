@@ -23,7 +23,7 @@ exports.tasks = function (req, res) {
 
 exports.userTask = function (req, res) {
     req.validateKey(res, () => {
-        Task.find({"responsible.username": req.params.username})
+        Task.find({"responsible.username": req.params.username, status: { $ne: "Closed"}})
             .then(data => {
                 res.createResponse("Fetch Today Tasks Successful", filterData(data), null)
             })
@@ -66,10 +66,10 @@ function createTask(req) {
 }
 
 function filterData(data) {
-    let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed" && !task.closed);
-    let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress" && !task.closed);
-    let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending" && !task.closed);
-    let completed = data.filter(task => task.status === "Completed" && !task.closed);
+    let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed");
+    let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress");
+    let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending");
+    let completed = data.filter(task => task.status === "Completed");
     return _.union(highPriority, inProgress, pending, completed);
 }
 
