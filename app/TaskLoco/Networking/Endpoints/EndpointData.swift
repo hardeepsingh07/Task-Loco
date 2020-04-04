@@ -22,7 +22,7 @@ enum EndpointData{
 	case taskRemove(taskId: String)
 }
 
-private enum PathConstants {
+enum PathConstants {
 	static var root = "/"
 	static var user = "/user"
 	static var task = "/task"
@@ -70,7 +70,15 @@ extension EndpointData: Endpoint {
 	
 	var baseUrl: String {
 		return UrlConstants.baseUrl
-		
+	}
+	
+	var authentication: Bool {
+		switch self {
+		case .login, .signUp:
+			return false
+		default:
+			return true
+		}
 	}
 	
 	var path: String {

@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 		usernameTF.bottomBorder(uiColor: UIColor.white)
 		passwordTF.bottomBorder(uiColor: UIColor.white)
+		usernameTF.text = "hardeep"
+		passwordTF.text = "hardeep"
 	}
     
 	@IBAction func loginAction(_ sender: Any) {

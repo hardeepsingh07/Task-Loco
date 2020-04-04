@@ -151,6 +151,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	
 	private func generateTask() -> Task {
 		return Task(id: currentTaskInfo?.id,
+					projectId: "TODO",
 					title: taskTitle.text!,
 					description: taskDescription.text!,
 					completeBy: taskCompletedBy.text!,

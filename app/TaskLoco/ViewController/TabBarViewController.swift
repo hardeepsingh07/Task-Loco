@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum Tab: Int {
+	case home = 0
+	case team = 1
+	case create = 2
+	case archive = 3
+	case setting = 4
+}
+
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 	
 	override func viewDidLoad() {

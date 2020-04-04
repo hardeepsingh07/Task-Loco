@@ -30,7 +30,7 @@ class UserTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.userTask(username: "singhha")
+		TL.taskLocoApi.userTask(username: TL.userManager.provideUserHeader().username)
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { tasks in

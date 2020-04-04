@@ -61,7 +61,7 @@ class TaskLocoApiManager: TaskLocoApi {
 	
 	private func request<T: Codable>(endpointData: EndpointData) -> Observable<T>  {
 		return Observable<T>.create { observer in
-			let request = AF.request(endpointData.urlRequest).responseDecodable { (response: DataResponse<T, AFError>) in
+			let request = TL.session.request(endpointData.urlRequest).responseDecodable { (response: DataResponse<T, AFError>) in
 				switch response.result {
 				case .success(let data):
 					observer.onNext(data)
