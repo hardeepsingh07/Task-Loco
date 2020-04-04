@@ -20,12 +20,17 @@ enum EndpointData{
 	case userTask(username: String)
 	case filterTask(status: Status?, priority: Priority?, username: String?)
 	case taskRemove(taskId: String)
+	case userProject(username: String)
+	case project(projectId: String)
+	case addMember(projectId: String, userHeader: UserHeader)
+	case removeMember(projectId: String, userHeader: UserHeader)
 }
 
 enum PathConstants {
 	static var root = "/"
 	static var user = "/user"
 	static var task = "/task"
+	static var project = "/project"
 	static var login = "\(user)/login"
 	static var allUsers = "\(user)/names"
 	static var signUp = user
@@ -36,6 +41,10 @@ enum PathConstants {
 	static var userTask = "\(task)/user/"
 	static var filterTask = "\(task)/filter/"
 	static var removeTask = "\(task)/"
+	static var userProjects = "\(project)/"
+	static var projectId = "\(project)/id/"
+	static var addMember = "\(project)/add/"
+	static var removeMember = "\(project)/remove/"
 }
 
 enum QueryConstants {
@@ -103,12 +112,20 @@ extension EndpointData: Endpoint {
 			return PathConstants.filterTask
 		case .taskRemove(let taskId):
 			return PathConstants.removeTask + taskId
+		case .userProject(let username):
+			return PathConstants.userProjects + username
+		case .project(let projectId):
+			return PathConstants.project + projectId
+		case .addMember(let projectId, _):
+			return PathConstants.addMember + projectId
+		case .removeMember(let projectId, _):
+			return PathConstants.removeMember + projectId
 		}
 	}
 	
 	var httpMethod: HTTPMethod {
 		switch self {
-		case .login, .signUp, .logout, .createTask, .updateTask:
+		case .login, .signUp, .logout, .createTask, .updateTask, .addMember:
 			return .post
 		case .taskRemove:
 			return .delete
@@ -162,6 +179,9 @@ extension EndpointData: Endpoint {
 			if(priority != nil) { dictionary[QueryConstants.priority] = priority?.rawValue }
 			if(username != nil) { dictionary[QueryConstants.username] = username }
 			return dictionary
+		case .addMember( _, let userHeader), .removeMember( _, let userHeader):
+			return [ParameterConstants.username:  userHeader.username,
+					ParameterConstants.name: userHeader.name]
 		default:
 			return [:]
 		}

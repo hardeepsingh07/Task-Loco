@@ -43,6 +43,7 @@
 		EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D563240394AE0000436B /* TaskLocoApi.swift */; };
 		EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64D565240398980000436B /* TaskLocoApiManager.swift */; };
 		EB668CD3243195CD00D398D5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB668CD2243195CD00D398D5 /* UserCell.swift */; };
+		EB843D74243913C600FE090D /* ProjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB843D73243913C600FE090D /* ProjectInfo.swift */; };
 		EBB3323B240E210C005666F4 /* UiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB3323A240E210C005666F4 /* UiView.swift */; };
 		EBB36A4A24256BCC001CC1B5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB36A4924256BCC001CC1B5 /* TabBarViewController.swift */; };
 		EBB36A4C2425B581001CC1B5 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB36A4B2425B581001CC1B5 /* TaskViewController.swift */; };
@@ -97,6 +98,7 @@
 		EB64D563240394AE0000436B /* TaskLocoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApi.swift; sourceTree = "<group>"; };
 		EB64D565240398980000436B /* TaskLocoApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocoApiManager.swift; sourceTree = "<group>"; };
 		EB668CD2243195CD00D398D5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		EB843D73243913C600FE090D /* ProjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfo.swift; sourceTree = "<group>"; };
 		EBB3323A240E210C005666F4 /* UiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiView.swift; sourceTree = "<group>"; };
 		EBB36A4924256BCC001CC1B5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		EBB36A4B2425B581001CC1B5 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				EBF2A2BF240AD6D7001B3D67 /* Response.swift */,
 				EBF2A2C1240AE534001B3D67 /* UserInfo.swift */,
 				EBF2A2BD240AD561001B3D67 /* TaskInfo.swift */,
+				EB843D73243913C600FE090D /* ProjectInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */,
 				EB0AC021242B1756006FE066 /* ArchiveCell.swift in Sources */,
 				EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */,
+				EB843D74243913C600FE090D /* ProjectInfo.swift in Sources */,
 				EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,
 				EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */,

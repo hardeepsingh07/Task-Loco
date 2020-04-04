@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var projectId: UITextField!
+    @IBOutlet weak var projectName: UITextField!
     @IBOutlet weak var closedSwitch: UISwitch!
     @IBOutlet weak var teamCollectionView: UICollectionView!
     

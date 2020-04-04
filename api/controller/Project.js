@@ -18,6 +18,30 @@ exports.all = function (req, res) {
     });
 };
 
+exports.addMember = function (req, res) {
+    req.validateKey(res, () => {
+        res.generateAndRespond("Add Member to Project",
+            Project.findOneAndUpdate(
+                {projectId: req.params.projectId},
+                {$push: {users: req.body}},
+                {new: true}
+            )
+        );
+    });
+};
+
+exports.removeMember = function (req, res) {
+    req.validateKey(res, () => {
+        res.generateAndRespond("Remove Member to Project",
+            Project.findOneAndUpdate(
+                {projectId: req.params.projectId},
+                {$pull: {users: req.body}},
+                {new: true}
+            )
+        );
+    });
+};
+
 exports.userProjects = function (req, res) {
     req.validateKey(res, () => {
         res.generateAndRespond("Fetch User Project", Project.find({'users.username': req.params.username}))

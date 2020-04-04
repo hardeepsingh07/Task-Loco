@@ -58,6 +58,21 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(endpointData: EndpointData.taskRemove(taskId: taskId))
 	}
 	
+	func userProjects(username: String) -> Observable<ProjectResponse> {
+		return self.request(endpointData: EndpointData.userProject(username: username))
+	}
+	
+	func project(projectId: String) -> Observable<ProjectResponse> {
+		return self.request(endpointData: EndpointData.project(projectId: projectId))
+	}
+	
+	func addMember(projectId: String, userHeader: UserHeader) -> Observable<ProjectResponse> {
+		return self.request(endpointData: EndpointData.addMember(projectId: projectId, userHeader: userHeader))
+	}
+	
+	func removeMember(projectId: String, userHeader: UserHeader) -> Observable<ProjectResponse> {
+		return self.request(endpointData: EndpointData.removeMember(projectId: projectId, userHeader: userHeader))
+	}
 	
 	private func request<T: Codable>(endpointData: EndpointData) -> Observable<T>  {
 		return Observable<T>.create { observer in

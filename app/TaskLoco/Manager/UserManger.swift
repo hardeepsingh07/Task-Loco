@@ -13,11 +13,13 @@ import RxSwift
 private enum AuthConstants {
 	static let apiKeyTag = "user-api-key"
 	static let usernameTag = "username-key"
-	static let closedTag = "closed-key"
+	static let userSettingClosedTag = "setting-closed-key"
+	static let projectIdTag = "project-key"
 	static let nameTag = "name-key"
 	static let noApiKey = "no-api-key"
 	static let noUsername = "no-username"
 	static let noName = "no-name"
+	static let noProjectId = "no-project-id"
 }
 
 class UserManger {
@@ -63,10 +65,18 @@ class UserManger {
 	}
 	
 	func updateClosedSetting(enabled: Bool) {
-		self.preferences.set(enabled, forKey: AuthConstants.closedTag)
+		self.preferences.set(enabled, forKey: AuthConstants.userSettingClosedTag)
 	}
 	
 	func isClosedEnabled() -> Bool {
-		return self.preferences.bool(forKey: AuthConstants.closedTag)
+		return self.preferences.bool(forKey: AuthConstants.userSettingClosedTag)
+	}
+	
+	func updateProjectId(enabled: Bool) {
+		self.preferences.set(enabled, forKey: AuthConstants.projectIdTag)
+	}
+	
+	func getProjectId() -> String {
+		return self.preferences.string(forKey: AuthConstants.projectIdTag) ?? AuthConstants.noProjectId
 	}
 }
