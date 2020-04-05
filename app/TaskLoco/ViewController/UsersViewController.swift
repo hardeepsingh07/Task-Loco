@@ -68,8 +68,6 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
     private func initView() {
         searchBar.delegate = self
         pageTitle.text = userSelectionType.message
-        doneButton.isHidden = userSelectionType == .single
-        selectionView.isHidden = userSelectionType == .single
         initCollectionView()
     }
     
@@ -111,10 +109,16 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
 		case selectionCollectionView:
 			self.selected.remove(at: indexPath.row)
 		default:
-			selected.insert(filterData[indexPath.row], at: 0)
-			if(userSelectionType == .single) {
-				onSelectionDelegate?.onSelected(selection: selected)
-				self.dismiss(animated: true)
+			let userHeader = filterData[indexPath.row]
+			switch userSelectionType {
+			case .single:
+				if(selected.isEmpty) {
+					selected.insert(userHeader, at: 0)
+				} else {
+					selected[0] = userHeader
+				}
+			case .multiple:
+				selected.insert(userHeader, at: 0)
 			}
 		}
 		selectionCollectionView.reloadData()
