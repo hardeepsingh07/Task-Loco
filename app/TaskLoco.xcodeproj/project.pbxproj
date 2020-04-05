@@ -51,6 +51,7 @@
 		EBB3323B240E210C005666F4 /* UiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB3323A240E210C005666F4 /* UiView.swift */; };
 		EBB36A4A24256BCC001CC1B5 /* ProjectTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB36A4924256BCC001CC1B5 /* ProjectTabBarViewController.swift */; };
 		EBB36A4C2425B581001CC1B5 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB36A4B2425B581001CC1B5 /* TaskViewController.swift */; };
+		EBB7327C243A962D00286060 /* OnSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7327B243A962D00286060 /* OnSelectionDelegate.swift */; };
 		EBC153862407790B002EFACD /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153852407790B002EFACD /* SignupViewController.swift */; };
 		EBC153882407815A002EFACD /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153872407815A002EFACD /* UITextField.swift */; };
 		EBC1538A24078568002EFACD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1538924078568002EFACD /* Constants.swift */; };
@@ -65,6 +66,50 @@
 		EBF2A2C7240C31A0001B3D67 /* TL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2C6240C31A0001B3D67 /* TL.swift */; };
 		EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2C8240C45B0001B3D67 /* RxSwift.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBB7321F243A7D7800286060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBB73218243A7D7700286060 /* Chameleon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 240093F81BB4517400932727;
+			remoteInfo = Chameleon;
+		};
+		EBB73221243A7D7800286060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBB73218243A7D7700286060 /* Chameleon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 247EB8A71BB61EB3009B4904;
+			remoteInfo = ChameleonDemo;
+		};
+		EBB73223243A7D7800286060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBB73218243A7D7700286060 /* Chameleon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0C8DABB11C07B5EA00B28FE2;
+			remoteInfo = "ChameleonDemo-Objc";
+		};
+		EBB73225243A7D7800286060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBB73218243A7D7700286060 /* Chameleon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 246492F91F0094DB001E4F26;
+			remoteInfo = "ChameleonDemo-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EBB73269243A7FB400286060 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EB0AC020242B1756006FE066 /* ArchiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCell.swift; sourceTree = "<group>"; };
@@ -110,6 +155,9 @@
 		EBB3323A240E210C005666F4 /* UiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiView.swift; sourceTree = "<group>"; };
 		EBB36A4924256BCC001CC1B5 /* ProjectTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTabBarViewController.swift; sourceTree = "<group>"; };
 		EBB36A4B2425B581001CC1B5 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		EBB73217243A7D4B00286060 /* ChameleonFramework.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = ChameleonFramework.podspec; path = "Chameleon-master/ChameleonFramework.podspec"; sourceTree = "<group>"; };
+		EBB73218243A7D7700286060 /* Chameleon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Chameleon.xcodeproj; path = "../../../../Downloads/Chameleon-master/Chameleon.xcodeproj"; sourceTree = "<group>"; };
+		EBB7327B243A962D00286060 /* OnSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnSelectionDelegate.swift; sourceTree = "<group>"; };
 		EBC153852407790B002EFACD /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		EBC153872407815A002EFACD /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		EBC1538924078568002EFACD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -175,6 +223,7 @@
 			children = (
 				EB63E80C2402F8C90090791F /* TaskLoco */,
 				EB63E80B2402F8C90090791F /* Products */,
+				EBB73213243A7D0800286060 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -219,6 +268,7 @@
 				EB63E8112402F8C90090791F /* LoginViewController.swift */,
 				EBC153852407790B002EFACD /* SignupViewController.swift */,
 				EB51F73B2439A66C00C1F488 /* UsersViewController.swift */,
+				EBB7327B243A962D00286060 /* OnSelectionDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -294,6 +344,26 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		EBB73213243A7D0800286060 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBB73218243A7D7700286060 /* Chameleon.xcodeproj */,
+				EBB73217243A7D4B00286060 /* ChameleonFramework.podspec */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBB73219243A7D7700286060 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBB73220243A7D7800286060 /* Chameleon.framework */,
+				EBB73222243A7D7800286060 /* ChameleonDemo.app */,
+				EBB73224243A7D7800286060 /* ChameleonDemo-Objc.app */,
+				EBB73226243A7D7800286060 /* ChameleonDemo-Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EBE8D49C241EB421007E19D5 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +411,7 @@
 				EB63E8062402F8C90090791F /* Sources */,
 				EB63E8072402F8C90090791F /* Frameworks */,
 				EB63E8082402F8C90090791F /* Resources */,
+				EBB73269243A7FB400286060 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,12 +460,49 @@
 			);
 			productRefGroup = EB63E80B2402F8C90090791F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EBB73219243A7D7700286060 /* Products */;
+					ProjectRef = EBB73218243A7D7700286060 /* Chameleon.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EB63E8092402F8C90090791F /* TaskLoco */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBB73220243A7D7800286060 /* Chameleon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Chameleon.framework;
+			remoteRef = EBB7321F243A7D7800286060 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBB73222243A7D7800286060 /* ChameleonDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ChameleonDemo.app;
+			remoteRef = EBB73221243A7D7800286060 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBB73224243A7D7800286060 /* ChameleonDemo-Objc.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ChameleonDemo-Objc.app";
+			remoteRef = EBB73223243A7D7800286060 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBB73226243A7D7800286060 /* ChameleonDemo-Swift.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ChameleonDemo-Swift.app";
+			remoteRef = EBB73225243A7D7800286060 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EB63E8082402F8C90090791F /* Resources */ = {
@@ -461,6 +569,7 @@
 				EB2615C124294B7100939364 /* SettingsViewController.swift in Sources */,
 				EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */,
 				EBD3018724281BCB00D5C7A8 /* ArchieveViewController.swift in Sources */,
+				EBB7327C243A962D00286060 /* OnSelectionDelegate.swift in Sources */,
 				EB668CD3243195CD00D398D5 /* UserCell.swift in Sources */,
 				EBF2A2C0240AD6D7001B3D67 /* Response.swift in Sources */,
 				EB64D54224036F9C0000436B /* UserManger.swift in Sources */,
@@ -608,6 +717,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -630,6 +740,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

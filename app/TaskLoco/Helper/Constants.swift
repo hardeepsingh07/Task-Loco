@@ -48,6 +48,8 @@ enum Alerts{
 	static var remove = "Remove"
 	static var archive = "Archive"
 	static var cancel = "Cancel"
+	static var success = "Success"
+	static var memberAddMessage = "%@ added successfully"
 }
 
 enum General {

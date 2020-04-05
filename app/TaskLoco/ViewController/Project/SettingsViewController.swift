@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class SettingsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SettingsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, OnSelectionDelegate {
 	
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectId: UITextField!
@@ -103,12 +103,17 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if(indexPath.row == ADD_INDEX) {
-			self.navigateToUsersAlertSheet(ViewController.users)
-//			self.navigateTo(UsersViewController.self, Vi/ewController.users)
+			self.navigateToUsersAlertSheet(ViewController.users, .multiple, self)
 		} else {
 			self.removeAlert(teamMembers[indexPath.row - 1], remove: { (action) in
 				self.addRemoveMember(add: false, userHeader: self.teamMembers[indexPath.row - 1])
 			})
+		}
+	}
+	
+	func onSelected(selection: [UserHeader]) {
+		selection.forEach { (userHeader) in
+			self.addRemoveMember(add: true, userHeader: userHeader)
 		}
 	}
 }

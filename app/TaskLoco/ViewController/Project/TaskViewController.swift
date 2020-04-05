@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TaskViewController: UIViewController, OnSelectionDelegate {
 	
     @IBOutlet weak var headerBackground: UIView!
     @IBOutlet weak var headerTitle: UILabel!
@@ -57,8 +57,6 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	private func initPicker() {
 		taskCompletedBy.showDatePicker()
 		namesPicker = taskResponsible.showPicker()
-		namesPicker?.dataSource = self
-		namesPicker?.delegate = self
 	}
 	
 	private func updateStatusView(_ status: Status) {
@@ -119,7 +117,8 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	}
     
     @IBAction func pendingAction(_ sender: Any) {
-		updateStatusView(.pending)
+//		updateStatusView(.pending)
+		self.navigateToUsersAlertSheet(ViewController.users, .single, self)
     }
     @IBAction func inProgressButtonAction(_ sender: Any) {
 		updateStatusView(.inProgress)
@@ -151,7 +150,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	
 	private func generateTask() -> Task {
 		return Task(id: currentTaskInfo?.id,
-					projectId: "TODO",
+					projectId: TL.userManager.provideProjectId(),
 					title: taskTitle.text!,
 					description: taskDescription.text!,
 					completeBy: taskCompletedBy.text!,
@@ -159,6 +158,13 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 					responsible: currentTaskInfo?.responsible ?? currentUserHeader,
 					priority: isPulsing() ? Priority.high: Priority.standard,
 					status: currentStatus)
+	}
+	
+	func onSelected(selection: [UserHeader]) {
+		let userHeader = selection[0]
+		taskResponsible.text = userHeader.name
+		currentUserHeader.username = userHeader.username
+		currentUserHeader.name = userHeader.name
 	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -171,11 +177,5 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
 	func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return allUsers[row].name + General.fourTab + allUsers[row].username
-	}
-
-	func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		taskResponsible.text = allUsers[row].name
-		currentUserHeader.username = allUsers[row].username
-		currentUserHeader.name = allUsers[row].name
 	}
 }
