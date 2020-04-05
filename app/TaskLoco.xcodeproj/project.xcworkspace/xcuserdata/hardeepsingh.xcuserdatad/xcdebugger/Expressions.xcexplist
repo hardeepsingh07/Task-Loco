@@ -3,10 +3,40 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "NetworkInterceptor.adapt(_:for:completion:):NetworkInterceptor.swift">
+      </ContextState>
+      <ContextState
          contextName = "GLOBAL">
          <PersistentStrings>
             <PersistentString
                value = "error">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EndpointData.urlRequest.getter:EndpointData.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "parameters">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ProjectViewController.collectionView(_:didSelectItemAt:):ProjectViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "projects[indexPath.row].autoClose">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AuthManager.handleUserResponse(_:):AuthManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TaskLocoApiManager.login(username:password:):TaskLocoApiManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Endpoint.login(username: username, password: password)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,21 +49,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AuthManager.handleUserResponse(_:):AuthManager.swift">
+         contextName = "TaskLocoApiManager.createBodyUrlRequest(url:data:):TaskLocoApiManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "JSONDecorder().decode(UserLoginRequest.self, from: data)">
+            </PersistentString>
+            <PersistentString
+               value = "jsonBody">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in closure #1 in TaskLocoApiManager.request&lt;A&gt;(urlRequest:):TaskLocoApiManager.swift">
          <PersistentStrings>
             <PersistentString
                value = "data.response">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TodayViewController.updateProgressBar(value:):TodayViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "value/100">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -58,6 +88,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in TaskLocoApiManager.login(userLoginRequest:completion:):TaskLocoApiManager.swift">
+      </ContextState>
+      <ContextState
          contextName = "TaskLocoApiManager.createTask(task:):TaskLocoApiManager.swift">
          <PersistentStrings>
             <PersistentString
@@ -66,32 +99,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TaskLocoApiManager.login(username:password:):TaskLocoApiManager.swift">
+         contextName = "TodayViewController.updateProgressBar(value:):TodayViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "Endpoint.login(username: username, password: password)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TaskLocoApiManager.createBodyUrlRequest(url:data:):TaskLocoApiManager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "JSONDecorder().decode(UserLoginRequest.self, from: data)">
-            </PersistentString>
-            <PersistentString
-               value = "jsonBody">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in TaskLocoApiManager.login(userLoginRequest:completion:):TaskLocoApiManager.swift">
-      </ContextState>
-      <ContextState
-         contextName = "EndpointData.urlRequest.getter:EndpointData.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "parameters">
+               value = "value/100">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -64,11 +64,11 @@ class UserManger {
 		return userInfo
 	}
 	
-	func updateClosedSetting(enabled: Bool) {
+	func updateAutoCloseSetting(enabled: Bool) {
 		self.preferences.set(enabled, forKey: AuthConstants.userSettingClosedTag)
 	}
 	
-	func isClosedEnabled() -> Bool {
+	func shouldAutoClose() -> Bool {
 		return self.preferences.bool(forKey: AuthConstants.userSettingClosedTag)
 	}
 	

@@ -22,11 +22,12 @@ struct Project: Codable {
     let description: String?
 	let users: [UserHeader]
 	let starred: Bool
+	let autoClose: Bool
 	let createdAt: String? = nil
 	let updatedAt: String? = nil
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case name, projectId, description, users, starred, createdAt, updatedAt
+        case name, projectId, description, users, starred, autoClose, createdAt, updatedAt
     }
 }

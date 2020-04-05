@@ -125,7 +125,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		updateStatusView(.inProgress)
     }
     @IBAction func completedButtonAction(_ sender: Any) {
-		TL.userManager.isClosedEnabled()
+		TL.userManager.shouldAutoClose()
 			? currentStatus = Status.closed
 			: confirmationAlert(archive: { (action) in self.currentStatus = Status.closed }) { (action) in self.currentStatus = Status.closed }
 		updateStatusView(.completed)

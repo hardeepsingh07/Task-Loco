@@ -38,4 +38,6 @@ protocol TaskLocoApi {
 	func addMember(projectId: String, userHeader: UserHeader) -> Observable<ProjectResponse>
 	
 	func removeMember(projectId: String, userHeader: UserHeader) -> Observable<ProjectResponse>
+	
+	func updateProject(projectId: String, autoClose: Bool) -> Observable<ProjectResponse>
 }

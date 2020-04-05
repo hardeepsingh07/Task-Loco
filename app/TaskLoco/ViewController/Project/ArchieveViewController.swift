@@ -53,6 +53,6 @@ class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICol
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		navigateToAlertSheet(ViewController.createTask, self.archiveTasks[indexPath.row])
+		navigateToTaskAlertSheet(ViewController.createTask, self.archiveTasks[indexPath.row])
 	}
 }

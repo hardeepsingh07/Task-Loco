@@ -59,9 +59,19 @@ extension UIViewController {
 		self.present(viewController.fullScreen(), animated: true)
 	}
 	
-	func navigateToAlertSheet(_ vcIdentifier: String, _ task: Task? = nil) {
+	func navigateToTaskAlertSheet(_ vcIdentifier: String, _ task: Task? = nil) {
 		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! TaskViewController
 		viewController.currentTaskInfo = task
+		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alertController.setValue(viewController, forKey: ViewController.contentView)
+		self.present(alertController, animated: true) {
+			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+			alertController.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+		}
+	}
+	
+	func navigateToUsersAlertSheet(_ vcIdentifier: String) {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! UsersViewController
 		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alertController.setValue(viewController, forKey: ViewController.contentView)
 		self.present(alertController, animated: true) {

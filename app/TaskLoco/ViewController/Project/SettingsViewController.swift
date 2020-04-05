@@ -11,10 +11,8 @@ import RxSwift
 
 class SettingsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 	
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectId: UITextField!
-    @IBOutlet weak var projectName: UITextField!
     @IBOutlet weak var closedSwitch: UISwitch!
     @IBOutlet weak var teamCollectionView: UICollectionView!
     
@@ -24,10 +22,7 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-		let userHeader = TL.userManager.provideUserHeader()
-		name.text = userHeader.name
-		username.text = userHeader.username
-        closedSwitch.isOn = TL.userManager.isClosedEnabled()
+        closedSwitch.isOn = TL.userManager.shouldAutoClose()
 		initCollectionView()
 	}
 	
@@ -68,11 +63,19 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	}
     
     @IBAction func onSwitchChanged(_ sender: UISwitch) {
-		TL.userManager.updateClosedSetting(enabled: sender.isOn)
+		TL.taskLocoApi.updateProject(projectId: TL.userManager.provideProjectId(), autoClose: sender.isOn)
+			.mapToHandleResponse()
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: {project in
+				TL.userManager.updateAutoCloseSetting(enabled: project[0].autoClose)
+			}, onError: { error in
+				self.handleError(error)
+			})
+			.disposed(by: disposeBag)
     }
 	
     @IBAction func onImageViewClicked(_ sender: Any) {
-        navigateTo(LoginViewController.self, ViewController.login, true)
+		self.dismiss(animated: true)
     }
 	
 	private func initCollectionView() {
@@ -100,10 +103,11 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if(indexPath.row == ADD_INDEX) {
-			
+			self.navigateToUsersAlertSheet(ViewController.users)
+//			self.navigateTo(UsersViewController.self, Vi/ewController.users)
 		} else {
 			self.removeAlert(teamMembers[indexPath.row - 1], remove: { (action) in
-				
+				self.addRemoveMember(add: false, userHeader: self.teamMembers[indexPath.row - 1])
 			})
 		}
 	}

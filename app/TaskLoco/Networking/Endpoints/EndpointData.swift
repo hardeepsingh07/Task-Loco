@@ -24,6 +24,7 @@ enum EndpointData{
 	case project(projectId: String)
 	case addMember(projectId: String, userHeader: UserHeader)
 	case removeMember(projectId: String, userHeader: UserHeader)
+	case updateProject(projectId: String, autoClose: Bool)
 }
 
 enum PathConstants {
@@ -45,6 +46,7 @@ enum PathConstants {
 	static var projectId = "\(project)/id/"
 	static var addMember = "\(project)/add/"
 	static var removeMember = "\(project)/remove/"
+	static var updateProject = "\(project)/update/"
 }
 
 enum QueryConstants {
@@ -73,6 +75,7 @@ private enum ParameterConstants {
 	static var priority = "priority"
 	static var status = "status"
 	static var closed = "closed"
+	static var autoClose = "autoClose"
 }
 
 extension EndpointData: Endpoint {
@@ -120,12 +123,14 @@ extension EndpointData: Endpoint {
 			return PathConstants.addMember + projectId
 		case .removeMember(let projectId, _):
 			return PathConstants.removeMember + projectId
+		case .updateProject(let projectId, _):
+			return PathConstants.updateProject + projectId
 		}
 	}
 	
 	var httpMethod: HTTPMethod {
 		switch self {
-		case .login, .signUp, .logout, .createTask, .updateTask, .addMember:
+		case .login, .signUp, .logout, .createTask, .updateTask, .addMember, .removeMember, .updateProject:
 			return .post
 		case .taskRemove:
 			return .delete
@@ -182,6 +187,8 @@ extension EndpointData: Endpoint {
 		case .addMember( _, let userHeader), .removeMember( _, let userHeader):
 			return [ParameterConstants.username:  userHeader.username,
 					ParameterConstants.name: userHeader.name]
+		case .updateProject( _, let autoClose):
+			return [ParameterConstants.autoClose:  autoClose]
 		default:
 			return [:]
 		}

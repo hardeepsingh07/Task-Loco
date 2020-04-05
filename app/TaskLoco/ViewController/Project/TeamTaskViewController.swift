@@ -107,7 +107,7 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		navigateToAlertSheet(ViewController.createTask, self.tasks[indexPath.row])
+		navigateToTaskAlertSheet(ViewController.createTask, self.tasks[indexPath.row])
 	}
 	
     

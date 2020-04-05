@@ -54,6 +54,7 @@ class ProjectViewController: UIViewController, UICollectionViewDataSource, UICol
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		TL.userManager.updateProjectId(projectId: projects[indexPath.row].projectId)
+		TL.userManager.updateAutoCloseSetting(enabled: projects[indexPath.row].autoClose)
 		self.navigateTo(UITabBarController.self, ViewController.projectTabBar, false)
 	}
 }

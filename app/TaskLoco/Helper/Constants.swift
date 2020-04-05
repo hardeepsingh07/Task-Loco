@@ -16,6 +16,7 @@ enum ViewController {
 	static var projectTabBar = "ProjectTabBarViewController"
 	static var createTask = "TaskViewController"
 	static var contentView = "ContentViewController"
+	static var users = "UsersViewController"
 }
 
 enum CellConstants {

@@ -5,7 +5,8 @@ let projectSchema = mongoose.Schema({
     projectId: {type: String, required: true, unique: true},
     description: {type: String, required: true},
     users: [{username: {type: String, required: true}, name: {type: String, required: true}}],
-    starred: {type: Boolean, default: false}
+    starred: {type: Boolean, default: false},
+    autoClose: {type: Boolean, default: false}
 }, {timestamps: true});
 
 module.exports = mongoose.model('project', projectSchema);

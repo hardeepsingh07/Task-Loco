@@ -52,7 +52,8 @@ function createProjects(name, users, starred) {
         projectId: projectId,
         description: "This project, with name " + name + " is descriptive project",
         users: users,
-        starred: starred
+        starred: starred,
+        autoClose: false
     }).save();
     console.log(name + " Project Created!");
     return projectId;
