@@ -115,7 +115,7 @@ extension EndpointData: Endpoint {
 		case .userProject(let username):
 			return PathConstants.userProjects + username
 		case .project(let projectId):
-			return PathConstants.project + projectId
+			return PathConstants.projectId + projectId
 		case .addMember(let projectId, _):
 			return PathConstants.addMember + projectId
 		case .removeMember(let projectId, _):

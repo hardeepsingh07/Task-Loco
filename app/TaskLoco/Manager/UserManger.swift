@@ -72,11 +72,11 @@ class UserManger {
 		return self.preferences.bool(forKey: AuthConstants.userSettingClosedTag)
 	}
 	
-	func updateProjectId(enabled: Bool) {
-		self.preferences.set(enabled, forKey: AuthConstants.projectIdTag)
+	func updateProjectId(projectId: String) {
+		self.preferences.set(projectId, forKey: AuthConstants.projectIdTag)
 	}
 	
-	func getProjectId() -> String {
+	func provideProjectId() -> String {
 		return self.preferences.string(forKey: AuthConstants.projectIdTag) ?? AuthConstants.noProjectId
 	}
 }

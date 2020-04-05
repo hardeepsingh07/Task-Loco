@@ -16,7 +16,7 @@ enum Tab: Int {
 	case setting = 4
 }
 
-class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
+class ProjectTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

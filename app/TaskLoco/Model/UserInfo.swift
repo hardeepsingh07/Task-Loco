@@ -39,6 +39,12 @@ struct UserHeaderResponse: Response {
 }
 
 struct UserHeader: Codable {
+	let id: String? = nil
 	var username: String = General.empty
 	var name: String = General.empty
+	
+	enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case username, name
+    }
 }

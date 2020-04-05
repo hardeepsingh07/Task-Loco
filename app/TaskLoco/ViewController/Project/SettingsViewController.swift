@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var closedSwitch: UISwitch!
     @IBOutlet weak var teamCollectionView: UICollectionView!
     
+	private let ADD_INDEX = 0
 	private var teamMembers: [UserHeader] = []
 	private var disposeBag = DisposeBag()
     
@@ -31,16 +32,39 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.allUsers()
-			.observeOn(MainScheduler.instance)
+		TL.taskLocoApi.project(projectId: TL.userManager.provideProjectId())
 			.mapToHandleResponse()
-			.subscribe(onNext: { users in
-				self.teamMembers = users
-				self.teamCollectionView.reloadData()
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: { project in
+				self.handleProjectData(project)
 			}, onError: { error in
 				self.handleError(error)
 			})
 			.disposed(by: disposeBag)
+	}
+	
+	private func addRemoveMember(add: Bool, userHeader: UserHeader) {
+		let observer = add
+			? TL.taskLocoApi.addMember(projectId: TL.userManager.provideProjectId(), userHeader: userHeader)
+			: TL.taskLocoApi.removeMember(projectId: TL.userManager.provideProjectId(), userHeader: userHeader)
+		
+		observer
+			.mapToHandleResponse()
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: { project in
+				self.handleProjectData(project)
+			}, onError: { error in
+				self.handleError(error)
+			})
+			.disposed(by: disposeBag)
+	}
+	
+	private func handleProjectData(_ data: [Project]) {
+		let project = data[0]
+		self.projectId.text = project.projectId
+		self.projectName.text = project.name
+		self.teamMembers = project.users
+		self.teamCollectionView.reloadData()
 	}
     
     @IBAction func onSwitchChanged(_ sender: UISwitch) {
@@ -65,7 +89,7 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		var cell: UserCell
-		if(indexPath.row == 0) {
+		if(indexPath.row == ADD_INDEX) {
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.add, for: indexPath) as! UserCell
 		} else {
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.user, for: indexPath) as! UserCell
@@ -75,6 +99,12 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		print(indexPath.row)
+		if(indexPath.row == ADD_INDEX) {
+			
+		} else {
+			self.removeAlert(teamMembers[indexPath.row - 1], remove: { (action) in
+				
+			})
+		}
 	}
 }

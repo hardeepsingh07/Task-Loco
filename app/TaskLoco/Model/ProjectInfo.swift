@@ -11,7 +11,7 @@ import Foundation
 struct ProjectResponse: Response {
     let responseCode: Int
     let message: String
-    let data: Project?
+    let data: [Project]?
     let error: ResponseError?
 }
 

@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
 			TL.userManager.login(username: usernameTF.text!, password: passwordTF.text!)
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { userInfo in
-					self.navigateTo(UITabBarController.self, ViewController.tabBar, true)
+					self.navigateTo(UITabBarController.self, ViewController.homeTabBar, true)
 				}, onError: { error in
 					self.handleError(error)
 				})

@@ -30,9 +30,16 @@ extension UIViewController {
 	}
 	
 	func confirmationAlert(archive: @escaping (_ action: UIAlertAction) -> Void, cancel: @escaping (_ action: UIAlertAction) -> Void) {
-		let refreshAlert = UIAlertController(title: Alerts.confirmationTitle, message: Alerts.confirmationMessage, preferredStyle: UIAlertController.Style.actionSheet)
+		let refreshAlert = UIAlertController(title: Alerts.confirmationTitle, message: Alerts.confirmationMessage, preferredStyle: UIAlertController.Style.alert)
 		refreshAlert.addAction(UIAlertAction(title: Alerts.archive, style: .default, handler: archive))
 		refreshAlert.addAction(UIAlertAction(title: Alerts.cancel, style: .cancel, handler: cancel))
+		self.present(refreshAlert, animated: true)
+	}
+	
+	func removeAlert(_ userHeader: UserHeader, remove: @escaping (_ action: UIAlertAction) -> Void) {
+		let refreshAlert = UIAlertController(title: Alerts.removeMemberTitle, message: String(format: Alerts.removeMemberMessage, userHeader.name), preferredStyle: UIAlertController.Style.alert)
+		refreshAlert.addAction(UIAlertAction(title: Alerts.remove, style: .destructive, handler: remove))
+		refreshAlert.addAction(UIAlertAction(title: Alerts.cancel, style: .cancel, handler: nil))
 		self.present(refreshAlert, animated: true)
 	}
 	

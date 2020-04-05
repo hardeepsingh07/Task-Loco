@@ -12,7 +12,8 @@ import DynamicColor
 enum ViewController {
 	static var login = "LoginViewController"
 	static var signUp = "SignupViewController"
-	static var tabBar = "TabBarViewController"
+	static var homeTabBar = "HomeTabBarViewController"
+	static var projectTabBar = "ProjectTabBarViewController"
 	static var createTask = "TaskViewController"
 	static var contentView = "ContentViewController"
 }
@@ -22,6 +23,7 @@ enum CellConstants {
 	static var archive = "ArchiveCell"
 	static var user = "UserCell"
 	static var add = "AddCell"
+	static var project = "ProjectCell"
 }
 
 enum ColorConstants{
@@ -40,6 +42,9 @@ enum Alerts{
 	static var inputRequired = "All Input is Required"
 	static var confirmationTitle = "Task is Completed"
 	static var confirmationMessage = "Do you want to archive the task?"
+	static var removeMemberTitle = "Remove Member"
+	static var removeMemberMessage = "Are you sure you want to remove %@?"
+	static var remove = "Remove"
 	static var archive = "Archive"
 	static var cancel = "Cancel"
 }
@@ -89,4 +94,22 @@ enum TaskAnalytics {
 	static var member = " Member"
 	static var tasks = " Tasks"
 	static var completed = " Completed"
+}
+
+enum Greeting {
+	static var morning = "Good Morning"
+	static var afternoon = "Good Afternoon"
+	static var evening = "Good Evening"
+	
+	static var message: String {
+		let dateComponents = Calendar.current.dateComponents([.hour], from: Date())
+		switch dateComponents.hour! {
+		case 0..<12:
+			return morning
+		case 12..<17:
+			return afternoon
+		default:
+			return evening
+		}
+	}
 }

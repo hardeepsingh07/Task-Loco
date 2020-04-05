@@ -7,7 +7,7 @@ exports.create = function (req, res) {
             .then(exists => {
                 exists
                     ? res.createResponse("New Project Creation Failed", null, projectExistsError())
-                    : res.generateAndRespond("New Project Creation", createProject(req).save());
+                    : res.generateAndRespondWithArray("New Project Creation", createProject(req).save());
             }).catch(error => res.createResponse("New Project Creation Failed", null, projectExistsError()));
     });
 };
@@ -20,7 +20,7 @@ exports.all = function (req, res) {
 
 exports.addMember = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Add Member to Project",
+        res.generateAndRespondWithArray("Add Member to Project",
             Project.findOneAndUpdate(
                 {projectId: req.params.projectId},
                 {$push: {users: req.body}},
@@ -56,7 +56,7 @@ exports.project = function (req, res) {
 
 exports.remove = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Project Remove", Project.findOneAndRemove({projectId: req.params.projectId}))
+        res.generateAndRespondWithArray("Project Remove", Project.findOneAndRemove({projectId: req.params.projectId}))
     });
 };
 
