@@ -116,3 +116,17 @@ enum Greeting {
 		}
 	}
 }
+
+enum UsersSelectionType {
+	case single
+	case multiple
+	
+	var message: String {
+		switch self {
+		case .single:
+			return "Select a User"
+		case .multiple:
+			return "Add Users"
+		}
+	}
+}

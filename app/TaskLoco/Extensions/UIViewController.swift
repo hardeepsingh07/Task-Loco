@@ -65,9 +65,10 @@ extension UIViewController {
 		showAlertSheet(viewController: viewController)
 	}
 	
-	func navigateToUsersAlertSheet(_ vcIdentifier: String, _ userSelectionType: UsersSelectionType, _ onSelectionDelegate: OnSelectionDelegate) {
-		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! UsersViewController
+	func navigateToUsersAlertSheet(_ userSelectionType: UsersSelectionType, _ onSelectionDelegate: OnSelectionDelegate, _ exclude: [UserHeader] = []) {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.users) as! UsersViewController
 		viewController.userSelectionType = userSelectionType
+		viewController.exclude = Set(exclude)
 		viewController.onSelectionDelegate = onSelectionDelegate
 		showAlertSheet(viewController: viewController)
 	}
@@ -105,22 +106,6 @@ extension UIViewController {
 							 addLayoutConstraint(progressBar, .width, 75),
 							 addLayoutConstraint(progressBar, .height, 75)])
 		return progressBar
-	}
-	
-	func showPicker() -> UIPickerView? {
-		UIViewController.picker.backgroundColor = UIColor.white
-		UIViewController.picker.autoresizingMask = .flexibleWidth
-		UIViewController.picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-		self.view.addSubview(UIViewController.picker)
-
-		UIViewController.toolBar.setItems([UIBarButtonItem(title: Picker.finish, style: .plain, target: self, action: #selector(onFinish))], animated: false)
-		self.view.addSubview(UIViewController.toolBar)
-		return UIViewController.picker
-	}
-	
-	@objc func onFinish() {
-		UIViewController.picker.removeFromSuperview()
-		UIViewController.toolBar.removeFromSuperview()
 	}
 	
 	private func addDirectionConstraint(_ view: UIView, _ secondView: UIView, _ constrait: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {

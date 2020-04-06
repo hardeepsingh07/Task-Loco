@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, OnSelectionDelegate {
 	
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var priorityMenuButton: UIButton!
@@ -28,9 +28,7 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var priorityFilterText: UILabel!
     @IBOutlet weak var statusFilterText: UILabel!
     @IBOutlet weak var usernameFilterText: UILabel!
-	
-	private var namesPicker: UIPickerView? = nil
-	
+		
 	private let disposeBag = DisposeBag()
 	private var tasks: [Task] = []
 	private var team: [UserHeader] = []
@@ -124,7 +122,7 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 			togglePanelMenu(hidePriority: true, hideStatus: !self.statusButtonStack.isHidden)
             break
         case 3:
-            showUserPicker()
+			self.navigateToUsersAlertSheet(.single, self)
             break;
         case 4:
             currentPriority = nil
@@ -170,6 +168,10 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 		statusMenuButton.backgroundColor = currentStatus?.color ?? Status.pending.color
 		togglePanelMenu(hidePriority: true, hideStatus: true)
     }
+	
+	func onSelected(selection: [UserHeader]) {
+		currentUserHeader = selection[0]
+	}
     
     private func toggleFilterMenu() {
         UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
@@ -188,11 +190,6 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 			self.statusButtonStack.isHidden = hideStatus
 //		})
 	}
-    
-    private func showUserPicker() {
-		namesPicker = showPicker()
-		namesPicker?.delegate = self
-    }
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
@@ -204,9 +201,5 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 
 	func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return team[row].name + General.fourTab + team[row].username
-	}
-
-	func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		currentUserHeader = team[row]
 	}
 }

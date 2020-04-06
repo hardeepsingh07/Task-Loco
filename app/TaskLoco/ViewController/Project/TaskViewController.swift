@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class TaskViewController: UIViewController, OnSelectionDelegate {
+class TaskViewController: UIViewController, OnSelectionDelegate, UITextFieldDelegate {
 	
     @IBOutlet weak var headerBackground: UIView!
     @IBOutlet weak var headerTitle: UILabel!
@@ -25,8 +25,7 @@ class TaskViewController: UIViewController, OnSelectionDelegate {
     @IBOutlet weak var createButton: UIButton!
 	
 	private let disposeBag = DisposeBag()
-	private var namesPicker: UIPickerView? = nil
-	private var allUsers: [UserHeader] = []
+	private var teamMembers: [UserHeader] = []
 	private var currentStatus = Status.pending
 	private var currentUserHeader = UserHeader()
 	var currentTaskInfo: Task? = nil
@@ -46,6 +45,7 @@ class TaskViewController: UIViewController, OnSelectionDelegate {
 		taskCompletedBy.bottomBorder(uiColor: UIColor.lightGray)
 		taskDescription.bottomBorder(uiColor: UIColor.lightGray)
 		taskAssignee.bottomBorder(uiColor: UIColor.lightGray)
+		taskResponsible.delegate = self
 	}
 	
 	private func initButtonBackground() {
@@ -56,7 +56,6 @@ class TaskViewController: UIViewController, OnSelectionDelegate {
 	
 	private func initPicker() {
 		taskCompletedBy.showDatePicker()
-		namesPicker = taskResponsible.showPicker()
 	}
 	
 	private func updateStatusView(_ status: Status) {
@@ -72,20 +71,20 @@ class TaskViewController: UIViewController, OnSelectionDelegate {
 		taskCompletedBy.text = currentTaskInfo?.completeBy ?? General.empty
 		taskResponsible.text = currentTaskInfo?.responsible.name ?? General.empty
         taskAssignee.text = currentTaskInfo?.assignee.name ?? TL.userManager.provideUserHeader().name
-		if(currentTaskInfo?.status == .closed) {
-			createButton.setTitle(ButtonConstants.reassign, for: .normal)
-		} else {
-		createButton.setTitle(currentTaskInfo != nil ? ButtonConstants.update : ButtonConstants.create, for: .normal)
-		}
+		currentTaskInfo?.status == .closed
+			? createButton.setTitle(ButtonConstants.reassign, for: .normal)
+			: createButton.setTitle(currentTaskInfo != nil ? ButtonConstants.update : ButtonConstants.create, for: .normal)
+		self.navigateToUsersAlertSheet(.single, self)
+
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		updateHighPriority()
-		TL.taskLocoApi.allUsers()
+		TL.taskLocoApi.project(projectId: TL.userManager.provideProjectId())
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
-			.subscribe(onNext: { names in
-				self.allUsers = names
+			.subscribe(onNext: { project in
+				self.teamMembers = project[0].users
 			}, onError: { error in
 				self.handleError(error)
 			})
@@ -117,12 +116,17 @@ class TaskViewController: UIViewController, OnSelectionDelegate {
 	}
     
     @IBAction func pendingAction(_ sender: Any) {
-//		updateStatusView(.pending)
-		self.navigateToUsersAlertSheet(ViewController.users, .single, self)
+		updateStatusView(.pending)
     }
+	
     @IBAction func inProgressButtonAction(_ sender: Any) {
 		updateStatusView(.inProgress)
     }
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.navigateToUsersAlertSheet(.single, self)
+    }
+	
     @IBAction func completedButtonAction(_ sender: Any) {
 		TL.userManager.shouldAutoClose()
 			? currentStatus = Status.closed
@@ -172,10 +176,10 @@ class TaskViewController: UIViewController, OnSelectionDelegate {
 	}
 
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return allUsers.count
+		return teamMembers.count
 	}
 
 	func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return allUsers[row].name + General.fourTab + allUsers[row].username
+		return teamMembers[row].name + General.fourTab + teamMembers[row].username
 	}
 }

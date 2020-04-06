@@ -38,12 +38,20 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 			.disposed(by: disposeBag)
 	}
 	
-	private func addRemoveMember(add: Bool, userHeader: UserHeader) {
-		let observer = add
-			? TL.taskLocoApi.addMember(projectId: TL.userManager.provideProjectId(), userHeader: userHeader)
-			: TL.taskLocoApi.removeMember(projectId: TL.userManager.provideProjectId(), userHeader: userHeader)
-		
-		observer
+	private func addMember(userHeaders: [UserHeader]) {
+		TL.taskLocoApi.addMember(projectId: TL.userManager.provideProjectId(), userHeaders: userHeaders)
+			.mapToHandleResponse()
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: { project in
+				self.handleProjectData(project)
+			}, onError: { error in
+				self.handleError(error)
+			})
+			.disposed(by: disposeBag)
+	}
+	
+	private func removeMember(userHeader: UserHeader) {
+		TL.taskLocoApi.removeMember(projectId: TL.userManager.provideProjectId(), userHeader: userHeader)
 			.mapToHandleResponse()
 			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: { project in
@@ -103,17 +111,15 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if(indexPath.row == ADD_INDEX) {
-			self.navigateToUsersAlertSheet(ViewController.users, .multiple, self)
+			self.navigateToUsersAlertSheet(.multiple, self, teamMembers)
 		} else {
 			self.removeAlert(teamMembers[indexPath.row - 1], remove: { (action) in
-				self.addRemoveMember(add: false, userHeader: self.teamMembers[indexPath.row - 1])
+				self.removeMember(userHeader: self.teamMembers[indexPath.row - 1])
 			})
 		}
 	}
 	
 	func onSelected(selection: [UserHeader]) {
-		selection.forEach { (userHeader) in
-			self.addRemoveMember(add: true, userHeader: userHeader)
-		}
+		self.addMember(userHeaders: selection)
 	}
 }

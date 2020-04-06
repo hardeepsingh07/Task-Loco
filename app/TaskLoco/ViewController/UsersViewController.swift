@@ -9,20 +9,6 @@
 import UIKit
 import RxSwift
 
-enum UsersSelectionType {
-	case single
-	case multiple
-	
-	var message: String {
-		switch self {
-		case .single:
-			return "Select a User"
-		case .multiple:
-			return "Add Users"
-		}
-	}
-}
-
 class UsersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 	
     @IBOutlet weak var pageTitle: UILabel!
@@ -38,6 +24,7 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
 	private let disposeBag = DisposeBag()
 	var userSelectionType = UsersSelectionType.single
 	var onSelectionDelegate: OnSelectionDelegate? = nil
+	var exclude = Set<UserHeader>()
     
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -46,14 +33,15 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidAppear(_ animated: Bool) {
 		let observer = userSelectionType == .single
-			? TL.taskLocoApi.project(projectId: TL.userManager.provideProjectId()).mapToHandleResponse().map({ return $0[0].users })
+			? TL.taskLocoApi.project(projectId: TL.userManager.provideProjectId())
+				.mapToHandleResponse().map({ return $0[0].users })
 			: TL.taskLocoApi.allUsers().mapToHandleResponse()
 		
 		observer
 			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: {users in
-				self.users = users
-				self.filterData = users
+				self.users = self.userSelectionType == .multiple ? Array(Set(users).symmetricDifference(self.exclude)): users
+				self.filterData = self.users
 				self.userCollectionView.reloadData()
 			}, onError: {error in
 				self.handleError(error)
@@ -62,6 +50,7 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
 	
     @IBAction func doneAction(_ sender: Any) {
+		if(!selected.isEmpty) { onSelectionDelegate?.onSelected(selection: selected) }
         self.dismiss(animated: true)
     }
     
@@ -112,11 +101,7 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
 			let userHeader = filterData[indexPath.row]
 			switch userSelectionType {
 			case .single:
-				if(selected.isEmpty) {
-					selected.insert(userHeader, at: 0)
-				} else {
-					selected[0] = userHeader
-				}
+				selected.isEmpty ? selected.insert(userHeader, at: 0) : (selected[0] = userHeader)
 			case .multiple:
 				selected.insert(userHeader, at: 0)
 			}

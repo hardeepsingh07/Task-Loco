@@ -22,10 +22,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ProjectViewController.collectionView(_:didSelectItemAt:):ProjectViewController.swift">
+         contextName = "TodayViewController.updateProgressBar(value:):TodayViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "projects[indexPath.row].autoClose">
+               value = "value/100">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -49,6 +49,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "EndpointData.parameters.getter:EndpointData.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "try! JSONSerialization.data(withJSONObject: userHeaders, options: [])">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TaskLocoApiManager.createBodyUrlRequest(url:data:):TaskLocoApiManager.swift">
          <PersistentStrings>
             <PersistentString
@@ -66,6 +74,9 @@
                value = "data.response">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TaskLocoApiManager.login(userLoginRequest:completion:):TaskLocoApiManager.swift">
       </ContextState>
       <ContextState
          contextName = "TodayViewController.handleResponse(tasks:):TodayViewController.swift">
@@ -88,21 +99,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in TaskLocoApiManager.login(userLoginRequest:completion:):TaskLocoApiManager.swift">
+         contextName = "ProjectViewController.collectionView(_:didSelectItemAt:):ProjectViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "projects[indexPath.row].autoClose">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "TaskLocoApiManager.createTask(task:):TaskLocoApiManager.swift">
          <PersistentStrings>
             <PersistentString
                value = "">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TodayViewController.updateProgressBar(value:):TodayViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "value/100">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

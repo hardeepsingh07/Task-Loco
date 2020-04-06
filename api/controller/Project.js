@@ -23,7 +23,7 @@ exports.addMember = function (req, res) {
         res.generateAndRespondWithArray("Add Member to Project",
             Project.findOneAndUpdate(
                 {projectId: req.params.projectId},
-                {$push: {users: req.body}},
+                {$push: {users: req.body.users}},
                 {new: true}
             )
         );
@@ -32,7 +32,7 @@ exports.addMember = function (req, res) {
 
 exports.removeMember = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Remove Member to Project",
+        res.generateAndRespondWithArray("Remove Member to Project",
             Project.findOneAndUpdate(
                 {projectId: req.params.projectId},
                 {$pull: {users: req.body}},

@@ -38,13 +38,11 @@ struct UserHeaderResponse: Response {
     let error: ResponseError?
 }
 
-struct UserHeader: Codable {
-	let id: String? = nil
+struct UserHeader: Codable, Hashable {
 	var username: String = General.empty
 	var name: String = General.empty
-	
-	enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case username, name
-    }
+		
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(username)
+	}
 }

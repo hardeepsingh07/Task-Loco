@@ -23,7 +23,7 @@ class NetworkInterceptor: RequestInterceptor {
 		do {
 			if(authenticate) {
 				let params: Parameters = [QueryConstants.apiKey: authManager.provideApiKey()]
-				let newRequest = try URLEncoding.default.encode(urlRequest, with: params)
+				let newRequest = try URLEncoding(destination: .queryString).encode(urlRequest, with: params)
 				print("\(newRequest.httpMethod ?? ""): \(newRequest)")
 				completion(.success(newRequest))
 			} else {

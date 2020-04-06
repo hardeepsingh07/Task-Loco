@@ -22,7 +22,7 @@ enum EndpointData{
 	case taskRemove(taskId: String)
 	case userProject(username: String)
 	case project(projectId: String)
-	case addMember(projectId: String, userHeader: UserHeader)
+	case addMember(projectId: String, userHeaders: [UserHeader])
 	case removeMember(projectId: String, userHeader: UserHeader)
 	case updateProject(projectId: String, autoClose: Bool)
 }
@@ -76,6 +76,7 @@ private enum ParameterConstants {
 	static var status = "status"
 	static var closed = "closed"
 	static var autoClose = "autoClose"
+	static var users = "users"
 }
 
 extension EndpointData: Endpoint {
@@ -184,7 +185,15 @@ extension EndpointData: Endpoint {
 			if(priority != nil) { dictionary[QueryConstants.priority] = priority?.rawValue }
 			if(username != nil) { dictionary[QueryConstants.username] = username }
 			return dictionary
-		case .addMember( _, let userHeader), .removeMember( _, let userHeader):
+		case .addMember( _, let userHeaders):
+			let jsonArray = userHeaders.map { (userHeader) -> [String: String] in
+				return [
+					ParameterConstants.username: userHeader.username,
+					ParameterConstants.name: userHeader.name,
+				]
+			}
+			return [ParameterConstants.users:  jsonArray]
+		case .removeMember( _, let userHeader):
 			return [ParameterConstants.username:  userHeader.username,
 					ParameterConstants.name: userHeader.name]
 		case .updateProject( _, let autoClose):
@@ -202,13 +211,8 @@ extension EndpointData: Endpoint {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.headers = headers
 		urlRequest.method = httpMethod
-		
-		switch self.httpMethod {
-		case .post:
-			return try! encoding.encode(urlRequest, with: parameters)
-		default:
-			return try! encoding.encode(urlRequest, with: parameters)
-		}
+		print(parameters)
+		return try! encoding.encode(urlRequest, with: parameters)
 	}
 }
 

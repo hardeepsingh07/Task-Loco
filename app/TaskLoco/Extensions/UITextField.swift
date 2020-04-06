@@ -31,21 +31,7 @@ extension UITextField {
 		self.inputAccessoryView = toolbar
 		self.inputView = TL.datePicker
 	}
-	
-	func showPicker() -> UIPickerView {
-		let picker = UIPickerView()
-		
-		let toolbar = UIToolbar();
-		toolbar.sizeToFit()
-		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-		let cancelButton = UIBarButtonItem(title: Picker.cancel, style: .plain, target: self, action: #selector(cancelPicker));
-		toolbar.setItems([spaceButton,cancelButton], animated: false)
-		
-		self.inputAccessoryView = toolbar
-		self.inputView = picker
-		return picker
-	}
-	
+
 	@objc func doneDatePicker() {
 		let formatter = DateFormatter()
 		formatter.dateFormat = DateFormat.monthDateCommaYear
