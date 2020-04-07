@@ -17,10 +17,10 @@ exports.initDate = (users, projects, tasks) => {
     createUser(ranjit);
     createUser(kamal);
 
-    projectIds = [createProjects("Thanos", [sahib, sona, kamal], false),
+    projectIds = [createProjects("Thanos", [sahib, sona, kamal, hardeep], false),
         createProjects("Devil", [ranjit, sona, hardeep], false),
         createProjects("Spectre", [sahib, ranjit, hardeep], true),
-        createProjects("Vale", [sona, ranjit, kamal], false),
+        createProjects("Vale", [sona, ranjit, kamal, hardeep], false),
         createProjects("RedSkull", [sahib, hardeep, sona], false)];
 
     createTask(projectIds[random(projectIds.length)], sona);

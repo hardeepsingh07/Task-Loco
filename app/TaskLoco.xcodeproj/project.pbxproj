@@ -65,6 +65,16 @@
 		EBF2A2C4240C1FCD001B3D67 /* NetworkInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2C3240C1FCD001B3D67 /* NetworkInterceptor.swift */; };
 		EBF2A2C7240C31A0001B3D67 /* TL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2C6240C31A0001B3D67 /* TL.swift */; };
 		EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2A2C8240C45B0001B3D67 /* RxSwift.swift */; };
+		EBF5045E243C23EF00061849 /* UIGradientFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF50452243C23EF00061849 /* UIGradientFilter.swift */; };
+		EBF5045F243C23EF00061849 /* UIGradient+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF50453243C23EF00061849 /* UIGradient+Metadata.swift */; };
+		EBF50460243C23EF00061849 /* UIColor+Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF50456243C23EF00061849 /* UIColor+Interpolation.swift */; };
+		EBF50461243C23EF00061849 /* UIColor+Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF50457243C23EF00061849 /* UIColor+Analysis.swift */; };
+		EBF50462243C23EF00061849 /* Randient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF50458243C23EF00061849 /* Randient.swift */; };
+		EBF50463243C23EF00061849 /* GradientView+UIGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5045A243C23EF00061849 /* GradientView+UIGradient.swift */; };
+		EBF50464243C23EF00061849 /* RandientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5045B243C23EF00061849 /* RandientView.swift */; };
+		EBF50465243C23EF00061849 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5045C243C23EF00061849 /* GradientView.swift */; };
+		EBF50468243C2A1900061849 /* UIGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF50467243C2A1900061849 /* UIGradient.swift */; };
+		EBF50473243C3F5300061849 /* Zorgeous-Inline.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBF50472243C3F5300061849 /* Zorgeous-Inline.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +181,17 @@
 		EBF2A2C3240C1FCD001B3D67 /* NetworkInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptor.swift; sourceTree = "<group>"; };
 		EBF2A2C6240C31A0001B3D67 /* TL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TL.swift; sourceTree = "<group>"; };
 		EBF2A2C8240C45B0001B3D67 /* RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwift.swift; sourceTree = "<group>"; };
+		EBF50452243C23EF00061849 /* UIGradientFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGradientFilter.swift; sourceTree = "<group>"; };
+		EBF50453243C23EF00061849 /* UIGradient+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGradient+Metadata.swift"; sourceTree = "<group>"; };
+		EBF50454243C23EF00061849 /* Randient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Randient.h; sourceTree = "<group>"; };
+		EBF50456243C23EF00061849 /* UIColor+Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolation.swift"; sourceTree = "<group>"; };
+		EBF50457243C23EF00061849 /* UIColor+Analysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Analysis.swift"; sourceTree = "<group>"; };
+		EBF50458243C23EF00061849 /* Randient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Randient.swift; sourceTree = "<group>"; };
+		EBF5045A243C23EF00061849 /* GradientView+UIGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GradientView+UIGradient.swift"; sourceTree = "<group>"; };
+		EBF5045B243C23EF00061849 /* RandientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandientView.swift; sourceTree = "<group>"; };
+		EBF5045C243C23EF00061849 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		EBF50467243C2A1900061849 /* UIGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradient.swift; sourceTree = "<group>"; };
+		EBF50472243C3F5300061849 /* Zorgeous-Inline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Zorgeous-Inline.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +260,7 @@
 		EB63E80C2402F8C90090791F /* TaskLoco */ = {
 			isa = PBXGroup;
 			children = (
+				EBF50450243C23EF00061849 /* Randient */,
 				EBE8D49C241EB421007E19D5 /* Animation */,
 				EBF2A2C5240C3186001B3D67 /* DependencyInjection */,
 				EB1D1FE12406C73C00352E00 /* Networking */,
@@ -276,6 +298,7 @@
 		EB64D53F24036F120000436B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EBF50472243C3F5300061849 /* Zorgeous-Inline.otf */,
 				EB64D54F24036FC60000436B /* MavenPro-Bold.ttf */,
 				EB64D54924036FC60000436B /* MavenPro-Medium.ttf */,
 				EB64D54C24036FC60000436B /* MavenPro-Regular.ttf */,
@@ -401,6 +424,47 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		EBF50450243C23EF00061849 /* Randient */ = {
+			isa = PBXGroup;
+			children = (
+				EBF50451243C23EF00061849 /* Gradient */,
+				EBF50454243C23EF00061849 /* Randient.h */,
+				EBF50455243C23EF00061849 /* Extensions */,
+				EBF50458243C23EF00061849 /* Randient.swift */,
+				EBF50459243C23EF00061849 /* Views */,
+				EBF50467243C2A1900061849 /* UIGradient.swift */,
+			);
+			path = Randient;
+			sourceTree = "<group>";
+		};
+		EBF50451243C23EF00061849 /* Gradient */ = {
+			isa = PBXGroup;
+			children = (
+				EBF50452243C23EF00061849 /* UIGradientFilter.swift */,
+				EBF50453243C23EF00061849 /* UIGradient+Metadata.swift */,
+			);
+			path = Gradient;
+			sourceTree = "<group>";
+		};
+		EBF50455243C23EF00061849 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBF50456243C23EF00061849 /* UIColor+Interpolation.swift */,
+				EBF50457243C23EF00061849 /* UIColor+Analysis.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EBF50459243C23EF00061849 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBF5045A243C23EF00061849 /* GradientView+UIGradient.swift */,
+				EBF5045B243C23EF00061849 /* RandientView.swift */,
+				EBF5045C243C23EF00061849 /* GradientView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -523,6 +587,7 @@
 				EB64D55C24036FC60000436B /* RobotoSlab-Light.ttf in Resources */,
 				EB64D55224036FC60000436B /* WorkSans-Regular.otf in Resources */,
 				EB64D55324036FC60000436B /* Oxygen-Regular.ttf in Resources */,
+				EBF50473243C3F5300061849 /* Zorgeous-Inline.otf in Resources */,
 				EB63E8152402F8C90090791F /* Main.storyboard in Resources */,
 				EB64D55B24036FC60000436B /* OpenSans-Regular.ttf in Resources */,
 				EB64D55724036FC60000436B /* MavenPro-Medium.ttf in Resources */,
@@ -537,17 +602,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBB36A4C2425B581001CC1B5 /* TaskViewController.swift in Sources */,
+				EBF50461243C23EF00061849 /* UIColor+Analysis.swift in Sources */,
 				EB843D762439453B00FE090D /* ProjectCell.swift in Sources */,
 				EBB3323B240E210C005666F4 /* UiView.swift in Sources */,
 				EBB36A4A24256BCC001CC1B5 /* ProjectTabBarViewController.swift in Sources */,
 				EBF2A2C7240C31A0001B3D67 /* TL.swift in Sources */,
+				EBF5045F243C23EF00061849 /* UIGradient+Metadata.swift in Sources */,
+				EBF50460243C23EF00061849 /* UIColor+Interpolation.swift in Sources */,
 				EBF2A2C2240AE534001B3D67 /* UserInfo.swift in Sources */,
+				EBF50468243C2A1900061849 /* UIGradient.swift in Sources */,
 				EB64D566240398980000436B /* TaskLocoApiManager.swift in Sources */,
 				EBC153882407815A002EFACD /* UITextField.swift in Sources */,
+				EBF50463243C23EF00061849 /* GradientView+UIGradient.swift in Sources */,
 				EB843D7A2439465500FE090D /* ProjectViewController.swift in Sources */,
 				EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */,
 				EBF2A2BE240AD561001B3D67 /* TaskInfo.swift in Sources */,
+				EBF50462243C23EF00061849 /* Randient.swift in Sources */,
 				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
+				EBF50465243C23EF00061849 /* GradientView.swift in Sources */,
 				EBC153862407790B002EFACD /* SignupViewController.swift in Sources */,
 				EB63E8182402F8C90090791F /* TaskLoco.xcdatamodeld in Sources */,
 				EBF2A2C9240C45B0001B3D67 /* RxSwift.swift in Sources */,
@@ -561,12 +633,14 @@
 				EBC1538A24078568002EFACD /* Constants.swift in Sources */,
 				EB1D1FE42406C75300352E00 /* EndpointData.swift in Sources */,
 				EB5FDFED242BF9EE009F1B59 /* TeamTaskViewController.swift in Sources */,
+				EBF5045E243C23EF00061849 /* UIGradientFilter.swift in Sources */,
 				EB51F73C2439A66C00C1F488 /* UsersViewController.swift in Sources */,
 				EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */,
 				EBE8D49E241EB432007E19D5 /* PulseAnimation.swift in Sources */,
 				EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */,
 				EBF2A2C4240C1FCD001B3D67 /* NetworkInterceptor.swift in Sources */,
 				EB2615C124294B7100939364 /* SettingsViewController.swift in Sources */,
+				EBF50464243C23EF00061849 /* RandientView.swift in Sources */,
 				EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */,
 				EBD3018724281BCB00D5C7A8 /* ArchieveViewController.swift in Sources */,
 				EBB7327C243A962D00286060 /* OnSelectionDelegate.swift in Sources */,

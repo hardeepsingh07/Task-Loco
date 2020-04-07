@@ -14,7 +14,8 @@ class ProjectCell: UICollectionViewCell {
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectDescription: UILabel!
     @IBOutlet weak var projectStarred: UIImageView!
-    @IBOutlet weak var cellBackground: UIView!
+    @IBOutlet weak var gradientBackground: RandientView!
+    @IBOutlet weak var firstLetter: UILabel!
     
     override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -25,8 +26,19 @@ class ProjectCell: UICollectionViewCell {
 	}
 	
 	func updateCell(_ project: Project) {
-		self.projectId.text = project.projectId
+		self.projectId.text = project.projectId.uppercased()
 		self.projectName.text = project.name
 		self.projectDescription.text = project.description
+        self.firstLetter.text = String(project.name.first!)
+		handleColor()
+	}
+	
+	func handleColor() {
+		let gradient = gradientBackground.randomize(animated: true)
+		projectId.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+		projectName.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+		projectDescription.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+		projectStarred.tintColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+		self.firstLetter.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
 	}
 }

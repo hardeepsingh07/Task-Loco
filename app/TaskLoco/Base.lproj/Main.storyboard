@@ -14,6 +14,9 @@
         <array key="Oxygen-Regular.ttf">
             <string>Oxygen-Regular</string>
         </array>
+        <array key="Zorgeous-Inline.otf">
+            <string>ZORGEOUSINLINE</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Login View Controller-->
@@ -397,13 +400,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-7Z-Ttn">
-                                <rect key="frame" x="16" y="60" width="170.5" height="33"/>
-                                <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="26"/>
+                                <rect key="frame" x="16" y="60" width="166.5" height="31"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZ9-VV-QbU">
-                                <rect key="frame" x="0.0" y="101" width="202.5" height="0.5"/>
+                                <rect key="frame" x="0.0" y="99" width="198.5" height="0.5"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="heA-8f-TXA"/>
@@ -422,7 +425,7 @@
                                 </connections>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-dk-Rx3">
-                                <rect key="frame" x="16" y="117.5" width="398" height="679.5"/>
+                                <rect key="frame" x="16" y="115.5" width="382" height="681.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g9a-JD-D3j">
                                     <size key="itemSize" width="360" height="680"/>
@@ -432,30 +435,51 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProjectCell" id="g4l-YV-SnJ" customClass="ProjectCell" customModule="TaskLoco" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-0.5" width="360" height="680"/>
+                                        <rect key="frame" x="0.0" y="1" width="360" height="680"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6TF-3r-gZ4">
                                             <rect key="frame" x="0.0" y="0.0" width="360" height="680"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Thanos project description for placeholder purposes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKD-qQ-p5e">
-                                                    <rect key="frame" x="12" y="622.5" width="336" height="45.5"/>
+                                                <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VA-Yg-tyi" customClass="RandientView" customModule="TaskLoco" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="680"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYX-VZ-at4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="360" height="680"/>
+                                                            <fontDescription key="fontDescription" name="ZORGEOUSINLINE" family="ZORGEOUS" pointSize="250"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="330" id="Ini-tG-8Jq"/>
+                                                        <constraint firstItem="KYX-VZ-at4" firstAttribute="top" secondItem="7VA-Yg-tyi" secondAttribute="top" id="3IW-Bq-V3X"/>
+                                                        <constraint firstAttribute="bottom" secondItem="KYX-VZ-at4" secondAttribute="bottom" id="DtM-SU-9bQ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="KYX-VZ-at4" secondAttribute="trailing" id="H4d-8m-gg7"/>
+                                                        <constraint firstItem="KYX-VZ-at4" firstAttribute="leading" secondItem="7VA-Yg-tyi" secondAttribute="leading" id="oWN-Nm-an4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Thanos project description for placeholder purposes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKD-qQ-p5e">
+                                                    <rect key="frame" x="12" y="622" width="336" height="46"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="320" id="Ini-tG-8Jq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                                     <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAh-Pf-N3r">
-                                                    <rect key="frame" x="12" y="582.5" width="91" height="35.5"/>
-                                                    <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="28"/>
+                                                    <rect key="frame" x="12" y="582" width="336" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="XEV-Mo-dRv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="28"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THAN-775" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11e-Up-Y2C">
-                                                    <rect key="frame" x="12" y="12" width="91.5" height="35"/>
-                                                    <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="20"/>
+                                                    <rect key="frame" x="12" y="12" width="96" height="35"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -469,20 +493,24 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="K0H-M3-wDk" firstAttribute="bottom" secondItem="11e-Up-Y2C" secondAttribute="bottom" id="7MD-2u-s7l"/>
+                                                <constraint firstAttribute="trailing" secondItem="cAh-Pf-N3r" secondAttribute="trailing" constant="12" id="7tK-AL-3qo"/>
+                                                <constraint firstAttribute="bottom" secondItem="7VA-Yg-tyi" secondAttribute="bottom" id="EGV-Fy-P1u"/>
                                                 <constraint firstAttribute="trailing" secondItem="K0H-M3-wDk" secondAttribute="trailing" constant="12" id="H2p-mi-la4"/>
-                                                <constraint firstItem="cAh-Pf-N3r" firstAttribute="top" secondItem="11e-Up-Y2C" secondAttribute="bottom" constant="535.5" id="M6I-yh-FUn"/>
+                                                <constraint firstItem="7VA-Yg-tyi" firstAttribute="leading" secondItem="6TF-3r-gZ4" secondAttribute="leading" id="Kly-Mq-Ihj"/>
                                                 <constraint firstItem="K0H-M3-wDk" firstAttribute="top" secondItem="6TF-3r-gZ4" secondAttribute="top" constant="12" id="NKK-D8-ePa"/>
+                                                <constraint firstItem="cAh-Pf-N3r" firstAttribute="top" secondItem="11e-Up-Y2C" secondAttribute="bottom" constant="535" id="PD1-HN-Tsb"/>
                                                 <constraint firstItem="11e-Up-Y2C" firstAttribute="leading" secondItem="6TF-3r-gZ4" secondAttribute="leading" constant="12" id="iHL-fa-ZSp"/>
                                                 <constraint firstAttribute="bottom" secondItem="qKD-qQ-p5e" secondAttribute="bottom" constant="12" id="iNi-Vf-zPc"/>
+                                                <constraint firstItem="7VA-Yg-tyi" firstAttribute="top" secondItem="6TF-3r-gZ4" secondAttribute="top" id="m4s-Ad-dTz"/>
                                                 <constraint firstItem="11e-Up-Y2C" firstAttribute="top" secondItem="K0H-M3-wDk" secondAttribute="top" id="ozG-zP-fnB"/>
-                                                <constraint firstItem="qKD-qQ-p5e" firstAttribute="top" secondItem="cAh-Pf-N3r" secondAttribute="bottom" constant="4.5" id="rDs-Xv-TEL"/>
+                                                <constraint firstItem="qKD-qQ-p5e" firstAttribute="top" secondItem="cAh-Pf-N3r" secondAttribute="bottom" id="rDs-Xv-TEL"/>
                                                 <constraint firstItem="cAh-Pf-N3r" firstAttribute="leading" secondItem="6TF-3r-gZ4" secondAttribute="leading" constant="12" id="t93-Gf-hyM"/>
                                                 <constraint firstAttribute="trailing" secondItem="qKD-qQ-p5e" secondAttribute="trailing" constant="12" id="vPC-Dz-mKf"/>
                                                 <constraint firstItem="qKD-qQ-p5e" firstAttribute="leading" secondItem="6TF-3r-gZ4" secondAttribute="leading" constant="12" id="w7A-UW-bRs"/>
+                                                <constraint firstAttribute="trailing" secondItem="7VA-Yg-tyi" secondAttribute="trailing" id="wjE-tq-Pjw"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="360" height="680"/>
@@ -492,7 +520,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="cellBackground" destination="6TF-3r-gZ4" id="m7W-qM-1pP"/>
+                                            <outlet property="firstLetter" destination="KYX-VZ-at4" id="G1H-nc-NtM"/>
+                                            <outlet property="gradientBackground" destination="7VA-Yg-tyi" id="ape-RA-baK"/>
                                             <outlet property="projectDescription" destination="qKD-qQ-p5e" id="Iqu-eX-h5K"/>
                                             <outlet property="projectId" destination="11e-Up-Y2C" id="MzC-x7-0eB"/>
                                             <outlet property="projectName" destination="cAh-Pf-N3r" id="bcj-XH-fCG"/>
@@ -504,7 +533,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tuT-fI-cui" firstAttribute="trailing" secondItem="gTl-dk-Rx3" secondAttribute="trailing" id="AlG-5V-Zny"/>
+                            <constraint firstItem="tuT-fI-cui" firstAttribute="trailing" secondItem="gTl-dk-Rx3" secondAttribute="trailing" constant="16" id="AlG-5V-Zny"/>
                             <constraint firstItem="tuT-fI-cui" firstAttribute="trailing" secondItem="kfA-a3-XOa" secondAttribute="trailing" constant="16" id="D49-Zk-Qdg"/>
                             <constraint firstItem="3Kc-7Z-Ttn" firstAttribute="top" secondItem="tuT-fI-cui" secondAttribute="top" constant="16" id="MX5-SD-384"/>
                             <constraint firstItem="3Kc-7Z-Ttn" firstAttribute="leading" secondItem="tuT-fI-cui" secondAttribute="leading" constant="16" id="N7V-mU-fa2"/>
@@ -1317,7 +1346,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-u2-N8P">
-                                <rect key="frame" x="0.0" y="131" width="414" height="145"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="245"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="TG8-0a-lIG"/>
                                 </constraints>
@@ -1325,10 +1354,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oh6-ko-qZY">
-                                <rect key="frame" x="16" y="385" width="382" height="400"/>
+                                <rect key="frame" x="16" y="485" width="382" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="qWS-x0-WZJ"/>
+                                    <constraint firstAttribute="height" constant="300" id="qWS-x0-WZJ"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ArU-7m-08K">
                                     <size key="itemSize" width="175" height="50"/>
@@ -1483,7 +1512,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-yv-XVR">
-                                <rect key="frame" x="0.0" y="284" width="414" height="85"/>
+                                <rect key="frame" x="0.0" y="384" width="414" height="85"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPz-83-uBX">
                                         <rect key="frame" x="83.5" y="13" width="318.5" height="1"/>

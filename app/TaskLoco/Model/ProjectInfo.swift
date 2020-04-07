@@ -30,4 +30,4 @@ struct Project: Codable {
         case id = "_id"
         case name, projectId, description, users, starred, autoClose, createdAt, updatedAt
     }
-}
+ }
