@@ -12,7 +12,8 @@ import UICircularProgressRing
 
 class UserTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerView: RandientView!
+    @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var todayTableView: UITableView!
     @IBOutlet weak var remainingText: UILabel!
     
@@ -26,7 +27,15 @@ class UserTaskViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
 		todayTableView.dataSource = self
 		todayTableView.delegate = self
-		self.progressBar = addProgressBar(headerView)
+		initHeaderView()
+	}
+	
+	private func initHeaderView() {
+		let gradient = TL.userManager.projectGradient
+		headerView.update(for: (gradient ?? Randient.randomize()), animated: true)
+		remainingText.handleColor(gradient: gradient)
+		headerTitle.handleColor(gradient: gradient)
+		self.progressBar = addProgressBar(headerView, gradient)
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

@@ -11,6 +11,8 @@ import RxSwift
 
 class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 	
+    @IBOutlet weak var headerView: RandientView!
+    @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var archiveCollectionView: UICollectionView!
     private var archiveTasks: [Task] = []
 	
@@ -19,6 +21,7 @@ class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
 		super.viewDidLoad()
         initCollectionView()
+        initHeaderView()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +37,12 @@ class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICol
 			.disposed(by: disposeBag)
 	}
 	
+    private func initHeaderView() {
+        let gradient = TL.userManager.projectGradient
+        headerView.update(for: (gradient ?? Randient.randomize()), animated: true)
+        headerTitle.handleColor(gradient: gradient)
+    }
+    
 	private func initCollectionView() {
 		archiveCollectionView.dataSource = self
 		archiveCollectionView.delegate = self

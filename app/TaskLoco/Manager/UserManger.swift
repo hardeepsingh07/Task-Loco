@@ -26,6 +26,7 @@ class UserManger {
 	
 	private let preferences: UserDefaults
 	private let taskLocoApi: TaskLocoApi
+	public var projectGradient: UIGradient? = nil
 	
 	init(preferences: UserDefaults, taskLocoApi: TaskLocoApi) {
 		self.preferences = preferences

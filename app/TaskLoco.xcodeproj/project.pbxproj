@@ -48,6 +48,7 @@
 		EB843D762439453B00FE090D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB843D752439453B00FE090D /* ProjectCell.swift */; };
 		EB843D7A2439465500FE090D /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB843D792439465500FE090D /* ProjectViewController.swift */; };
 		EB843D7D2439466900FE090D /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB843D7C2439466900FE090D /* PeopleViewController.swift */; };
+		EB993CCD243D8F4700D8B062 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB993CCC243D8F4700D8B062 /* UILabel.swift */; };
 		EBB3323B240E210C005666F4 /* UiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB3323A240E210C005666F4 /* UiView.swift */; };
 		EBB36A4A24256BCC001CC1B5 /* ProjectTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB36A4924256BCC001CC1B5 /* ProjectTabBarViewController.swift */; };
 		EBB36A4C2425B581001CC1B5 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB36A4B2425B581001CC1B5 /* TaskViewController.swift */; };
@@ -162,6 +163,7 @@
 		EB843D752439453B00FE090D /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		EB843D792439465500FE090D /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		EB843D7C2439466900FE090D /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		EB993CCC243D8F4700D8B062 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		EBB3323A240E210C005666F4 /* UiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiView.swift; sourceTree = "<group>"; };
 		EBB36A4924256BCC001CC1B5 /* ProjectTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTabBarViewController.swift; sourceTree = "<group>"; };
 		EBB36A4B2425B581001CC1B5 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				EBF2A2C8240C45B0001B3D67 /* RxSwift.swift */,
 				EBB3323A240E210C005666F4 /* UiView.swift */,
 				EBE8D49F241F4776007E19D5 /* UIButton.swift */,
+				EB993CCC243D8F4700D8B062 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */,
 				EB843D74243913C600FE090D /* ProjectInfo.swift in Sources */,
 				EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */,
+				EB993CCD243D8F4700D8B062 /* UILabel.swift in Sources */,
 				EB63E80E2402F8C90090791F /* AppDelegate.swift in Sources */,
 				EB1D1FE62406C76F00352E00 /* Endpoint.swift in Sources */,
 				EBC1538A24078568002EFACD /* Constants.swift in Sources */,

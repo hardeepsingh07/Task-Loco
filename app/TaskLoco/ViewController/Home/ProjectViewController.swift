@@ -53,6 +53,8 @@ class ProjectViewController: UIViewController, UICollectionViewDataSource, UICol
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let cell = collectionView.cellForItem(at: indexPath) as! ProjectCell
+		TL.userManager.projectGradient = cell.gradientBackground.gradient
 		TL.userManager.updateProjectId(projectId: projects[indexPath.row].projectId)
 		TL.userManager.updateAutoCloseSetting(enabled: projects[indexPath.row].autoClose)
 		self.navigateTo(UITabBarController.self, ViewController.projectTabBar, false)

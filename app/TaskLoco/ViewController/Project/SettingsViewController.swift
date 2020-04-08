@@ -11,8 +11,11 @@ import RxSwift
 
 class SettingsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, OnSelectionDelegate {
 	
+    @IBOutlet weak var headerView: RandientView!
+    @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectId: UITextField!
+    @IBOutlet weak var closeProject: UIImageView!
     @IBOutlet weak var closedSwitch: UISwitch!
     @IBOutlet weak var teamCollectionView: UICollectionView!
     
@@ -24,6 +27,7 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 		super.viewDidLoad()
         closedSwitch.isOn = TL.userManager.shouldAutoClose()
 		initCollectionView()
+        initHeaderView()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +41,13 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 			})
 			.disposed(by: disposeBag)
 	}
+    
+    private func initHeaderView() {
+        let gradient = TL.userManager.projectGradient
+        headerView.update(for: (gradient ?? Randient.randomize()), animated: true)
+        headerTitle.handleColor(gradient: gradient)
+        closeProject.tintColor = gradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+    }
 	
 	private func addMember(userHeaders: [UserHeader]) {
 		TL.taskLocoApi.addMember(projectId: TL.userManager.provideProjectId(), userHeaders: userHeaders)

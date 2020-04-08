@@ -5,6 +5,7 @@ const keyGenerator = require('random-key-generator');
 
 exports.initDate = (users, projects, tasks) => {
     let hardeep = {username: "hardeep", name: "Hardeep Singh"};
+    let sukhi = {username: "sukhi", name: "Sukhwinder Kaur"}
     let sahib = {username: "sahib", name: "Sahibdeep Singh"};
     let sona = {username: "sona", name: "Sandeep Kaur"};
     let ranjit = {username: "ranjit", name: "Ranjit Kaur"};
@@ -12,20 +13,22 @@ exports.initDate = (users, projects, tasks) => {
     let projectIds;
 
     createUser(hardeep);
+    createUser(sukhi);
     createUser(sahib);
     createUser(sona);
     createUser(ranjit);
     createUser(kamal);
 
     projectIds = [createProjects("Thanos", [sahib, sona, kamal, hardeep], false),
-        createProjects("Devil", [ranjit, sona, hardeep], false),
+        createProjects("Devil", [ranjit, sona, hardeep, sukhi], false),
         createProjects("Spectre", [sahib, ranjit, hardeep], true),
-        createProjects("Vale", [sona, ranjit, kamal, hardeep], false),
-        createProjects("RedSkull", [sahib, hardeep, sona], false)];
+        createProjects("Vale", [sona, ranjit, sukhi, kamal, hardeep], false),
+        createProjects("RedSkull", [sahib, hardeep, sona, sukhi], false)];
 
     createTask(projectIds[random(projectIds.length)], sona);
     createTask(projectIds[random(projectIds.length)], sahib);
     createTask(projectIds[random(projectIds.length)], hardeep);
+    createTask(projectIds[random(projectIds.length)], sukhi);
     createTask(projectIds[random(projectIds.length)], kamal);
     createTask(projectIds[random(projectIds.length)], ranjit);
 };

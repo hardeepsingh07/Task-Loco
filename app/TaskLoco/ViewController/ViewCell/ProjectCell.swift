@@ -35,10 +35,10 @@ class ProjectCell: UICollectionViewCell {
 	
 	func handleColor() {
 		let gradient = gradientBackground.randomize(animated: true)
-		projectId.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
-		projectName.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
-		projectDescription.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+		projectId.handleColor(gradient: gradient)
+		projectName.handleColor(gradient: gradient)
+		projectDescription.handleColor(gradient: gradient)
+		firstLetter.handleColor(gradient: gradient)
 		projectStarred.tintColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
-		self.firstLetter.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
 	}
 }
