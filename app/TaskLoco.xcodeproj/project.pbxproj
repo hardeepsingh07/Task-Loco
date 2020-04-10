@@ -56,6 +56,8 @@
 		EBC153862407790B002EFACD /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153852407790B002EFACD /* SignupViewController.swift */; };
 		EBC153882407815A002EFACD /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC153872407815A002EFACD /* UITextField.swift */; };
 		EBC1538A24078568002EFACD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1538924078568002EFACD /* Constants.swift */; };
+		EBCA460324402F4C00DDBD6F /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA460224402F4C00DDBD6F /* AddUserCell.swift */; };
+		EBCA46052440313000DDBD6F /* UICollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46042440313000DDBD6F /* UICollectionCell.swift */; };
 		EBD3018724281BCB00D5C7A8 /* ArchieveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD3018624281BCB00D5C7A8 /* ArchieveViewController.swift */; };
 		EBE8D49E241EB432007E19D5 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8D49D241EB432007E19D5 /* PulseAnimation.swift */; };
 		EBE8D4A0241F4776007E19D5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8D49F241F4776007E19D5 /* UIButton.swift */; };
@@ -173,6 +175,8 @@
 		EBC153852407790B002EFACD /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		EBC153872407815A002EFACD /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		EBC1538924078568002EFACD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EBCA460224402F4C00DDBD6F /* AddUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserCell.swift; sourceTree = "<group>"; };
+		EBCA46042440313000DDBD6F /* UICollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionCell.swift; sourceTree = "<group>"; };
 		EBD3018624281BCB00D5C7A8 /* ArchieveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchieveViewController.swift; sourceTree = "<group>"; };
 		EBE8D49D241EB432007E19D5 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		EBE8D49F241F4776007E19D5 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				EBB3323A240E210C005666F4 /* UiView.swift */,
 				EBE8D49F241F4776007E19D5 /* UIButton.swift */,
 				EB993CCC243D8F4700D8B062 /* UILabel.swift */,
+				EBCA46042440313000DDBD6F /* UICollectionCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				EB0AC020242B1756006FE066 /* ArchiveCell.swift */,
 				EB668CD2243195CD00D398D5 /* UserCell.swift */,
 				EB843D752439453B00FE090D /* ProjectCell.swift */,
+				EBCA460224402F4C00DDBD6F /* AddUserCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				EBF50463243C23EF00061849 /* GradientView+UIGradient.swift in Sources */,
 				EB843D7A2439465500FE090D /* ProjectViewController.swift in Sources */,
 				EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */,
+				EBCA46052440313000DDBD6F /* UICollectionCell.swift in Sources */,
 				EBF2A2BE240AD561001B3D67 /* TaskInfo.swift in Sources */,
 				EBF50462243C23EF00061849 /* Randient.swift in Sources */,
 				EB63E8122402F8C90090791F /* LoginViewController.swift in Sources */,
@@ -640,6 +647,7 @@
 				EBF5045E243C23EF00061849 /* UIGradientFilter.swift in Sources */,
 				EB51F73C2439A66C00C1F488 /* UsersViewController.swift in Sources */,
 				EB63E8102402F8C90090791F /* SceneDelegate.swift in Sources */,
+				EBCA460324402F4C00DDBD6F /* AddUserCell.swift in Sources */,
 				EBE8D49E241EB432007E19D5 /* PulseAnimation.swift in Sources */,
 				EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */,
 				EBF2A2C4240C1FCD001B3D67 /* NetworkInterceptor.swift in Sources */,

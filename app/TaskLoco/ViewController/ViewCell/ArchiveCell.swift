@@ -26,6 +26,10 @@ class ArchiveCell: UICollectionViewCell {
 	}
 	
 	func updateCell(_ task: Task) {
+		taskTitle.primaryColor()
+		date.primaryColor()
+		month.secondaryColor()
+		
         date.text = task.dayOfMonth
         month.text = task.monthOfYear
         highPriorityButton.isHidden = task.priority == .standard

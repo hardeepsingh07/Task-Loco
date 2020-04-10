@@ -21,7 +21,7 @@ class ProjectTabBarViewController: UITabBarController, UITabBarControllerDelegat
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.delegate = self
-		tabBar.tintColor = TL.userManager.projectGradient?.data.colors.randomElement() ?? ColorConstants.primaryColor
+		tabBar.tintColor = TL.userManager.providePrimaryColor() ?? ColorConstants.primaryColor
 	}
 	
 	func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

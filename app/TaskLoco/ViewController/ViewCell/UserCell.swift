@@ -12,7 +12,7 @@ class UserCell: UICollectionViewCell {
 	
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var image: UIButton!
+    @IBOutlet weak var letter: UILabel!
     
     
 	override init(frame: CGRect) {
@@ -22,15 +22,13 @@ class UserCell: UICollectionViewCell {
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
 	}
+
 	
-	func updateCell(_ userHeader: UserHeader) {
+	func updateCell(_ userHeader: UserHeader, _ selectionColor: UIColor? = TL.userManager.providePrimaryColor()) {
+		self.letter.textColor = selectionColor
+		
         self.name.text = userHeader.name
         self.username.text = userHeader.username
-		self.image.backgroundColor = generateRandomColor()
-		self.image.setTitle(String(userHeader.name.first ?? General.x), for: .normal)
-	}
-	
-	func generateRandomColor() -> UIColor {
-		return [ColorConstants.primaryColorAlpha, ColorConstants.primaryColor, ColorConstants.lightBlue, ColorConstants.lightYellow, ColorConstants.lightGreen, ColorConstants.lightRed, ColorConstants.lightGrey].randomElement()!
+        self.letter.text = String(userHeader.name.first ?? General.x)
 	}
 }

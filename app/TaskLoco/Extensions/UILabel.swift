@@ -11,6 +11,14 @@ import UIKit
 extension UILabel {
 	
 	func handleColor(gradient: UIGradient?) {
-		self.textColor = gradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+		self.textColor = TL.userManager.projectGradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+	}
+	
+	func primaryColor() {
+		self.textColor = TL.userManager.providePrimaryColor()
+	}
+	
+	func secondaryColor() {
+		self.textColor = TL.userManager.provideSecondaryColor()
 	}
 }

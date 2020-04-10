@@ -11,7 +11,6 @@ import RxSwift
 
 class SettingsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, OnSelectionDelegate {
 	
-    @IBOutlet weak var headerView: RandientView!
     @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectId: UITextField!
@@ -43,10 +42,9 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	}
     
     private func initHeaderView() {
-        let gradient = TL.userManager.projectGradient
-        headerView.update(for: (gradient ?? Randient.randomize()), animated: true)
-        headerTitle.handleColor(gradient: gradient)
-        closeProject.tintColor = gradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+        headerTitle.primaryColor()
+        projectId.textColor = TL.userManager.providePrimaryColor()
+        closeProject.tintColor = TL.userManager.provideSecondaryColor()
     }
 	
 	private func addMember(userHeaders: [UserHeader]) {
@@ -75,7 +73,7 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
 	
 	private func handleProjectData(_ data: [Project]) {
 		let project = data[0]
-		self.projectId.text = project.projectId
+        self.projectId.text = project.projectId.uppercased()
 		self.projectName.text = project.name
 		self.teamMembers = project.users
 		self.teamCollectionView.reloadData()
@@ -110,14 +108,16 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		var cell: UserCell
 		if(indexPath.row == ADD_INDEX) {
-			cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.add, for: indexPath) as! UserCell
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.add, for: indexPath) as! AddUserCell
+			cell.updateCell()
+			return cell
 		} else {
-			cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.user, for: indexPath) as! UserCell
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.user, for: indexPath) as! UserCell
 			cell.updateCell(self.teamMembers[indexPath.row - 1])
+			cell.applyBorder()
+			return cell
 		}
-        return cell
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

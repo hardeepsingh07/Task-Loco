@@ -30,6 +30,11 @@ class TaskCell: UITableViewCell {
 	}
 	
 	func updateCell(_ task: Task) {
+		taskTitle.primaryColor()
+		dateOfMonth.primaryColor()
+		month.secondaryColor()
+		
+		
 		dayOfWeek.text = task.dayOfWeek
 		dateOfMonth.text = task.dayOfMonth
 		month.text = task.monthOfYear

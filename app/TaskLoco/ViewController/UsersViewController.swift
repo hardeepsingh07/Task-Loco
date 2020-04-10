@@ -56,7 +56,9 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     private func initView() {
         searchBar.delegate = self
+		pageTitle.primaryColor()
         pageTitle.text = userSelectionType.message
+		doneButton.backgroundColor = TL.userManager.provideSecondaryColor()
         initCollectionView()
     }
     
@@ -86,10 +88,11 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
 		
 		switch collectionView {
 		case selectionCollectionView:
-			cell.updateCell(self.selected[indexPath.row])
+			cell.updateCell(self.selected[indexPath.row], TL.userManager.provideSecondaryColor())
 		default:
 			cell.updateCell(self.filterData[indexPath.row])
 		}
+		cell.applyBorder()
 		return cell
     }
 	
@@ -103,7 +106,9 @@ class UsersViewController: UIViewController, UICollectionViewDataSource, UIColle
 			case .single:
 				selected.isEmpty ? selected.insert(userHeader, at: 0) : (selected[0] = userHeader)
 			case .multiple:
-				selected.insert(userHeader, at: 0)
+				if(!selected.contains(userHeader)) {
+					selected.insert(userHeader, at: 0)
+				}
 			}
 		}
 		selectionCollectionView.reloadData()

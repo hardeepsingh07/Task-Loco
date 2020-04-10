@@ -9,6 +9,7 @@
 import Foundation
 import os
 import RxSwift
+import UIKit
 
 private enum AuthConstants {
 	static let apiKeyTag = "user-api-key"
@@ -79,5 +80,13 @@ class UserManger {
 	
 	func provideProjectId() -> String {
 		return self.preferences.string(forKey: AuthConstants.projectIdTag) ?? AuthConstants.noProjectId
+	}
+	
+	func providePrimaryColor() -> UIColor? {
+		return projectGradient?.data.colors.first
+	}
+	
+	func provideSecondaryColor() -> UIColor? {
+		return projectGradient?.data.colors.last
 	}
 }

@@ -91,18 +91,18 @@ extension UIViewController {
 		self.messageAlert(error.name, error.message)
 	}
 	
-	func addProgressBar(_ attachToView: UIView, _ gradient: UIGradient?) -> UICircularProgressRing {
+	func addProgressBar(_ attachToView: UIView) -> UICircularProgressRing {
 		let progressBar = UICircularProgressRing()
 		progressBar.maxValue = 100
 		progressBar.style = .ontop
-		progressBar.outerRingColor = gradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
-		progressBar.fontColor = gradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
-		progressBar.innerRingColor = gradient?.data.colors.randomElement() ?? UIColor.white
+		progressBar.outerRingColor = UIColor.lightGray
+		progressBar.fontColor = UIColor.darkGray
+		progressBar.innerRingColor = TL.userManager.providePrimaryColor() ?? UIColor.white
 		progressBar.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(progressBar)
 		
 		view.addConstraints([addDirectionConstraint(progressBar, attachToView, .bottom, -10),
-							 addDirectionConstraint(progressBar, attachToView, .right, -10),
+							 addDirectionConstraint(progressBar, view, .right, -10),
 							 addLayoutConstraint(progressBar, .width, 75),
 							 addLayoutConstraint(progressBar, .height, 75)])
 		return progressBar

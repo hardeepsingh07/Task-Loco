@@ -11,6 +11,7 @@ import RxSwift
 
 class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, OnSelectionDelegate {
 	
+    @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var priorityMenuButton: UIButton!
     @IBOutlet weak var priorityButtonsStack: UIStackView!
@@ -25,6 +26,7 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var taskCount: UILabel!
     @IBOutlet weak var completeCount: UILabel!
 	
+    @IBOutlet weak var filterTextStack: UIStackView!
     @IBOutlet weak var priorityFilterText: UILabel!
     @IBOutlet weak var statusFilterText: UILabel!
     @IBOutlet weak var usernameFilterText: UILabel!
@@ -41,7 +43,7 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 		super.viewDidLoad()
 		
         updateFilterText()
-        initMenuButtons()
+        initView()
 		initTableView()
 	}
 	
@@ -67,7 +69,15 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 			}).disposed(by: disposeBag)
     }
 	
-	private func initMenuButtons() {
+	private func initView() {
+        self.headerTitle.primaryColor()
+        self.priorityFilterText.secondaryColor()
+        self.statusFilterText.secondaryColor()
+        self.usernameFilterText.secondaryColor()
+        
+        self.membersCount.primaryColor()
+        self.completeCount.secondaryColor()
+        
 		self.priorityMenuButton.isHidden = true
 		self.statusMenuButton.isHidden = true
 		self.userMenuButton.isHidden = true
