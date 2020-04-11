@@ -25,6 +25,7 @@ enum CellConstants {
 	static var user = "UserCell"
 	static var add = "AddCell"
 	static var project = "ProjectCell"
+	static var people = "PeopleCell"
 }
 
 enum ColorConstants{

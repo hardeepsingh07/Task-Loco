@@ -20,10 +20,10 @@ class SignupViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		nameTF.bottomBorder(uiColor: ColorConstants.primaryColor)
-		emailTF.bottomBorder(uiColor: ColorConstants.primaryColor)
-		usernameTF.bottomBorder(uiColor: ColorConstants.primaryColor)
-		passwordTF.bottomBorder(uiColor: ColorConstants.primaryColor)
+		nameTF.bottomBorder()
+		emailTF.bottomBorder()
+		usernameTF.bottomBorder()
+		passwordTF.bottomBorder()
     }
 	
 	@IBAction func signUpAction(_ sender: Any) {

@@ -10,8 +10,8 @@ import UIKit
 
 extension UILabel {
 	
-	func handleColor(gradient: UIGradient) {
-		self.textColor = gradient.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
+	func handleColor(gradient: UIGradient?) {
+		self.textColor = gradient?.metadata.isPredominantlyLight == true ? UIColor.black : UIColor.white
 	}
 	
 	func primaryColor() {

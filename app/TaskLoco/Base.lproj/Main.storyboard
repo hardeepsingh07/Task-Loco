@@ -23,28 +23,28 @@
         <scene sceneID="uYe-Pq-lIt">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="b17-lx-SH4" customClass="LoginViewController" customModule="TaskLoco" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PnD-jx-MkT">
+                    <view key="view" contentMode="scaleToFill" id="PnD-jx-MkT" customClass="RandientView" customModule="TaskLoco" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Loco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miI-Aa-PZo">
-                                <rect key="frame" x="30" y="144" width="364" height="44.5"/>
-                                <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="35"/>
+                                <rect key="frame" x="30" y="144" width="364" height="55"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="46"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-Xg-eyJ">
-                                <rect key="frame" x="113" y="765" width="188" height="62"/>
+                                <rect key="frame" x="115.5" y="767.5" width="183" height="59.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rr7-7z-vW7">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="23"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYp-gY-x2k">
-                                        <rect key="frame" x="60.5" y="27" width="67" height="35"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="18"/>
+                                        <rect key="frame" x="60" y="25.5" width="63" height="34"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -55,14 +55,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPJ-uG-abQ">
-                                <rect key="frame" x="35" y="630" width="344" height="55"/>
+                                <rect key="frame" x="35" y="632.5" width="344" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="I68-Kv-4dr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -74,21 +74,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsb-cG-CCA">
-                                <rect key="frame" x="143" y="577" width="128" height="33"/>
-                                <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
+                                <rect key="frame" x="148.5" y="581.5" width="117" height="31"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-MD-CCQ">
-                                <rect key="frame" x="30" y="402" width="354" height="160"/>
+                                <rect key="frame" x="30" y="406.5" width="354" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxr-vo-eQo">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="d6z-Cz-WEk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -98,7 +98,7 @@
                                             <constraint firstAttribute="height" constant="45" id="eq7-ki-tuv"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tta-gm-S3A">
@@ -112,7 +112,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Wpy-xu-NNK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -122,7 +122,7 @@
                                             <constraint firstAttribute="height" constant="45" id="bk1-fv-zdT"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
@@ -131,7 +131,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819349315064" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8w3-Xg-eyJ" firstAttribute="top" secondItem="tPJ-uG-abQ" secondAttribute="bottom" constant="80" id="0W8-Us-baJ"/>
                             <constraint firstItem="8RM-FL-67x" firstAttribute="trailing" secondItem="miI-Aa-PZo" secondAttribute="trailing" constant="20" id="2YG-xC-cFp"/>
@@ -174,26 +174,26 @@
         <scene sceneID="3GW-im-qhm">
             <objects>
                 <viewController storyboardIdentifier="SignupViewController" id="hmG-rN-lBd" customClass="SignupViewController" customModule="TaskLoco" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zku-w1-3fb">
+                    <view key="view" contentMode="scaleToFill" id="zku-w1-3fb" customClass="RandientView" customModule="TaskLoco" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Loco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fky-p2-yhT">
-                                <rect key="frame" x="30" y="144" width="354" height="44.5"/>
-                                <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="35"/>
-                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="30" y="144" width="354" height="55"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="46"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gzJ-og-8NH">
-                                <rect key="frame" x="30" y="290" width="354" height="330"/>
+                                <rect key="frame" x="30" y="292.5" width="354" height="330"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFe-1H-lEI">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1EV-tG-MyZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.32941176470588235" blue="0.57647058823529407" alpha="0.85126819349315064" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-aw-zMF">
@@ -201,8 +201,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="te0-aP-hUE"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="name"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMm-Ev-qso">
@@ -216,8 +216,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="h6N-fb-JmZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="H2v-Lz-rNX">
@@ -225,8 +225,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Nj3-vV-wn5"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJ4-j0-rc9">
@@ -240,8 +240,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2l1-iV-Wco"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lf7-fJ-c33">
@@ -249,8 +249,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="PTw-eT-5Z1"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUU-UG-Gjt">
@@ -264,8 +264,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="lIh-Kx-6MJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L2s-Sv-XX7">
@@ -273,8 +273,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="fIe-lt-Ubc"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
@@ -283,14 +283,14 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vec-M4-qvs">
-                                <rect key="frame" x="35" y="665" width="344" height="55"/>
-                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="35" y="667.5" width="344" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="epo-of-2wD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -303,19 +303,19 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RJw-lZ-DaJ">
-                                <rect key="frame" x="100" y="765" width="214" height="62"/>
+                                <rect key="frame" x="100" y="767.5" width="214" height="59.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOK-cn-u1Q">
-                                        <rect key="frame" x="5" y="0.0" width="204.5" height="23"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="7.5" y="0.0" width="199" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu7-aJ-M9G">
-                                        <rect key="frame" x="83" y="27" width="48" height="35"/>
-                                        <fontDescription key="fontDescription" name="Oxygen-Bold" family="Oxygen" pointSize="18"/>
+                                        <rect key="frame" x="85" y="25.5" width="44" height="34"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
                                         <state key="normal" title="Login">
-                                            <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.85126819350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="loginAction:" destination="hmG-rN-lBd" eventType="touchUpInside" id="iMM-iY-j0F"/>
@@ -325,7 +325,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2fj-68-wke" firstAttribute="trailing" secondItem="fky-p2-yhT" secondAttribute="trailing" constant="30" id="Bn6-G3-TP0"/>
                             <constraint firstItem="fky-p2-yhT" firstAttribute="leading" secondItem="2fj-68-wke" secondAttribute="leading" constant="30" id="Hff-Lu-ogs"/>
@@ -363,21 +363,103 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-BF-6LK">
-                                <rect key="frame" x="16" y="60" width="382" height="33"/>
-                                <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="26"/>
+                                <rect key="frame" x="16" y="60" width="382" height="31"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LNw-2G-4PK">
-                                <rect key="frame" x="0.0" y="109" width="426" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <searchBar contentMode="redraw" placeholder="Search a name..." translatesAutoresizingMaskIntoConstraints="NO" id="LNw-2G-4PK">
+                                <rect key="frame" x="0.0" y="107" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
                             </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3rx-Fj-rvn">
+                                <rect key="frame" x="16" y="179" width="382" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ntg-gj-1Ta">
+                                    <size key="itemSize" width="175" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" reuseIdentifier="PeopleCell" id="MVC-Cz-kSd" customClass="PeopleCell" customModule="TaskLoco" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" insetsLayoutMarginsFromSafeArea="NO" id="ox7-wz-Ung">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeF-9T-0xT" customClass="RandientView" customModule="TaskLoco" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hardeep Singh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3we-wY-3fP">
+                                                    <rect key="frame" x="42" y="8" width="125" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singhha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-FS-Lfm">
+                                                    <rect key="frame" x="42" y="27" width="125" height="14.5"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0u-Mx-xBQ">
+                                                    <rect key="frame" x="8" y="8" width="30" height="37.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="QSO-Ad-CvO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="ZORGEOUSINLINE" family="ZORGEOUS" pointSize="36"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="7g9-FS-Lfm" firstAttribute="bottom" secondItem="G0u-Mx-xBQ" secondAttribute="bottom" constant="-4" id="4ya-Hk-T5t"/>
+                                                <constraint firstItem="G0u-Mx-xBQ" firstAttribute="leading" secondItem="ox7-wz-Ung" secondAttribute="leading" constant="8" id="5Cf-Yl-Xyl"/>
+                                                <constraint firstAttribute="trailing" secondItem="3we-wY-3fP" secondAttribute="trailing" constant="8" id="C3h-xK-gJU"/>
+                                                <constraint firstAttribute="trailing" secondItem="QeF-9T-0xT" secondAttribute="trailing" id="Mt9-Wy-Uyq"/>
+                                                <constraint firstItem="3we-wY-3fP" firstAttribute="top" secondItem="ox7-wz-Ung" secondAttribute="top" constant="8" id="Tn9-25-Udy"/>
+                                                <constraint firstItem="7g9-FS-Lfm" firstAttribute="leading" secondItem="G0u-Mx-xBQ" secondAttribute="trailing" constant="4" id="UZM-tF-2Sj"/>
+                                                <constraint firstItem="G0u-Mx-xBQ" firstAttribute="top" secondItem="3we-wY-3fP" secondAttribute="top" id="WyQ-ks-56l"/>
+                                                <constraint firstItem="QeF-9T-0xT" firstAttribute="top" secondItem="ox7-wz-Ung" secondAttribute="top" id="dJk-7R-lsd"/>
+                                                <constraint firstAttribute="bottom" secondItem="QeF-9T-0xT" secondAttribute="bottom" id="dKp-jh-q0E"/>
+                                                <constraint firstItem="QeF-9T-0xT" firstAttribute="leading" secondItem="ox7-wz-Ung" secondAttribute="leading" id="fYV-tX-VTR"/>
+                                                <constraint firstItem="3we-wY-3fP" firstAttribute="leading" secondItem="G0u-Mx-xBQ" secondAttribute="trailing" constant="4" id="uPe-B7-Zsv"/>
+                                                <constraint firstAttribute="trailing" secondItem="7g9-FS-Lfm" secondAttribute="trailing" constant="8" id="zVl-tK-NYh"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="175" height="50"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="letter" destination="G0u-Mx-xBQ" id="ydi-fT-GUM"/>
+                                            <outlet property="name" destination="3we-wY-3fP" id="Ieg-e5-Ueb"/>
+                                            <outlet property="username" destination="7g9-FS-Lfm" id="48Z-Zy-98r"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="LNw-2G-4PK" firstAttribute="trailing" secondItem="luD-7h-ddj" secondAttribute="trailing" id="3Gh-KF-VYh"/>
+                            <constraint firstAttribute="trailing" secondItem="3rx-Fj-rvn" secondAttribute="trailing" constant="16" id="Dxr-Cy-bZO"/>
                             <constraint firstItem="luD-7h-ddj" firstAttribute="trailing" secondItem="Vfe-BF-6LK" secondAttribute="trailing" constant="16" id="J73-NL-p3e"/>
-                            <constraint firstItem="LNw-2G-4PK" firstAttribute="trailing" secondItem="luD-7h-ddj" secondAttribute="trailing" constant="12" id="Ue2-tK-Zmb"/>
+                            <constraint firstItem="3rx-Fj-rvn" firstAttribute="leading" secondItem="luD-7h-ddj" secondAttribute="leading" constant="16" id="SQa-wQ-vLJ"/>
+                            <constraint firstItem="3rx-Fj-rvn" firstAttribute="top" secondItem="LNw-2G-4PK" secondAttribute="bottom" constant="16" id="XDW-4d-mEt"/>
                             <constraint firstItem="LNw-2G-4PK" firstAttribute="top" secondItem="Vfe-BF-6LK" secondAttribute="bottom" constant="16" id="XO0-Ex-VSN"/>
+                            <constraint firstItem="luD-7h-ddj" firstAttribute="bottom" secondItem="3rx-Fj-rvn" secondAttribute="bottom" constant="16" id="clr-xB-98U"/>
                             <constraint firstItem="Vfe-BF-6LK" firstAttribute="top" secondItem="luD-7h-ddj" secondAttribute="top" constant="16" id="fwn-uq-pFP"/>
                             <constraint firstItem="Vfe-BF-6LK" firstAttribute="leading" secondItem="ybI-gl-4Uv" secondAttribute="leading" constant="16" id="k0E-0Z-sx2"/>
                             <constraint firstItem="LNw-2G-4PK" firstAttribute="leading" secondItem="luD-7h-ddj" secondAttribute="leading" id="rPj-4t-Zuf"/>
@@ -385,6 +467,10 @@
                         <viewLayoutGuide key="safeArea" id="luD-7h-ddj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="People" image="person.3" catalog="system" id="3XQ-Vy-wKL"/>
+                    <connections>
+                        <outlet property="peopleCollectionView" destination="3rx-Fj-rvn" id="3Or-g8-4WW"/>
+                        <outlet property="peopleSearch" destination="LNw-2G-4PK" id="20I-Gw-AAv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztx-J3-E5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -589,26 +675,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNr-gI-Jpl">
-                                <rect key="frame" x="12" y="60" width="67.5" height="36"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
+                                <rect key="frame" x="12" y="60" width="69.5" height="37"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="31"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 out of 35 Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tU-8O-LnL">
-                                <rect key="frame" x="16" y="100" width="184" height="21.5"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                <rect key="frame" x="16" y="101" width="193.5" height="23"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-s5-Gua">
-                                <rect key="frame" x="0.0" y="129.5" width="216" height="1"/>
+                                <rect key="frame" x="0.0" y="132" width="225.5" height="1"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Oou-uA-1OF"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-zd-DJn">
-                                <rect key="frame" x="0.0" y="146.5" width="414" height="666.5"/>
+                                <rect key="frame" x="0.0" y="149" width="414" height="664"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="TaskCell" rowHeight="145" id="VYS-pp-twn" customClass="TaskCell" customModule="TaskLoco" customModuleProvider="target">
@@ -623,16 +709,16 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="5PC-WS-Czg"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ds5-FE-SVc">
-                                                    <rect key="frame" x="10" y="41" width="40" height="21.5"/>
+                                                    <rect key="frame" x="10" y="41" width="40" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="ZEg-aY-LeC"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -646,26 +732,26 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improve UI on the Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJm-8R-hcb">
                                                     <rect key="frame" x="71" y="20" width="333" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ8-VK-alC">
                                                     <rect key="frame" x="71" y="43" width="333" height="38"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2V-p7-tMs">
-                                                    <rect key="frame" x="10" y="62.5" width="40" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="15"/>
+                                                    <rect key="frame" x="10" y="64" width="40" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="0.60129494859999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sandeep Kaur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1N-Jb-zNX">
-                                                    <rect key="frame" x="10" y="105" width="96.5" height="30"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="16"/>
+                                                    <rect key="frame" x="10" y="105" width="102.5" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -674,7 +760,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O9-xv-Reo">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
-                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
@@ -803,52 +889,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEa-fg-FW0">
-                                <rect key="frame" x="16" y="60" width="76" height="50"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="34"/>
+                                <rect key="frame" x="16" y="60" width="78.5" height="53"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="35"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gd2-IW-Avh">
-                                <rect key="frame" x="346" y="56" width="52" height="54"/>
+                                <rect key="frame" x="342.5" y="56" width="55.5" height="57"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aec-jF-Nqv">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="18"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2y-RF-wdw">
-                                        <rect key="frame" x="0.0" y="18" width="52" height="18"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="19" width="55.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singhha" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtH-3c-vPH">
-                                        <rect key="frame" x="0.0" y="36" width="52" height="18"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="38" width="55.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="w07-3z-jON">
-                                <rect key="frame" x="0.0" y="119" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-yb-bwl">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                         <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37 Tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvC-xq-bKF">
                                         <rect key="frame" x="142" y="0.0" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                         <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb9-EV-LSG">
                                         <rect key="frame" x="284" y="0.0" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                         <color key="textColor" red="0.20554375829999999" green="0.53689002730000002" blue="0.62953240070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -858,7 +944,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uvt-u9-Zad">
-                                <rect key="frame" x="0.0" y="171" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="174" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="TaskCell" rowHeight="145" id="4vj-LI-mVu" customClass="TaskCell" customModule="TaskLoco" customModuleProvider="target">
@@ -873,16 +959,16 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="NgH-F8-TQ3"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPQ-cu-S8K">
-                                                    <rect key="frame" x="10" y="41" width="40" height="21.5"/>
+                                                    <rect key="frame" x="10" y="41" width="40" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="uOy-8v-1e2"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -896,26 +982,26 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improve UI on the Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anm-Uv-pai">
                                                     <rect key="frame" x="71" y="20" width="333" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35a-HG-7os">
                                                     <rect key="frame" x="71" y="43" width="333" height="38"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUt-aR-T8Q">
-                                                    <rect key="frame" x="10" y="62.5" width="40" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="15"/>
+                                                    <rect key="frame" x="10" y="64" width="40" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="0.60129494859999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sandeep Kaur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSJ-Oe-XNA">
-                                                    <rect key="frame" x="10" y="105" width="96.5" height="30"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="16"/>
+                                                    <rect key="frame" x="10" y="105" width="102.5" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -924,7 +1010,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-Ba-v4R">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
-                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
@@ -1241,14 +1327,14 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hn-lf-jXD">
-                                <rect key="frame" x="0.0" y="169" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="172" width="414" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="SsS-If-US3"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1r-oO-i1X">
-                                <rect key="frame" x="0.0" y="118" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="121" width="414" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ZxL-A6-2Bb"/>
@@ -1370,19 +1456,19 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hardeep Singh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaM-dn-8xj">
-                                                    <rect key="frame" x="42" y="8" width="125" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="14"/>
+                                                    <rect key="frame" x="42" y="8" width="125" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singhha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMS-EF-eSc">
-                                                    <rect key="frame" x="42" y="26" width="125" height="15.5"/>
-                                                    <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="12"/>
+                                                    <rect key="frame" x="42" y="31.5" width="125" height="14.5"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWN-0J-JqQ">
-                                                    <rect key="frame" x="8" y="8" width="30" height="37.5"/>
+                                                    <rect key="frame" x="8" y="8" width="30" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="wM3-Un-uVU"/>
                                                     </constraints>
@@ -1478,19 +1564,19 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hardeep Singh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-Vb-hnu">
-                                                            <rect key="frame" x="42" y="8" width="125" height="18"/>
-                                                            <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="14"/>
+                                                            <rect key="frame" x="42" y="8" width="125" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singhha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejg-KP-clD">
-                                                            <rect key="frame" x="42" y="26" width="125" height="15.5"/>
-                                                            <fontDescription key="fontDescription" name="Oxygen-Regular" family="Oxygen" pointSize="12"/>
+                                                            <rect key="frame" x="42" y="31.5" width="125" height="14.5"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVe-2T-F51">
-                                                            <rect key="frame" x="8" y="8" width="30" height="37.5"/>
+                                                            <rect key="frame" x="8" y="8" width="30" height="42"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="39h-Yz-ccF"/>
                                                             </constraints>
@@ -1658,7 +1744,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01Y-Bu-5Nl">
                                         <rect key="frame" x="0.0" y="0.0" width="119.5" height="40"/>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <state key="normal" title="Pending">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1674,7 +1760,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnu-sg-ijn">
                                         <rect key="frame" x="131.5" y="0.0" width="119" height="40"/>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <state key="normal" title="In Progress">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1690,7 +1776,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-2t-vqg">
                                         <rect key="frame" x="262.5" y="0.0" width="119.5" height="40"/>
                                         <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                         <state key="normal" title="Completed">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1772,7 +1858,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2La-Nb-Zqx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="20"/>
                                 <state key="normal" title="Create">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1964,13 +2050,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singhha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fku-5L-2wA">
-                                                    <rect key="frame" x="42" y="27" width="125" height="14.5"/>
+                                                    <rect key="frame" x="42" y="31.5" width="125" height="14.5"/>
                                                     <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ql3-MU-oKd">
-                                                    <rect key="frame" x="8" y="8" width="30" height="37.5"/>
+                                                    <rect key="frame" x="8" y="8" width="30" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="h69-HM-fTc"/>
                                                     </constraints>
@@ -2276,19 +2362,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZF1-Gn-YWX">
-                                                    <rect key="frame" x="8" y="8" width="20.5" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                                    <rect key="frame" x="8" y="8" width="21.5" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-4D-1bF">
-                                                    <rect key="frame" x="36.5" y="8" width="33" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
+                                                    <rect key="frame" x="37.5" y="8" width="35" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                     <color key="textColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="0.60129494859999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCL-M5-pCO">
-                                                    <rect key="frame" x="0.0" y="33.5" width="81.5" height="1"/>
+                                                    <rect key="frame" x="0.0" y="35" width="84.5" height="1"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="AtA-7Z-B3k"/>
@@ -2308,8 +2394,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improve UI on the Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8G-ul-SF5">
-                                                    <rect key="frame" x="8" y="41" width="189" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                                    <rect key="frame" x="8" y="39.5" width="189" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2328,7 +2414,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="dHg-iN-WBl"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2336,6 +2422,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="fVA-st-hjv" secondAttribute="trailing" constant="8" id="3OK-bd-0od"/>
                                                 <constraint firstAttribute="trailing" secondItem="6m0-ew-Qwf" secondAttribute="trailing" constant="8" id="C3D-cm-Ufn"/>
+                                                <constraint firstItem="u8G-ul-SF5" firstAttribute="top" secondItem="fVA-st-hjv" secondAttribute="bottom" constant="7.5" id="DEQ-mS-YkC"/>
                                                 <constraint firstAttribute="bottom" secondItem="nSe-6x-Yil" secondAttribute="bottom" constant="8" id="DPr-ze-nBi"/>
                                                 <constraint firstItem="ZF1-Gn-YWX" firstAttribute="top" secondItem="RfY-wq-sXb" secondAttribute="top" constant="8" id="FhS-Pr-HZL"/>
                                                 <constraint firstItem="dnn-4D-1bF" firstAttribute="trailing" secondItem="gCL-M5-pCO" secondAttribute="trailing" constant="-12" id="GjY-MF-ll3"/>
@@ -2343,7 +2430,6 @@
                                                 <constraint firstItem="dnn-4D-1bF" firstAttribute="leading" secondItem="ZF1-Gn-YWX" secondAttribute="trailing" constant="8" id="Ne6-YQ-dAI"/>
                                                 <constraint firstItem="nSe-6x-Yil" firstAttribute="top" secondItem="6m0-ew-Qwf" secondAttribute="bottom" constant="14.5" id="PTg-7V-z6Y"/>
                                                 <constraint firstItem="u8G-ul-SF5" firstAttribute="leading" secondItem="RfY-wq-sXb" secondAttribute="leading" constant="8" id="QMx-fO-Me2"/>
-                                                <constraint firstItem="u8G-ul-SF5" firstAttribute="top" secondItem="fVA-st-hjv" secondAttribute="bottom" constant="9" id="S9v-ce-aJY"/>
                                                 <constraint firstItem="gCL-M5-pCO" firstAttribute="leading" secondItem="RfY-wq-sXb" secondAttribute="leading" id="SI6-ml-6C1"/>
                                                 <constraint firstAttribute="trailing" secondItem="nSe-6x-Yil" secondAttribute="trailing" constant="20" symbolic="YES" id="SX3-HW-mEx"/>
                                                 <constraint firstItem="6m0-ew-Qwf" firstAttribute="top" secondItem="u8G-ul-SF5" secondAttribute="bottom" constant="4" id="Sjz-Oq-Juc"/>

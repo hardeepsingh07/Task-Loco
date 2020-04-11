@@ -23,8 +23,8 @@ class LoginViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		usernameTF.bottomBorder(uiColor: UIColor.white)
-		passwordTF.bottomBorder(uiColor: UIColor.white)
+		usernameTF.bottomBorder()
+		passwordTF.bottomBorder()
 		usernameTF.text = "hardeep"
 		passwordTF.text = "hardeep"
 	}
