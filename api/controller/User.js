@@ -1,4 +1,5 @@
 const User = require('../model/User');
+const Project = require('../model/Project')
 const keyGenerator = require('random-key-generator');
 const _ = require('lodash');
 const utils = require('../util/Utils');
@@ -23,6 +24,18 @@ exports.getUser = function (req, res) {
         res.generateAndRespond("Fetch User", User.find({username: req.params.username}, {password: 0}))
     });
 };
+
+exports.getUserWithProject = function(req, res) {
+    req.validateKey(res, () => {
+        User.findOne({username: req.params.username}, {password: 0})
+            .then(user => {
+                Project.find({'users.username': req.params.username})
+                    .then(project => res.createResponse("User Project Successful", { user: user, project: project}, null))
+                    .catch(error => res.createResponse("User Project Failed", null, error))
+            })
+            .catch(error => res.createResponse("User Project Failed", null, error))
+    })
+}
 
 exports.login = function (req, res) {
     User.findOne({username: req.body.username})
