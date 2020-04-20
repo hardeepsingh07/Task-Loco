@@ -54,11 +54,12 @@ class PeopleViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellConstants.people, for: indexPath) as! PeopleCell
         cell.updateCell(self.filteredData[indexPath.row])
+		cell.applyBorder()
         return cell
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//		navigateToTaskAlertSheet(ViewController.createTask, self.archiveTasks[indexPath.row])
+		navigateToUserProjectAlertSheet(filteredData[indexPath.row].username)
 	}
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

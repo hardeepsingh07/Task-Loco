@@ -23,10 +23,6 @@ class PeopleCell: UICollectionViewCell {
 	}
 	
 	func updateCell(_ userHeader: UserHeader) {
-		self.letter.handleColor(gradient: TL.userManager.projectGradient)
-		self.name.handleColor(gradient: TL.userManager.projectGradient)
-		self.username.handleColor(gradient: TL.userManager.projectGradient)
-		
         self.name.text = userHeader.name
         self.username.text = userHeader.username
         self.letter.text = String(userHeader.name.first ?? General.x)

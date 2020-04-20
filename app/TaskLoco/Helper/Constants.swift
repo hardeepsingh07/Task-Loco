@@ -17,6 +17,8 @@ enum ViewController {
 	static var createTask = "TaskViewController"
 	static var contentView = "ContentViewController"
 	static var users = "UsersViewController"
+	static var userProject = "UserProjectViewController"
+	static var user = "UserViewController"
 }
 
 enum CellConstants {
@@ -26,6 +28,7 @@ enum CellConstants {
 	static var add = "AddCell"
 	static var project = "ProjectCell"
 	static var people = "PeopleCell"
+	static var userProject = "UserProjectCell"
 }
 
 enum ColorConstants{
@@ -58,6 +61,7 @@ enum General {
 	static var empty = ""
 	static var all = "All"
 	static var x: Character = "X"
+	static var projectsCount = " Projects"
 }
 
 enum ErrorConstants {

@@ -73,6 +73,17 @@ extension UIViewController {
 		showAlertSheet(viewController: viewController)
 	}
 	
+	func navigateToUserProjectAlertSheet(_ username: String) {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.userProject) as! UserProjectViewController
+		viewController.selectedUsername = username
+		showAlertSheet(viewController: viewController)
+	}
+	
+	func navigateToUseAlertSheet() {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.user) as! UserViewController
+		showAlertSheet(viewController: viewController)
+	}
+	
 	private func showAlertSheet(viewController: UIViewController) {
 		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alertController.setValue(viewController, forKey: ViewController.contentView)

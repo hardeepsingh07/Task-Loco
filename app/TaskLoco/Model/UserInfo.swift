@@ -46,3 +46,15 @@ struct UserHeader: Codable, Hashable {
 		hasher.combine(username)
 	}
 }
+
+struct UserProjectResponse: Response {
+	let responseCode: Int
+    let message: String
+    let data: UserProject?
+    let error: ResponseError?
+}
+
+struct UserProject: Codable {
+	let user: User
+	let project: [Project]
+}
