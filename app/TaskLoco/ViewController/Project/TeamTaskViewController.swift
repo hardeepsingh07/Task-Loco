@@ -22,7 +22,6 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var teamTaskTableView: UITableView!
     
-    @IBOutlet weak var membersCount: UILabel!
     @IBOutlet weak var taskCount: UILabel!
     @IBOutlet weak var completeCount: UILabel!
 	
@@ -75,7 +74,6 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
         self.statusFilterText.secondaryColor()
         self.usernameFilterText.secondaryColor()
         
-        self.membersCount.primaryColor()
         self.completeCount.secondaryColor()
         
 		self.priorityMenuButton.isHidden = true
@@ -99,7 +97,6 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     private func updateAnalyticsView() {
-		membersCount.text = String(team.count) + TaskAnalytics.member
 		taskCount.text = String(tasks.count) + TaskAnalytics.tasks
 		completeCount.text = String(tasks.filter({ $0.status == .completed}).count) + TaskAnalytics.completed
     }
