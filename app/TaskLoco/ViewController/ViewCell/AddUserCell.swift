@@ -22,7 +22,7 @@ class AddUserCell: UICollectionViewCell {
 	}
 	
 	func updateCell() {
-		self.image.backgroundColor = TL.userManager.provideSecondaryColor()
+        self.image.backgroundColor = TL.userManager.provideSecondaryColor() ?? ColorConstants.primaryColor
         self.label.primaryColor()
 	}
 }

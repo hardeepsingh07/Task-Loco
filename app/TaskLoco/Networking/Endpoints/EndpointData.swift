@@ -24,6 +24,7 @@ enum EndpointData{
 	case project(projectId: String)
 	case addMember(projectId: String, userHeaders: [UserHeader])
 	case removeMember(projectId: String, userHeader: UserHeader)
+	case createProject(project: Project)
 	case updateProject(projectId: String, autoClose: Bool)
 	case userWithProject(username: String)
 }
@@ -47,6 +48,7 @@ enum PathConstants {
 	static var projectId = "\(project)/id/"
 	static var addMember = "\(project)/add/"
 	static var removeMember = "\(project)/remove/"
+	static var createProject = "\(project)/"
 	static var updateProject = "\(project)/update/"
 	static var userWithProject = "\(user)/project/"
 }
@@ -79,6 +81,8 @@ private enum ParameterConstants {
 	static var closed = "closed"
 	static var autoClose = "autoClose"
 	static var users = "users"
+	static var projectId = "projectId"
+	static var starred = "starred"
 }
 
 extension EndpointData: Endpoint {
@@ -126,6 +130,8 @@ extension EndpointData: Endpoint {
 			return PathConstants.addMember + projectId
 		case .removeMember(let projectId, _):
 			return PathConstants.removeMember + projectId
+		case .createProject:
+			return PathConstants.createProject
 		case .updateProject(let projectId, _):
 			return PathConstants.updateProject + projectId
 		case .userWithProject(let username):
@@ -190,13 +196,13 @@ extension EndpointData: Endpoint {
 			if(username != nil) { dictionary[QueryConstants.username] = username }
 			return dictionary
 		case .addMember( _, let userHeaders):
-			let jsonArray = userHeaders.map { (userHeader) -> [String: String] in
-				return [
-					ParameterConstants.username: userHeader.username,
-					ParameterConstants.name: userHeader.name,
-				]
-			}
-			return [ParameterConstants.users:  jsonArray]
+			return [ParameterConstants.users:  userDictionary(users: userHeaders)]
+		case .createProject(let project):
+			return [ParameterConstants.name: project.name,
+					ParameterConstants.description: project.description ?? General.empty,
+				ParameterConstants.projectId: project.projectId,
+				ParameterConstants.users: userDictionary(users: project.users),
+				ParameterConstants.starred: project.starred]
 		case .removeMember( _, let userHeader):
 			return [ParameterConstants.username:  userHeader.username,
 					ParameterConstants.name: userHeader.name]
@@ -217,6 +223,15 @@ extension EndpointData: Endpoint {
 		urlRequest.method = httpMethod
 		print(parameters)
 		return try! encoding.encode(urlRequest, with: parameters)
+	}
+	
+	private func userDictionary(users: [UserHeader]) -> [[String: String]] {
+		return users.map { (userHeader) -> [String: String] in
+			return [
+				ParameterConstants.username: userHeader.username,
+				ParameterConstants.name: userHeader.name,
+			]
+		}
 	}
 }
 

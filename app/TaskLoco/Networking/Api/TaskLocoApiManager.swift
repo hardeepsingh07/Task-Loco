@@ -74,6 +74,10 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(endpointData: EndpointData.removeMember(projectId: projectId, userHeader: userHeader))
 	}
 	
+	func createProject(project: Project) -> Observable<ProjectResponse> {
+		return self.request(endpointData: EndpointData.createProject(project: project))
+	}
+	
 	func updateProject(projectId: String, autoClose: Bool) -> Observable<ProjectResponse> {
 		return self.request(endpointData: EndpointData.updateProject(projectId: projectId, autoClose: autoClose))
 	}

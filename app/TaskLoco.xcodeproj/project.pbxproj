@@ -16,6 +16,8 @@
 		EB32F92B241C5728001DB333 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = EB32F92A241C5728001DB333 /* DynamicColor */; };
 		EB34380F2408261E004A6A72 /* UserTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34380E2408261E004A6A72 /* UserTaskViewController.swift */; };
 		EB3438112408D7C3004A6A72 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3438102408D7C3004A6A72 /* UIViewController.swift */; };
+		EB3C804F245F4B89005B4FCE /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C804E245F4B89005B4FCE /* CreateProjectViewController.swift */; };
+		EB3C8051245F68FD005B4FCE /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C8050245F68FD005B4FCE /* HomeTabBarViewController.swift */; };
 		EB51F73C2439A66C00C1F488 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51F73B2439A66C00C1F488 /* UsersViewController.swift */; };
 		EB5FDFED242BF9EE009F1B59 /* TeamTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FDFEC242BF9EE009F1B59 /* TeamTaskViewController.swift */; };
 		EB6038A42406330C00962991 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB6038A32406330C00962991 /* Alamofire */; };
@@ -135,6 +137,8 @@
 		EB2615C024294B7100939364 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EB34380E2408261E004A6A72 /* UserTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTaskViewController.swift; sourceTree = "<group>"; };
 		EB3438102408D7C3004A6A72 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		EB3C804E245F4B89005B4FCE /* CreateProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
+		EB3C8050245F68FD005B4FCE /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		EB51F73B2439A66C00C1F488 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		EB5FDFEC242BF9EE009F1B59 /* TeamTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTaskViewController.swift; sourceTree = "<group>"; };
 		EB63E80A2402F8C90090791F /* TaskLoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskLoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +361,8 @@
 				EB843D7C2439466900FE090D /* PeopleViewController.swift */,
 				EB695748244D419100E45C57 /* UserProjectViewController.swift */,
 				EBBFEAEE244D511600308F59 /* UserViewController.swift */,
+				EB3C804E245F4B89005B4FCE /* CreateProjectViewController.swift */,
+				EB3C8050245F68FD005B4FCE /* HomeTabBarViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -674,7 +680,9 @@
 				EBF2A2BC240AD3B9001B3D67 /* TaskCell.swift in Sources */,
 				EB695747244D3F7300E45C57 /* UserProjectCell.swift in Sources */,
 				EBF2A2C4240C1FCD001B3D67 /* NetworkInterceptor.swift in Sources */,
+				EB3C8051245F68FD005B4FCE /* HomeTabBarViewController.swift in Sources */,
 				EB2615C124294B7100939364 /* SettingsViewController.swift in Sources */,
+				EB3C804F245F4B89005B4FCE /* CreateProjectViewController.swift in Sources */,
 				EBF50464243C23EF00061849 /* RandientView.swift in Sources */,
 				EB64D564240394AE0000436B /* TaskLocoApi.swift in Sources */,
 				EBD3018724281BCB00D5C7A8 /* ArchieveViewController.swift in Sources */,

@@ -65,6 +65,11 @@ extension UIViewController {
 		showAlertSheet(viewController: viewController)
 	}
 	
+	func navigateToProjectAlertSheet(_ vcIdentifier: String) {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: vcIdentifier) as! CreateProjectViewController
+		showAlertSheet(viewController: viewController)
+	}
+	
 	func navigateToUsersAlertSheet(_ userSelectionType: UsersSelectionType, _ onSelectionDelegate: OnSelectionDelegate, _ exclude: [UserHeader] = []) {
 		let viewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.users) as! UsersViewController
 		viewController.userSelectionType = userSelectionType

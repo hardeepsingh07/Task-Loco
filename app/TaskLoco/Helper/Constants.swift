@@ -19,6 +19,7 @@ enum ViewController {
 	static var users = "UsersViewController"
 	static var userProject = "UserProjectViewController"
 	static var user = "UserViewController"
+	static var createProject = "CreateProjectViewController"
 }
 
 enum CellConstants {
