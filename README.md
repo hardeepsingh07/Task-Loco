@@ -13,11 +13,13 @@ A local API along with local Database
 #### User Endpoints
 | Type   | Prefix | Endpoint    | Description                                          |
 |--------|--------|-------------|------------------------------------------------------|
-| POST   | /user  | /           | Create a user from JSON request body                 |
-| GET    | /user  | /names      | Provide all user names                               |
-| GET    | /user  | /login      | Validates the user and provide a token               |
+| POST   | /user  | /           | Create a user from JSON request body              |
+| GET    | /user  | /names      | Provide all user names                            |
+| POST    | /user  | /login      | Validates the user and provide a token           |
+| POST | /user | /logout | Logout out the provided user in body
+| GET | /user | /project/:username | Provide all projects associated with username
 | GET    | /user  | /:username | Provide all information associated with the username |
-| DELETE | /user  | /:username | Delete the user with associated username             |
+| DELETE | /user  | /:username | Delete the user with associated username           |
 
 #### Task Endpoints
 | Type   | Prefix | Endpoint         | Description                                                                                              |
