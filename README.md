@@ -13,22 +13,36 @@ A local API along with local Database
 #### User Endpoints
 | Type   | Prefix | Endpoint    | Description                                          |
 |--------|--------|-------------|------------------------------------------------------|
-| POST   | /user  | /           | Create a user from JSON request body                 |
-| GET    | /user  | /names      | Provide all user names                               |
-| GET    | /user  | /login      | Validates the user and provide a token               |
+| POST   | /user  | /           | Create a user from JSON request body              |
+| GET    | /user  | /names      | Provide all user names                            |
+| POST    | /user  | /login      | Validates the user and provide a token           |
+| POST | /user | /logout | Logout out the provided user in body
+| GET | /user | /project/:username | Provide all projects associated with username
 | GET    | /user  | /:username | Provide all information associated with the username |
-| DELETE | /user  | /:username | Delete the user with associated username             |
+| DELETE | /user  | /:username | Delete the user with associated username           |
+
+#### Project Endpoints
+| Type   | Prefix | Endpoint         | Description                                                                                              |
+|--------|--------|------------------|----------------------------------------------------------------------------------------------------------|
+| POST  | /project  | / | Create a Project from JSON request body |
+| GET   | /project  | /all | Provide all Projects    |
+| POST  | /project  | /add/:projectId | Add member to project associated with  project ID |
+| POST   | /project  | /remove/:projectId | Remove member from project assocaited with project ID | 
+| POST    | /project  | /update/:projectId | Update project associated with project ID based on JSON Body |
+| GET    | /project  | /id/:projectId  | Provide project associated with project ID |
+| GET | /project | /:username | Provoide all project associated with username |
+| DELETE | /project  | /:project | Remove the project associated with the project ID |
 
 #### Task Endpoints
 | Type   | Prefix | Endpoint         | Description                                                                                              |
 |--------|--------|------------------|----------------------------------------------------------------------------------------------------------|
-| POST   | /task  | /                | Create a task from JSON request body                                                                     |
-| POST   | /task  | /:taskId/update | Update the status of given taskId Queries: - completed: String - status: String - responsible: String    |
-| GET    | /task  | /all             | Provide all the tasks                                                                                    |
-| GET    | /task  | /completed       | Provide all the completed tasks                                                                          |
-| GET    | /task  | /pending         | Provide all the pending tasks                                                                            |
-| GET    | /task  | /inprogress      | Provide all the in-progress tasks                                                                        |
-| DELETE | /task  | /:taskId        | Remove the task associated with the taskId                                                               |
+| POST   | /task  | / | Create a task from JSON request body |
+| POST   | /task  | /:taskId | Update task associated task ID, with JSON Body    |
+| GET    | /task  | /all        | Provide all the tasks           |
+| GET    | /task  | /user/:username | Provide all tasks associated with username | 
+| GET    | /task  | /filter       | Provide filtered task based on JSON Body |
+| GET    | /task  | /archive         | Provide all the archived tasks |
+| DELETE | /task  | /:taskId        | Remove the task associated with the task ID |
 
 #### Database
 - MongoDB
