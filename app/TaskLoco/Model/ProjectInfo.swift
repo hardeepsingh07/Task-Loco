@@ -16,7 +16,7 @@ struct ProjectResponse: Response {
 }
 
 struct Project: Codable {
-	let id: String
+	let id: String? = nil
 	let name: String
 	let projectId: String
     let description: String?

@@ -30,6 +30,7 @@ class ProjectCell: UICollectionViewCell {
 		self.projectName.text = project.name
 		self.projectDescription.text = project.description
         self.firstLetter.text = String(project.name.first!)
+		projectStarred.image = UIImage(systemName: project.starred ? Images.starFill : Images.star) 
 		handleColor()
 	}
 	

@@ -55,6 +55,7 @@ enum Alerts{
 	static var cancel = "Cancel"
 	static var success = "Success"
 	static var memberAddMessage = "%@ added successfully"
+	static var atleastOneMember = "Please select atleast one Team Member"
 }
 
 enum General {
@@ -135,4 +136,10 @@ enum UsersSelectionType {
 			return "Add Users"
 		}
 	}
+}
+
+
+enum Images {
+	static var star = "star"
+	static var starFill = "star.fill"
 }

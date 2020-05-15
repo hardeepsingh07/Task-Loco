@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CreateProjectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, OnSelectionDelegate {
 	
@@ -14,13 +15,14 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var projectId: UITextField!
     @IBOutlet weak var projectDescription: UITextField!
     @IBOutlet weak var teamCollectionView: UICollectionView!
-    @IBOutlet weak var header: RandientView!
     @IBOutlet weak var buttonBackground: RandientView!
     @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var projectLabel: UILabel!
     
 	private let ADD_INDEX = 0
+	private let PROJECT_ID = "-\(Int.random(in: 100..<999))"
 	var team: [UserHeader] = []
+	private let diposeBag = DisposeBag()
     
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -29,18 +31,47 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
 	}
 	
 	private func initView() {
-		let gradient = header.randomize(animated: true)
-		self.buttonBackground.update(for: gradient, animated: true)
+		let gradient = self.buttonBackground.randomize(animated: true)
         self.buttonLabel.handleColor(gradient: gradient)
-        self.projectLabel.handleColor(gradient: gradient)
 		self.name.bottomBorder(uiColor: ColorConstants.lightGrey)
         self.projectId.bottomBorder(uiColor: ColorConstants.lightGrey)
         self.projectDescription.bottomBorder(uiColor: ColorConstants.lightGrey)
+		self.name.addTarget(self, action: #selector(CreateProjectViewController.onChange(_:)), for: .editingChanged)
+	}
+	
+	@objc func onChange(_ textField: UITextField) {
+		if(textField.text?.count ?? 0 < 5) {
+			if(textField.text?.count ?? 0 == 0) {
+				self.projectId.text = General.empty
+			} else {
+				self.projectId.text = (textField.text?.uppercased() ?? General.empty) + PROJECT_ID
+			}
+		}
 	}
 	
     @IBAction func createProject(_ sender: Any) {
-        
+		if(self.team.isEmpty) {
+			messageAlert(Alerts.invalidInput, Alerts.atleastOneMember)
+		} else if(self.name.text?.isEmpty == true || self.projectDescription.text?.isEmpty == true) {
+			messageAlert(Alerts.invalidInput, Alerts.inputRequired)
+		} else {
+			TL.taskLocoApi.createProject(project: createProject())
+				.mapToHandleResponse()
+				.observeOn(MainScheduler.instance)
+				.subscribe(onNext: { project in
+					self.dismissAlertController()
+				}, onError: { error in
+					self.handleError(error)
+				}).disposed(by: diposeBag)
+		}
     }
+	
+	func createProject() -> Project{
+		return Project(name: self.name.text ?? General.empty,
+				projectId: self.projectId.text ?? General.empty,
+				description: self.projectDescription.text ?? General.empty,
+				users: team, starred: false, autoClose: true)
+	}
     
     private func initCollectionView() {
 		self.teamCollectionView.dataSource = self
@@ -80,5 +111,6 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
 	
 	func onSelected(selection: [UserHeader]) {
 		self.team.append(contentsOf: selection)
+		self.teamCollectionView.reloadData()
 	}
 }

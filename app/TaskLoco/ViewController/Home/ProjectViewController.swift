@@ -31,6 +31,7 @@ class ProjectViewController: UIViewController, UICollectionViewDataSource, UICol
 			.mapToHandleResponse()
 			.subscribe(onNext: { projects in
 				self.projects = projects
+				self.projects.sort { $0.starred && !$1.starred }
 				self.projectCollectionView.reloadData()
 			}, onError: { error in
 				self.handleError(error)

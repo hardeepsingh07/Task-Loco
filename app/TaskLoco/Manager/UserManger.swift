@@ -87,6 +87,6 @@ class UserManger {
 	}
 	
 	func provideSecondaryColor() -> UIColor? {
-		return projectGradient?.data.colors.last
+		return projectGradient?.data.colors.last ?? ColorConstants.primaryColor
 	}
 }
