@@ -3029,6 +3029,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XYx-pH-eAz">
+                                <rect key="frame" x="363" y="60" width="35" height="35"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="0bL-OL-O44"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="NG8-tR-LvN"/>
+                                    <constraint firstAttribute="height" constant="35" id="e4K-za-NOe"/>
+                                    <constraint firstAttribute="width" constant="35" id="lXr-DU-Ipb"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5Gw-Iu-JLw" appends="YES" id="H7A-i9-aDw"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -3042,6 +3056,7 @@
                             <constraint firstItem="n0b-5n-J2r" firstAttribute="bottom" secondItem="z3f-wC-MkQ" secondAttribute="bottom" constant="10" id="IaG-Pp-CBo"/>
                             <constraint firstItem="78K-rb-8V7" firstAttribute="trailing" secondItem="Nkm-1v-kYU" secondAttribute="trailing" constant="160" id="LFw-gj-8uI"/>
                             <constraint firstItem="z3f-wC-MkQ" firstAttribute="top" secondItem="n0b-5n-J2r" secondAttribute="top" constant="13" id="LfA-sV-jHe"/>
+                            <constraint firstItem="XYx-pH-eAz" firstAttribute="top" secondItem="78K-rb-8V7" secondAttribute="top" constant="16" id="MAA-Yl-OD7"/>
                             <constraint firstItem="syG-mm-t3g" firstAttribute="top" secondItem="ijM-m4-rgZ" secondAttribute="bottom" constant="16" id="MC5-3t-ynO"/>
                             <constraint firstItem="om8-dV-e3R" firstAttribute="leading" secondItem="78K-rb-8V7" secondAttribute="leading" constant="16" id="MgX-0c-l2z"/>
                             <constraint firstItem="byL-vf-yH3" firstAttribute="top" secondItem="dXD-I2-nIw" secondAttribute="bottom" constant="12" id="N1T-SO-UXu"/>
@@ -3055,6 +3070,7 @@
                             <constraint firstItem="78K-rb-8V7" firstAttribute="trailing" secondItem="PoX-Nn-hOc" secondAttribute="trailing" constant="16" id="gM0-yC-N2i"/>
                             <constraint firstItem="78K-rb-8V7" firstAttribute="trailing" secondItem="om8-dV-e3R" secondAttribute="trailing" constant="16" id="hf9-3U-mxc"/>
                             <constraint firstItem="ijM-m4-rgZ" firstAttribute="leading" secondItem="n0b-5n-J2r" secondAttribute="leading" id="iJU-zq-WEW"/>
+                            <constraint firstItem="78K-rb-8V7" firstAttribute="trailing" secondItem="XYx-pH-eAz" secondAttribute="trailing" constant="16" id="jJP-aj-mdT"/>
                             <constraint firstItem="78K-rb-8V7" firstAttribute="trailing" secondItem="syG-mm-t3g" secondAttribute="trailing" constant="32" id="opl-V6-4nV"/>
                             <constraint firstItem="dXD-I2-nIw" firstAttribute="top" secondItem="78K-rb-8V7" secondAttribute="top" constant="24" id="sCf-pV-run"/>
                             <constraint firstItem="n0b-5n-J2r" firstAttribute="top" secondItem="om8-dV-e3R" secondAttribute="bottom" constant="16" id="vcd-JX-clJ"/>
@@ -3070,6 +3086,7 @@
                         <outlet property="projectDescription" destination="om8-dV-e3R" id="BUt-us-4W6"/>
                         <outlet property="projectId" destination="21z-XO-F47" id="XIb-ic-I5v"/>
                         <outlet property="projectLabel" destination="dXD-I2-nIw" id="dZ2-mu-Ncb"/>
+                        <outlet property="star" destination="XYx-pH-eAz" id="ngu-5j-7CY"/>
                         <outlet property="teamCollectionView" destination="ijM-m4-rgZ" id="6O6-x9-lug"/>
                     </connections>
                 </viewController>
@@ -3077,6 +3094,11 @@
                 <tapGestureRecognizer id="zB6-wd-1r9">
                     <connections>
                         <action selector="createProject:" destination="cmH-ou-zQt" id="brD-LW-aJr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5Gw-Iu-JLw">
+                    <connections>
+                        <action selector="onStarClick:" destination="cmH-ou-zQt" id="xcH-Fg-6RN"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

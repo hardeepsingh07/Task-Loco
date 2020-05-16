@@ -18,6 +18,7 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var buttonBackground: RandientView!
     @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var projectLabel: UILabel!
+    @IBOutlet weak var star: UIImageView!
     
 	private let ADD_INDEX = 0
 	private let PROJECT_ID = "-\(Int.random(in: 100..<999))"
@@ -37,6 +38,8 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
         self.projectId.bottomBorder(uiColor: ColorConstants.lightGrey)
         self.projectDescription.bottomBorder(uiColor: ColorConstants.lightGrey)
 		self.name.addTarget(self, action: #selector(CreateProjectViewController.onChange(_:)), for: .editingChanged)
+		self.star.isUserInteractionEnabled = true
+		self.star.image = UIImage(systemName: Images.star)
 	}
 	
 	@objc func onChange(_ textField: UITextField) {
@@ -65,12 +68,18 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
 				}).disposed(by: diposeBag)
 		}
     }
-	
+    
+    @IBAction func onStarClick(_ sender: Any) {
+        star.image = star.image == UIImage(systemName: Images.star)
+					 ? UIImage(systemName: Images.starFill)
+					 : UIImage(systemName: Images.star)
+    }
+    
 	func createProject() -> Project{
 		return Project(name: self.name.text ?? General.empty,
 				projectId: self.projectId.text ?? General.empty,
 				description: self.projectDescription.text ?? General.empty,
-				users: team, starred: false, autoClose: true)
+				users: team, starred: star.image == UIImage(systemName: Images.starFill), autoClose: true)
 	}
     
     private func initCollectionView() {
