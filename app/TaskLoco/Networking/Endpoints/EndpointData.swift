@@ -27,6 +27,7 @@ enum EndpointData{
 	case createProject(project: Project)
 	case updateProject(projectId: String, autoClose: Bool)
 	case userWithProject(username: String)
+	case deleteProject(projectId: String)
 }
 
 enum PathConstants {
@@ -51,6 +52,7 @@ enum PathConstants {
 	static var createProject = "\(project)/"
 	static var updateProject = "\(project)/update/"
 	static var userWithProject = "\(user)/project/"
+	static var deleteProject = "\(project)/"
 }
 
 enum QueryConstants {
@@ -136,14 +138,16 @@ extension EndpointData: Endpoint {
 			return PathConstants.updateProject + projectId
 		case .userWithProject(let username):
 			return PathConstants.userWithProject + username
+		case .deleteProject(let projectId):
+			return PathConstants.deleteProject + projectId
 		}
 	}
 	
 	var httpMethod: HTTPMethod {
 		switch self {
-		case .login, .signUp, .logout, .createTask, .updateTask, .addMember, .removeMember, .updateProject:
+		case .login, .signUp, .logout, .createTask, .updateTask, .addMember, .removeMember, .createProject, .updateProject:
 			return .post
-		case .taskRemove:
+		case .taskRemove, .deleteProject:
 			return .delete
 		default:
 			return .get

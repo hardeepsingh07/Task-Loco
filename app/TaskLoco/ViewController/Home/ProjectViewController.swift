@@ -23,9 +23,22 @@ class ProjectViewController: UIViewController, UICollectionViewDataSource, UICol
 		greeting.text = Greeting.message
 		projectCollectionView.dataSource = self
 		projectCollectionView.delegate = self
+		
+		NotificationCenter.default
+			.addObserver(self, selector: #selector(self.refreshProject(notify:)),
+						 name: NSNotification.Name(rawValue: Notifications.refreshProject), object: nil)
+
+	}
+	
+	@objc func refreshProject(notify: Notification) {
+		fetchProjects()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
+		fetchProjects()
+	}
+	
+	func fetchProjects() {
 		TL.taskLocoApi.userProjects(username: TL.userManager.provideUserHeader().username)
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()

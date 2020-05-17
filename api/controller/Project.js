@@ -56,7 +56,7 @@ exports.project = function (req, res) {
 
 exports.updateProject = function (req, res) {
     req.validateKey(res, () => {
-    res.generateAndRespond("Update Project",
+    res.generateAndRespondWithArray("Update Project",
         Project.findOneAndUpdate({projectId: req.params.projectId}, {autoClose: req.body.autoClose}, {new: true}))
     });
 };

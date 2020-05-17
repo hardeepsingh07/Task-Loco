@@ -62,7 +62,8 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
 				.mapToHandleResponse()
 				.observeOn(MainScheduler.instance)
 				.subscribe(onNext: { project in
-					self.dismissAlertController()
+					NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.refreshProject), object: nil)
+					self.dismiss(animated: true, completion: nil)
 				}, onError: { error in
 					self.handleError(error)
 				}).disposed(by: diposeBag)

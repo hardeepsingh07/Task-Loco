@@ -138,8 +138,11 @@ enum UsersSelectionType {
 	}
 }
 
-
 enum Images {
 	static var star = "star"
 	static var starFill = "star.fill"
+}
+
+enum Notifications {
+	static var refreshProject = "refreshProject"
 }

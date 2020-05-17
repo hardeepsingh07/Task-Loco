@@ -94,7 +94,21 @@ class SettingsViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBAction func onImageViewClicked(_ sender: Any) {
 		self.dismiss(animated: true)
     }
-	
+    
+    @IBAction func deleteProject(_ sender: Any) {
+		TL.taskLocoApi
+			.deleteProject(projectId: projectId.text ?? General.empty)
+			.mapToHandleResponse()
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: {project in
+				self.dismiss(animated: true)
+				NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.refreshProject), object: nil)
+			}, onError: { error in
+				self.handleError(error)
+			})
+			.disposed(by: disposeBag)
+    }
+    
 	private func initCollectionView() {
 		self.teamCollectionView.dataSource = self
 		self.teamCollectionView.delegate = self

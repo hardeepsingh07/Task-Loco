@@ -86,6 +86,10 @@ class TaskLocoApiManager: TaskLocoApi {
 		return self.request(endpointData: EndpointData.userWithProject(username: username))
 	}
 	
+	func deleteProject(projectId: String) -> Observable<ProjectResponse> {
+		return self.request(endpointData: EndpointData.deleteProject(projectId: projectId))
+	}
+	
 	private func request<T: Codable>(endpointData: EndpointData) -> Observable<T>  {
 		return Observable<T>.create { observer in
 			let request = TL.session.request(endpointData.urlRequest).responseDecodable { (response: DataResponse<T, AFError>) in
