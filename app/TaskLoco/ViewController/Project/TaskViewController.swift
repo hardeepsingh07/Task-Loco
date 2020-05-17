@@ -11,7 +11,6 @@ import RxSwift
 
 class TaskViewController: UIViewController, OnSelectionDelegate, UITextFieldDelegate {
 	
-    @IBOutlet weak var headerBackground: UIView!
     @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var highPriorityButton: UIButton!
     @IBOutlet weak var pendingButton: UIButton!
@@ -60,7 +59,6 @@ class TaskViewController: UIViewController, OnSelectionDelegate, UITextFieldDele
 	
 	private func updateStatusView(_ status: Status) {
 		currentStatus = status
-        headerBackground.backgroundColor = currentStatus.color
         headerTitle.text = currentStatus.rawValue
 		createButton.backgroundColor = currentStatus.color
     }
@@ -94,25 +92,25 @@ class TaskViewController: UIViewController, OnSelectionDelegate, UITextFieldDele
     @IBAction func highPriorityButtonAction(_ sender: Any) {
         if(isPulsing()) {
             highPriorityButton.backgroundColor = ColorConstants.lightGrey
-            highPriorityButton.removePulse(headerBackground.layer)
+            highPriorityButton.removePulse(view.layer)
         } else {
             highPriorityButton.backgroundColor = ColorConstants.lightRed
-            highPriorityButton.pulse(headerBackground.layer)
+            highPriorityButton.pulse(view.layer)
         }
     }
 	
 	func updateHighPriority() {
 		if(currentTaskInfo?.priority == .high) {
 			highPriorityButton.backgroundColor = ColorConstants.lightRed
-			highPriorityButton.pulse(headerBackground.layer)
+			highPriorityButton.pulse(view.layer)
 		} else {
 			highPriorityButton.backgroundColor = ColorConstants.lightGrey
-			highPriorityButton.removePulse(headerBackground.layer)
+			highPriorityButton.removePulse(view.layer)
 		}
 	}
 	
 	private func isPulsing() -> Bool {
-		return highPriorityButton.isPulsing(headerBackground.layer)
+		return highPriorityButton.isPulsing(view.layer)
 	}
     
     @IBAction func pendingAction(_ sender: Any) {
