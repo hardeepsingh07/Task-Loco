@@ -115,6 +115,7 @@ class CreateProjectViewController: UIViewController, UICollectionViewDataSource,
 		} else {
 			self.removeAlert(team[indexPath.row - 1], remove: { (action) in
 				self.team.remove(at: indexPath.row - 1)
+				self.teamCollectionView.reloadData()
 			})
 		}
 	}
