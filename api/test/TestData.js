@@ -3,14 +3,13 @@ const Task = require('../model/Task');
 const Project = require('../model/Project');
 const keyGenerator = require('random-key-generator');
 
-exports.initDate = (users, projects, tasks) => {
+exports.initData = () => {
     let hardeep = {username: "hardeep", name: "Hardeep Singh"};
     let sukhi = {username: "sukhi", name: "Sukhwinder Kaur"}
     let sahib = {username: "sahib", name: "Sahibdeep Singh"};
     let sona = {username: "sona", name: "Sandeep Kaur"};
     let ranjit = {username: "ranjit", name: "Ranjit Kaur"};
     let kamal = {username: "kamal", name: "Kamaljeet Kaur"};
-    let projectIds;
 
     createUser(hardeep);
     createUser(sukhi);
@@ -19,18 +18,11 @@ exports.initDate = (users, projects, tasks) => {
     createUser(ranjit);
     createUser(kamal);
 
-    projectIds = [createProjects("Thanos", [sahib, sona, kamal, hardeep], false),
-        createProjects("Devil", [ranjit, sona, hardeep, sukhi], false),
-        createProjects("Spectre", [sahib, ranjit, hardeep], true),
-        createProjects("Vale", [sona, ranjit, sukhi, kamal, hardeep], false),
-        createProjects("RedSkull", [sahib, hardeep, sona, sukhi], false)];
-
-    createTask(projectIds[random(projectIds.length)], sona);
-    createTask(projectIds[random(projectIds.length)], sahib);
-    createTask(projectIds[random(projectIds.length)], hardeep);
-    createTask(projectIds[random(projectIds.length)], sukhi);
-    createTask(projectIds[random(projectIds.length)], kamal);
-    createTask(projectIds[random(projectIds.length)], ranjit);
+    createProject("Thanos", [sahib, sona, kamal, hardeep], false)
+    createProject("Devil", [ranjit, sona, hardeep, sukhi], false)
+    createProject("Spectre", [sahib, ranjit, hardeep], true)
+    createProject("Vale", [sona, ranjit, sukhi, kamal, hardeep], false)
+    createProject("RedSkull", [sahib, hardeep, sona, sukhi], false)
 };
 
 function random(max) {
@@ -48,18 +40,22 @@ function createUser(user) {
     console.log(user.name + " User Created!")
 }
 
-function createProjects(name, users, starred) {
+function createProject(name, users, starred) {
     let projectId = name.substring(0, 4) + "-" + Math.floor(Math.random() * 999);
-    new Project({
+    let project = new Project({
         name: name,
         projectId: projectId,
         description: "This project, with name " + name + " is descriptive project",
         users: users,
         starred: starred,
         autoClose: false
-    }).save();
+    })
+    project.save();
     console.log(name + " Project Created!");
-    return projectId;
+
+    for (let i = 0; i < project.users.length; i++) {
+        createTask(project.projectId, project.users[i]);
+    }
 }
 
 function createTask(projectId, responsible) {

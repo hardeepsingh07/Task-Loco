@@ -118,7 +118,7 @@ extension EndpointData: Endpoint {
 			return PathConstants.updateTask + (task.id ?? "")
 		case .allTasks:
 			return PathConstants.allTasks
-		case .userTask(let username, let projectId):
+		case .userTask(let projectId, let username):
 			return PathConstants.userTask + username + PathConstants.root + projectId
 		case .filterTask(let projectId, _, _, _):
 			return PathConstants.filterTask + projectId

@@ -18,4 +18,4 @@ app.use('/project', require('./route/Project'));
 app.listen(API_PORT, function () {console.log("Task Loco API is running on port: " + API_PORT)});
 
 //Generate Test Task Data
-// testData.initDate();
+// testData.initData();

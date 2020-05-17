@@ -23,9 +23,9 @@ exports.tasks = function (req, res) {
 
 exports.userTask = function (req, res) {
     req.validateKey(res, () => {
-        Task.find({"responsible.username": req.params.username, status: { $ne: "Closed"}, projectId: req.params.projectId})
+        Task.find({projectId: req.params.projectId, "responsible.username": req.params.username, status: { $ne: "Closed"}})
             .then(data => {
-                res.createResponse("Fetch User Tasks Successful", filterData(data), null)
+                res.createResponse("Fetch User Tasks Successful", sortData(data), null)
             })
             .catch(error => res.createResponse("Fetch Today Tasks Failed", null, error));
     });
@@ -66,7 +66,7 @@ function createTask(req) {
     });
 }
 
-function filterData(data) {
+function sortData(data) {
     let highPriority = data.filter(task => task.priority === "High" && task.status !== "Completed");
     let inProgress = data.filter(task => task.priority === "Standard" && task.status === "In Progress");
     let pending = data.filter(task => task.priority === "Standard" && task.status === "Pending");

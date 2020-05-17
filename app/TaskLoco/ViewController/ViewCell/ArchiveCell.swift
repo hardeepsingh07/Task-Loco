@@ -35,5 +35,7 @@ class ArchiveCell: UICollectionViewCell {
         highPriorityButton.isHidden = task.priority == .standard
         taskTitle.text = task.title
         taskDescription.text = task.description
+		
+		taskResponsible.text = task.responsible.name
 	}
 }
