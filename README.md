@@ -1,25 +1,25 @@
+
 ## Task Loco
-Task organizer for quick simple organization of your everyday tasks
+Project Task organizer with appropriate task statuses and team member management for each project
 
-### Backend
-A local API along with local Database
+## Backend
+An API leveraging MongoDb as database 
 
-#### API
+### API
 - Powered by NodeJS
 - Relies on local Database to store and fetch data
 - Will support CRUD operation for each endpoint
-- Port will be set to 1997
 
 #### User Endpoints
 | Type   | Prefix | Endpoint    | Description                                          |
-|--------|--------|-------------|------------------------------------------------------|
-| POST   | /user  | /           | Create a user from JSON request body              |
-| GET    | /user  | /names      | Provide all user names                            |
-| POST    | /user  | /login      | Validates the user and provide a token           |
-| POST | /user | /logout | Logout out the provided user in body
-| GET | /user | /project/:username | Provide all projects associated with username
+|--------|--------|-------------|------------------------------|
+| POST   | /user  | /           | Create a user from JSON request body            |
+| GET    | /user  | /names      | Provide all user names                          |
+| POST    | /user  | /login      | Validates the user and provide a token         |
+| POST | /user | /logout | Logout out the provided user in body					  |
+| GET | /user | /project/:username |Provide all projects associated with username |
 | GET    | /user  | /:username | Provide all information associated with the username |
-| DELETE | /user  | /:username | Delete the user with associated username           |
+| DELETE | /user  | /:username | Delete the user with associated username         |
 
 #### Project Endpoints
 | Type   | Prefix | Endpoint         | Description                                                                                              |
@@ -27,10 +27,10 @@ A local API along with local Database
 | POST  | /project  | / | Create a Project from JSON request body |
 | GET   | /project  | /all | Provide all Projects    |
 | POST  | /project  | /add/:projectId | Add member to project associated with  project ID |
-| POST   | /project  | /remove/:projectId | Remove member from project assocaited with project ID | 
+| POST   | /project  | /remove/:projectId | Remove member from project associated with project ID | 
 | POST    | /project  | /update/:projectId | Update project associated with project ID based on JSON Body |
 | GET    | /project  | /id/:projectId  | Provide project associated with project ID |
-| GET | /project | /:username | Provoide all project associated with username |
+| GET | /project | /:username | Provide all project associated with username |
 | DELETE | /project  | /:project | Remove the project associated with the project ID |
 
 #### Task Endpoints
@@ -44,15 +44,25 @@ A local API along with local Database
 | GET    | /task  | /archive         | Provide all the archived tasks |
 | DELETE | /task  | /:taskId        | Remove the task associated with the task ID |
 
-#### Database
-- MongoDB
-- Schemas will be generated to respect application models
-- Port will be set to 2000
+## Front End
+An iOS mobile application leveraging API powered by MongoDB database
 
-### Front End
-An iOS mobile application leveraging local API
+### Mobile Application
+- Provide full functionality to create tasks and organize tasks within a project
+- Written in Swift 5
+- Leverage libraries like  RxSwift and Almofire for networking and asynchronous operation
 
-#### Mobile Application
-- Provide simple user interface
-- Written in Swift
-- Leverage approriate libraries for networking, asynchronous operation and dependency injections
+### Screenshots
+
+
+
+## Run
+### Api
+- Download the project and open in your favorite IDE
+- Start mongoDB with `mongodb --dbpath <db-path>`
+- Uncomment `testData.initData();` to create test data in mongoDB
+- Start API with `npm start`
+
+### Mobile Application
+- Open project in Xcode
+- Run with your desired simulator or directly on device
