@@ -17,15 +17,15 @@ exports.update = function (req, res) {
 
 exports.tasks = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch All Tasks", Task.find())
+        res.generateAndRespond("Fetch All Tasks", Task.find({projectId: req.query.projectId}))
     });
 };
 
 exports.userTask = function (req, res) {
     req.validateKey(res, () => {
-        Task.find({"responsible.username": req.params.username, status: { $ne: "Closed"}})
+        Task.find({"responsible.username": req.params.username, status: { $ne: "Closed"}, projectId: req.params.projectId})
             .then(data => {
-                res.createResponse("Fetch Today Tasks Successful", filterData(data), null)
+                res.createResponse("Fetch User Tasks Successful", filterData(data), null)
             })
             .catch(error => res.createResponse("Fetch Today Tasks Failed", null, error));
     });
@@ -33,13 +33,14 @@ exports.userTask = function (req, res) {
 
 exports.archive = function (req, res) {
     req.validateKey(res, () => {
-        res.generateAndRespond("Fetch Closed Tasks", Task.find({status: "Closed"}))
+        res.generateAndRespond("Fetch Closed Tasks", Task.find({projectId: req.params.projectId, status: "Closed"}))
     });
 };
 
 exports.filter = function (req, res) {
     req.validateKey(res, () => {
         res.generateAndRespond("Filter Tasks", Task.find({
+            projectId: req.params.projectId,
             priority: {$regex: req.query.priority ? req.query.priority : "$", $options: 'i'},
             status: {$regex: req.query.status ? req.query.status : "$", $options: 'i'},
             "responsible.username": {$regex: req.query.username ? req.query.username : "$", $options: 'i'}

@@ -37,7 +37,7 @@ class UserTaskViewController: UIViewController, UITableViewDataSource, UITableVi
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.userTask(username: TL.userManager.provideUserHeader().username)
+		TL.taskLocoApi.userTask(projectId: TL.userManager.provideProjectId(), username: TL.userManager.provideUserHeader().username)
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { tasks in
@@ -51,7 +51,9 @@ class UserTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     private func handleResponse(tasks: [Task]) {
 		let completed = tasks.filter { $0.status == .completed }
 		remainingText.text = "\(tasks.count - completed.count) out of \(tasks.count) remaining"
-		updateProgressBar(value: CGFloat(completed.count) / CGFloat(tasks.count))
+		if(tasks.count != 0) {
+			updateProgressBar(value: CGFloat(completed.count) / CGFloat(tasks.count))
+		}
 		self.todayData = tasks
 		self.todayTableView.reloadData()
 	}

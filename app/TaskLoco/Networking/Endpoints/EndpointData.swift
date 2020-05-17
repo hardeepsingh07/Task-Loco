@@ -17,8 +17,8 @@ enum EndpointData{
 	case createTask(task: Task)
 	case updateTask(task: Task)
 	case allTasks
-	case userTask(username: String)
-	case filterTask(status: Status?, priority: Priority?, username: String?)
+	case userTask(projectId: String, username: String)
+	case filterTask(projectId: String, status: Status?, priority: Priority?, username: String?)
 	case taskRemove(taskId: String)
 	case userProject(username: String)
 	case project(projectId: String)
@@ -118,10 +118,10 @@ extension EndpointData: Endpoint {
 			return PathConstants.updateTask + (task.id ?? "")
 		case .allTasks:
 			return PathConstants.allTasks
-		case .userTask(let username):
-			return PathConstants.userTask + username
-		case .filterTask:
-			return PathConstants.filterTask
+		case .userTask(let username, let projectId):
+			return PathConstants.userTask + username + PathConstants.root + projectId
+		case .filterTask(let projectId, _, _, _):
+			return PathConstants.filterTask + projectId
 		case .taskRemove(let taskId):
 			return PathConstants.removeTask + taskId
 		case .userProject(let username):
@@ -193,7 +193,7 @@ extension EndpointData: Endpoint {
 					],
 					ParameterConstants.priority: task.priority.rawValue,
 					ParameterConstants.status: task.status.rawValue]
-		case .filterTask(let status, let priority, let username):
+		case .filterTask(_, let status, let priority, let username):
 			var dictionary: [String: String] = [:]
 			if(status != nil) { dictionary[QueryConstants.status] = status?.rawValue }
 			if(priority != nil) { dictionary[QueryConstants.priority] = priority?.rawValue }

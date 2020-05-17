@@ -24,7 +24,7 @@ class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICol
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		TL.taskLocoApi.filterTask(status: Status.closed, priority: nil, username: nil)
+		TL.taskLocoApi.filterTask(projectId: TL.userManager.provideProjectId(), status: Status.closed, priority: nil, username: nil)
 			.observeOn(MainScheduler.instance)
 			.mapToHandleResponse()
 			.subscribe(onNext: { archiveTasks  in

@@ -52,7 +52,8 @@ class TeamTaskViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private func updateTaskView() {
 		Observable.zip(
-			TL.taskLocoApi.filterTask(status: currentStatus, priority: currentPriority, username: currentUserHeader?.username)
+			TL.taskLocoApi.filterTask(projectId: TL.userManager.provideProjectId(), status: currentStatus,
+									  priority: currentPriority, username: currentUserHeader?.username)
 				.mapToHandleResponse()
 				.map({ $0.filter({ $0.status != .closed })}),
 			TL.taskLocoApi.allUsers().mapToHandleResponse(), resultSelector: { return ($0, $1) })
