@@ -87,7 +87,7 @@ An API leveraging MongoDb as database
 
 #### Task Endpoints
 | Type   | Prefix | Endpoint         | Description                                                                                              |
-|--------|--------|------------------|----------------------------------------------------------------------------------------------------------|
+|--------|--------|------------------|-----------|
 | POST   | /task  | / | Create a task from JSON request body |
 | POST   | /task  | /:taskId | Update task associated task ID, with JSON Body    |
 | GET    | /task  | /all        | Provide all the tasks           |
@@ -108,4 +108,4 @@ An API leveraging MongoDb as database
 - Run with your desired simulator or directly on device
 
 ## Dedication
-Sukhwinder Kaur ~ Meri Jatti
+To Sukhwinder Kaur for always inspiring and motivating
