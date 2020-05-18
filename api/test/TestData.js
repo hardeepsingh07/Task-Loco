@@ -4,25 +4,25 @@ const Project = require('../model/Project');
 const keyGenerator = require('random-key-generator');
 
 exports.initData = () => {
-    let hardeep = {username: "hardeep", name: "Hardeep Singh"};
-    let sukhi = {username: "sukhi", name: "Sukhwinder Kaur"}
-    let sahib = {username: "sahib", name: "Sahibdeep Singh"};
-    let sona = {username: "sona", name: "Sandeep Kaur"};
-    let ranjit = {username: "ranjit", name: "Ranjit Kaur"};
-    let kamal = {username: "kamal", name: "Kamaljeet Kaur"};
+    let test1 = {username: "test1", name: "Test 1"};
+    let test2 = {username: "test2", name: "Test 2"}
+    let test3 = {username: "test3", name: "Test 3"};
+    let test4 = {username: "test4", name: "Test 4"};
+    let test5 = {username: "test5", name: "Test 5"};
+    let test6 = {username: "test6", name: "Test 6"};
 
-    createUser(hardeep);
-    createUser(sukhi);
-    createUser(sahib);
-    createUser(sona);
-    createUser(ranjit);
-    createUser(kamal);
+    createUser(test1);
+    createUser(test2);
+    createUser(test3);
+    createUser(test4);
+    createUser(test5);
+    createUser(test6);
 
-    createProject("Thanos", [sahib, sona, kamal, hardeep], false)
-    createProject("Devil", [ranjit, sona, hardeep, sukhi], false)
-    createProject("Spectre", [sahib, ranjit, hardeep], true)
-    createProject("Vale", [sona, ranjit, sukhi, kamal, hardeep], false)
-    createProject("RedSkull", [sahib, hardeep, sona, sukhi], false)
+    createProject("Thanos", [test3, test4, test6, test1], false)
+    createProject("Devil", [test5, test4, test1, test2], false)
+    createProject("Spectre", [test3, test5, test1], true)
+    createProject("Vale", [test4, test5, test2, test6, test1], false)
+    createProject("RedSkull", [test3, test1, test4, test2], false)
 };
 
 function random(max) {

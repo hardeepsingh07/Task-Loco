@@ -2,6 +2,58 @@
 ## Task Loco
 Project Task organizer with appropriate task statuses and team member management for each project
 
+## Front End
+An iOS mobile application leveraging API powered by MongoDB database
+
+### Mobile Application
+- Provide full functionality to create tasks and organize tasks within a project
+- Written in Swift 5
+- Leverage libraries like  RxSwift and Almofire for networking and asynchronous operation
+
+### Video
+<p align="center"> 
+  ![Task Loco](media/video/taskLoco.gif)
+</p>
+
+### Screenshots
+| Login | Sign Up|
+|-------|--------|
+|![Login](media/screenshot/login.png)|![SignUp](media/screenshot/signup.png)|
+
+|Project|User Details|
+|-------|------|
+|![Project](media/screenshot/project.png)|![User Details](media/screenshot/userDetail.png)|
+
+|Create Project|Add Member|
+|-------|------|
+|![Create Project](media/screenshot/createProject.png)|![Add Member](media/screenshot/addMember.png)|
+
+|People|People Detail|
+|-------|------|
+|![People](media/screenshot/people.png)|![People Detail](media/screenshot/people_detail.png)|
+
+|User Tasks|Task Detail|
+|-------|------|
+|![User Task](media/screenshot/userTask.png)|![Task Detail](media/screenshot/taskDetail.png)|
+
+|Team Task|Team Filter|Team Filter Result|
+|-------|------|------|
+|![Team Task](media/screenshot/teamTask.png)|![Task Filter](media/screenshot/teamFilter.png)|![Task Filter Result](media/screenshot/teamTaskFilter.png)|
+
+|Create Pending|Create InProgress|Create Completed
+|-------|------|-----|
+|![Pending](media/screenshot/createTaskPending.png)|![Progress](media/screenshot/createTaskProgress.png)|![Complete](media/screenshot/createTaskComplete.png)|
+
+|Archive Tasks|Archive Detail|
+|-------|------|
+|![Archive Task](media/screenshot/archieve.png)|![Archive Detail](media/screenshot/archiveDetail.png)|
+
+|Settings|Add Member|
+|-------|------|
+|![Settings](media/screenshot/settings.png)|![Add Member](media/screenshot/addMember2.png)|
+
+
+
 ## Backend
 An API leveraging MongoDb as database 
 
@@ -43,18 +95,6 @@ An API leveraging MongoDb as database
 | GET    | /task  | /filter       | Provide filtered task based on JSON Body |
 | GET    | /task  | /archive         | Provide all the archived tasks |
 | DELETE | /task  | /:taskId        | Remove the task associated with the task ID |
-
-## Front End
-An iOS mobile application leveraging API powered by MongoDB database
-
-### Mobile Application
-- Provide full functionality to create tasks and organize tasks within a project
-- Written in Swift 5
-- Leverage libraries like  RxSwift and Almofire for networking and asynchronous operation
-
-### Screenshots
-
-
 
 ## Run
 ### Api
