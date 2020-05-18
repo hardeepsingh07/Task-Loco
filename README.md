@@ -106,3 +106,6 @@ An API leveraging MongoDb as database
 ### Mobile Application
 - Open project in Xcode
 - Run with your desired simulator or directly on device
+
+## Dedication
+Sukhwinder Kaur - Meri Jatti
