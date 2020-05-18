@@ -108,4 +108,4 @@ An API leveraging MongoDb as database
 - Run with your desired simulator or directly on device
 
 ## Dedication
-Sukhwinder Kaur - Meri Jatti
+Sukhwinder Kaur ~ Meri Jatti
