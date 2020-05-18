@@ -11,7 +11,9 @@ An iOS mobile application leveraging API powered by MongoDB database
 - Leverage libraries like  RxSwift and Almofire for networking and asynchronous operation
 
 ### Video
-![Task Loco](media/video/taskLoco.gif)
+<video width="320" height="240" controls>
+  <source src="media/video/taskLoco.mov" type="video/mp4">
+</video>
 
 ### Screenshots
 | Login | Sign Up|
